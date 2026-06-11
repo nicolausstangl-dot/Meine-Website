@@ -81,10 +81,10 @@ section{position:relative;}
 
 /* PROJECTS */
 #work{padding:100px 0;}
-.projects-grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:all .25s;cursor:default;}
+.projects-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:all .25s;cursor:default;display:flex;flex-direction:column;}
 .project-card:hover{border-color:var(--accent-mid);box-shadow:0 8px 32px rgba(107,66,38,.08);transform:translateY(-2px);}
-.project-card.featured{grid-column:span 2;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;background:var(--bg2);}
+.project-card.featured{background:var(--bg2);border-color:var(--accent-light);border-left:3px solid var(--accent);}
 .proj-cat{display:inline-block;background:var(--accent-light);border:1px solid rgba(107,66,38,.2);border-radius:6px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding:3px 10px;margin-bottom:14px;}
 .project-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.25;letter-spacing:-.02em;}
 .project-card p{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:16px;}
@@ -92,10 +92,6 @@ section{position:relative;}
 .proj-tag{background:var(--bg2);border-radius:6px;font-size:11px;font-weight:500;color:var(--muted);padding:4px 10px;}
 .proj-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;margin-top:16px;letter-spacing:.02em;}
 .proj-link:hover{opacity:.7;}
-.feat-metrics{display:flex;flex-direction:column;gap:12px;flex-shrink:0;}
-.feat-metric{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 24px;text-align:center;min-width:120px;}
-.feat-metric .n{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;color:var(--text);}
-.feat-metric .l{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:3px;}
 
 /* SKILLS */
 #skills{padding:100px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -136,12 +132,14 @@ footer p{font-size:12px;color:var(--muted);}
 /* DIVIDER */
 .rule{height:1px;background:var(--border);}
 
+@media(max-width:960px){
+  .projects-grid{grid-template-columns:repeat(2,1fr);}
+}
 @media(max-width:768px){
   nav{padding:14px 24px;}.nav-links{display:none;}
   .container{padding:0 24px;}
-  .hero-grid,.story-grid,.projects-grid,.skills-row,.contact-inner{grid-template-columns:1fr;}
-  .project-card.featured{grid-column:span 1;grid-template-columns:1fr;}
-  .feat-metrics{flex-direction:row;}
+  .hero-grid,.story-grid,.skills-row,.contact-inner{grid-template-columns:1fr;}
+  .projects-grid{grid-template-columns:1fr;}
   .tools-wrap{grid-column:span 1;}
   #hero{padding:100px 0 60px;}
 }
@@ -515,23 +513,16 @@ footer p{font-size:12px;color:var(--muted);}
     <div class="projects-grid">
 
       <div class="project-card featured">
-        <div>
-          <div class="proj-cat">Featured · Case Study</div>
-          <h3>CONDA Capital Market<br>Frontend Relaunch</h3>
-          <p>Vollständige Neugestaltung einer Crowdinvesting-Plattform — von der Conversion-Analyse über Card Sorting und Usability Testing bis zum Go-Live. Intern realisiert statt extern vergeben. Wissenschaftlich begleitet als Masterarbeit.</p>
-          <div class="proj-meta">
-            <span class="proj-tag">UX Research</span>
-            <span class="proj-tag">IA</span>
-            <span class="proj-tag">Lovable AI</span>
-            <span class="proj-tag">Masterarbeit</span>
-          </div>
-          <a href="https://nicolausstangl-dot.github.io/Projekt-CONDA-relaunch/" target="_blank" class="proj-link">Case Study ansehen →</a>
+        <div class="proj-cat">Featured · Case Study</div>
+        <h3>CONDA Capital Market<br>Frontend Relaunch</h3>
+        <p>Vollständige Neugestaltung einer Crowdinvesting-Plattform — von der Conversion-Analyse über Card Sorting und Usability Testing bis zum Go-Live. Intern realisiert statt extern vergeben. Wissenschaftlich begleitet als Masterarbeit.</p>
+        <div class="proj-meta">
+          <span class="proj-tag">UX Research</span>
+          <span class="proj-tag">IA</span>
+          <span class="proj-tag">Lovable AI</span>
+          <span class="proj-tag">Masterarbeit</span>
         </div>
-        <div class="feat-metrics">
-          <div class="feat-metric"><div class="n">€18K</div><div class="l">Ersparnis für CONDA</div></div>
-          <div class="feat-metric"><div class="n">12</div><div class="l">Plattformbereiche</div></div>
-          <div class="feat-metric"><div class="n">139</div><div class="l">Seiten Masterarbeit</div></div>
-        </div>
+        <a href="https://nicolausstangl-dot.github.io/Projekt-CONDA-relaunch/" target="_blank" class="proj-link">Case Study ansehen →</a>
       </div>
 
       <div class="project-card">
