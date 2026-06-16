@@ -419,41 +419,6 @@
     .yt-ratio { position: relative; padding-bottom: 56.25%; }
     .yt-ratio iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
 
-    /* YOUTUBE FACADE */
-    .yt-facade {
-      position: relative;
-      height: 232px;
-      background-size: cover;
-      background-position: center;
-      cursor: pointer;
-    }
-    .yt-facade::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,.28);
-      transition: background .2s;
-    }
-    .yt-facade:hover::after { background: rgba(0,0,0,.14); }
-    .yt-play-btn {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      z-index: 2;
-      background: none;
-      border: none;
-      cursor: pointer;
-      width: 72px; height: 51px;
-      transition: transform .2s;
-      pointer-events: none;
-      filter: drop-shadow(0 4px 16px rgba(0,0,0,.5));
-    }
-    .yt-facade:hover .yt-play-btn { transform: translate(-50%,-50%) scale(1.1); }
-    .yt-facade iframe {
-      position: absolute;
-      inset: 0; width: 100%; height: 100%;
-      border: none;
-    }
 
     /* FOOTER */
     footer {
@@ -574,14 +539,14 @@
       <div class="media-col">
         <h4>Video · YouTube</h4>
         <div class="embed-card">
-          <div class="yt-facade" id="yt-player" style="background-image:url('https://i.ytimg.com/vi/x0ydw1lFrSM/maxresdefault.jpg')">
-            <button class="yt-play-btn" aria-label="Video abspielen">
-              <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/>
-                <path d="M45 24 27 14v20" fill="#fff"/>
-              </svg>
-            </button>
-          </div>
+          <iframe
+            src="https://www.youtube.com/embed/x0ydw1lFrSM?si=-si1ZWREM9JezeS7&rel=0"
+            height="232"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            style="display:block;width:100%;border:none;">
+          </iframe>
         </div>
       </div>
       <div class="media-col">
@@ -723,13 +688,6 @@
     document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
   }
 
-  /* ── YOUTUBE FACADE ─────────────────────────── */
-  var ytFacade = document.getElementById('yt-player');
-  if(ytFacade){
-    ytFacade.addEventListener('click', function(){
-      ytFacade.innerHTML = '<iframe src="https://www.youtube.com/embed/x0ydw1lFrSM?si=-si1ZWREM9JezeS7&autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
-    });
-  }
 
 })();
 </script>
