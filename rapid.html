@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SK Rapid Wien × CONDA — Bandenwerbung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --g:      #00A854;
+      --g2:     #00CC66;
+      --led:    #00FF78;
+      --bg:     #0E2018;
+      --bg2:    #142A1C;
+      --bg3:    #1A3524;
+      --white:  #FFFFFF;
+      --muted:  rgba(255,255,255,.48);
+      --border: rgba(0,168,84,.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════════
+       HERO
+    ══════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 96px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 10%  -10%, rgba(0,200,80,.40) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90%  -10%, rgba(0,200,80,.40) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 45% at 50%  110%, rgba(0,100,50,.55) 0%, transparent 60%),
+        radial-gradient(ellipse 100% 60% at 50%  40%, rgba(0,168,84,.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,168,84,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,168,84,.07) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+      animation: fadeUp 1s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(36px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 11px; font-weight: 700; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--led);
+      margin-bottom: 28px; opacity: .9;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: ''; width: 36px; height: 1px;
+      background: var(--led); opacity: .5;
+    }
+
+    .hero h1 {
+      font-size: clamp(60px, 10.5vw, 120px);
+      font-weight: 900;
+      letter-spacing: -.045em;
+      line-height: .92;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 em { font-style: italic; color: var(--g2); display: block; }
+
+    .hero-desc {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--muted);
+      line-height: 1.72;
+      max-width: 500px;
+      margin: 0 auto 56px;
+    }
+
+    .hero-kpis {
+      display: flex; align-items: center;
+      justify-content: center; gap: 0; flex-wrap: wrap;
+    }
+
+    .kpi { padding: 0 32px; text-align: center; border-right: 1px solid var(--border); }
+    .kpi:last-child { border-right: none; }
+    .kpi-n { font-size: 44px; font-weight: 900; letter-spacing: -.04em; line-height: 1; }
+    .kpi-n sup { font-size: .45em; color: var(--g2); vertical-align: super; }
+    .kpi-l { font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+
+    .scroll-cue {
+      position: absolute; bottom: 110px; left: 50%;
+      transform: translateX(-50%); z-index: 3;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--muted);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    .scroll-cue::after { content: ''; width: 1px; height: 36px; background: linear-gradient(to bottom, var(--muted), transparent); }
+
+    @keyframes pulse {
+      0%,100% { opacity: .5; transform: translateX(-50%) translateY(0); }
+      50%      { opacity: 1;  transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ══════════════════════════════════
+       LED BANDEN
+    ══════════════════════════════════ */
+    .banden-stack { position: absolute; bottom: 0; left: 0; right: 0; z-index: 10; }
+
+    .bande { overflow: hidden; position: relative; }
+    .bande-a { padding: 13px 0; background: var(--g); }
+    .bande-b { padding: 10px 0; background: var(--bg2); border-top: 1px solid var(--border); }
+
+    .bande::after {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0,0,0,.1) 3px, rgba(0,0,0,.1) 4px);
+      pointer-events: none;
+    }
+
+    .bande-track { display: flex; width: max-content; align-items: center; white-space: nowrap; }
+    .bande-a .bande-track { animation: scrollRight 80s linear infinite; }
+    .bande-b .bande-track { animation: scrollLeft  70s linear infinite; }
+
+    @keyframes scrollRight { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    @keyframes scrollLeft  { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
+
+    .bande-item { display: inline-flex; align-items: center; }
+    .bande-a .bande-text { font-size: 17px; font-weight: 800; letter-spacing: .04em; color: #fff; padding: 0 28px; }
+    .bande-b .bande-text { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--g2); padding: 0 20px; text-transform: uppercase; }
+    .bande-sep { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.45); flex-shrink: 0; }
+    .bande-b .bande-sep { background: var(--border); }
+
+    .banden-stack::before,
+    .banden-stack::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none;
+    }
+    .banden-stack::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+    .banden-stack::after  { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+
+    /* ══════════════════════════════════
+       3D STADIUM
+    ══════════════════════════════════ */
+    .stadium-wrap { position: relative; height: 300vh; }
+
+    .stadium-sticky {
+      position: sticky; top: 0; height: 100vh; overflow: hidden;
+      background: #060E07;
+    }
+
+    #three-canvas { width: 100%; height: 100%; display: block; }
+
+    .stadium-overlay {
+      position: absolute;
+      bottom: 44px; left: 50%; transform: translateX(-50%);
+      text-align: center; pointer-events: none; z-index: 5;
+    }
+
+    .stadium-overlay .section-label { margin-bottom: 10px; }
+
+    .stadium-overlay h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 900; letter-spacing: -.035em; line-height: 1.05;
+      text-shadow: 0 2px 30px rgba(0,0,0,.9);
+    }
+
+    .stadium-overlay h2 em { font-style: normal; color: var(--g2); }
+
+    /* Scroll progress hint */
+    .stadium-progress {
+      position: absolute;
+      right: 28px; top: 50%; transform: translateY(-50%);
+      z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 4px;
+      pointer-events: none;
+    }
+
+    .sp-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,.25);
+      transition: background .3s, transform .3s;
+    }
+
+    .sp-dot.active { background: var(--g2); transform: scale(1.4); }
+
+    /* ══════════════════════════════════
+       COMMONS
+    ══════════════════════════════════ */
+    .section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--g2);
+      text-align: center; margin-bottom: 14px;
+    }
+
+    .section-h2 {
+      font-size: clamp(30px, 4.5vw, 52px);
+      font-weight: 900; letter-spacing: -.035em; line-height: 1.08;
+      text-align: center; margin-bottom: 64px;
+    }
+
+    .section-h2 em { font-style: normal; color: var(--g2); }
+
+    /* ══════════════════════════════════
+       STATS
+    ══════════════════════════════════ */
+    .stats-bg { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .eckdaten-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .eck-card {
+      background: var(--bg3); padding: 36px 24px;
+      text-align: center; position: relative; overflow: hidden; transition: background .2s;
+    }
+    .eck-card:hover { background: #204030; }
+    .eck-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--g), transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .eck-card:hover::before { opacity: 1; }
+
+    .eck-n { font-size: 52px; font-weight: 900; letter-spacing: -.04em; line-height: 1; color: var(--g2); margin-bottom: 10px; }
+    .eck-l { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); line-height: 1.55; }
+
+    /* ══════════════════════════════════
+       LINKEDIN QUOTE
+    ══════════════════════════════════ */
+    .quote-section { padding: 100px 48px; max-width: 900px; margin: 0 auto; }
+
+    .quote-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 48px; position: relative; overflow: hidden;
+    }
+
+    .quote-card::before {
+      content: ''; position: absolute; top: -40px; left: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(0,168,84,.22), transparent 70%);
+      pointer-events: none;
+    }
+
+    .quote-mark {
+      font-size: 96px; line-height: .7; font-weight: 900;
+      color: var(--g2); opacity: .3; font-style: italic;
+      display: block; margin-bottom: 16px;
+    }
+
+    blockquote {
+      font-size: clamp(18px, 2.5vw, 26px); font-weight: 800;
+      line-height: 1.45; letter-spacing: -.02em; color: var(--white); margin-bottom: 32px;
+    }
+
+    .quote-body {
+      font-size: 15px; color: var(--muted); line-height: 1.75;
+      margin-bottom: 36px; max-width: 680px;
+    }
+
+    .quote-body strong { color: rgba(255,255,255,.8); font-weight: 700; }
+
+    .quote-author { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    .quote-photo {
+      width: 52px; height: 52px; border-radius: 50%;
+      object-fit: cover; object-position: top center;
+      border: 2px solid rgba(0,168,84,.4); flex-shrink: 0;
+    }
+
+    .quote-name { font-size: 15px; font-weight: 800; letter-spacing: -.01em; }
+    .quote-role { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+
+    .quote-li-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-left: auto;
+      font-size: 13px; font-weight: 700; color: var(--g2); text-decoration: none;
+      border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px;
+      transition: background .2s, border-color .2s;
+    }
+    .quote-li-link:hover { background: rgba(0,168,84,.1); border-color: rgba(0,168,84,.5); }
+    .li-icon { width: 16px; height: 16px; }
+
+    /* ══════════════════════════════════
+       SLOGANS
+    ══════════════════════════════════ */
+    .slogans-outer { padding: 0 48px 120px; max-width: 1100px; margin: 0 auto; }
+
+    .slogans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+    .slogan-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 26px;
+      position: relative; overflow: hidden;
+      transition: border-color .25s, transform .25s;
+    }
+    .slogan-card:hover { border-color: rgba(0,168,84,.6); transform: translateY(-4px); }
+    .slogan-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--g2);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .4s cubic-bezier(.16,1,.3,1);
+    }
+    .slogan-card:hover::after { transform: scaleX(1); }
+
+    .slogan-num { font-size: 10px; font-weight: 700; letter-spacing: .18em; color: var(--g2); margin-bottom: 14px; }
+    .slogan-text { font-size: 16px; font-weight: 700; line-height: 1.5; color: var(--white); }
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--muted);
+    }
+    .footer-brand { font-weight: 800; font-size: 14px; color: var(--white); }
+    .footer-brand span { color: var(--g2); }
+    footer a { color: var(--g2); text-decoration: none; font-weight: 600; }
+
+    /* ══════════════════════════════════
+       REVEAL
+    ══════════════════════════════════ */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s cubic-bezier(.25,.46,.45,.94), transform .75s; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ══════════════════════════════════
+       MOBILE
+    ══════════════════════════════════ */
+    @media(max-width: 768px) {
+      .hero { padding-bottom: 80px; }
+      .kpi { padding: 0 16px; }
+      .kpi-n { font-size: 32px; }
+      .section, .quote-section { padding: 72px 20px; }
+      .eckdaten-grid { grid-template-columns: repeat(2,1fr); }
+      .slogans-outer { padding: 0 20px 80px; }
+      .slogans-grid { grid-template-columns: 1fr; }
+      .quote-card { padding: 32px 24px; }
+      .quote-li-link { margin-left: 0; }
+      footer { padding: 28px 20px; justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">SK Rapid Wien &times; CONDA Capital Market</div>
+    <h1>Hütteldorf<em>trifft.</em></h1>
+    <p class="hero-desc">12 Slogans. 4 Bundesliga-Spiele. Eine Botschaft, die im Allianz Stadion lief — und immer noch klingt.</p>
+    <div class="hero-kpis">
+      <div class="kpi"><div class="kpi-n">12<sup>×</sup></div><div class="kpi-l">Slogans</div></div>
+      <div class="kpi"><div class="kpi-n">4</div><div class="kpi-l">Spiele</div></div>
+      <div class="kpi"><div class="kpi-n">30<sup>″</sup></div><div class="kpi-l">Airtime / Spiel</div></div>
+      <div class="kpi"><div class="kpi-n">↑</div><div class="kpi-l">Traffic Spieltage</div></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Scroll</div>
+
+  <div class="banden-stack">
+    <div class="bande bande-a"><div class="bande-track" id="bande-a"></div></div>
+    <div class="bande bande-b"><div class="bande-track" id="bande-b"></div></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     3D STADIUM
+══════════════════════════════════ -->
+<div class="stadium-wrap" id="stadium-wrap">
+  <div class="stadium-sticky">
+    <canvas id="three-canvas"></canvas>
+    <div class="stadium-overlay">
+      <div class="section-label">Das Allianz Stadion</div>
+      <h2>Die <em>Bühne.</em></h2>
+    </div>
+    <div class="stadium-progress" id="sp">
+      <div class="sp-dot active" data-step="0"></div>
+      <div class="sp-dot" data-step="1"></div>
+      <div class="sp-dot" data-step="2"></div>
+      <div class="sp-dot" data-step="3"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     STATS
+══════════════════════════════════ -->
+<div class="stats-bg">
+  <div class="section">
+    <div class="section-label reveal">Die Kampagne</div>
+    <h2 class="section-h2 reveal">Zahlen hinter<br><em>der Bande.</em></h2>
+    <div class="eckdaten-grid reveal">
+      <div class="eck-card"><div class="eck-n">12</div><div class="eck-l">Einzigartige<br>Slogans</div></div>
+      <div class="eck-card"><div class="eck-n">4</div><div class="eck-l">Bundesliga-<br>Spiele</div></div>
+      <div class="eck-card"><div class="eck-n">30″</div><div class="eck-l">Airtime<br>pro Spiel</div></div>
+      <div class="eck-card"><div class="eck-n">↑</div><div class="eck-l">Website-Traffic<br>an Spieltagen</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     QUOTE
+══════════════════════════════════ -->
+<div class="quote-section reveal">
+  <div class="section-label" style="text-align:left;margin-bottom:24px;">Persönliche Perspektive</div>
+  <div class="quote-card">
+    <span class="quote-mark">"</span>
+    <blockquote>Wäre Marketing ein Lehrberuf, wäre das hier mein Gesellenstück.</blockquote>
+    <p class="quote-body">
+      Beim 347. Wiener Derby liefen unsere CONDA-Bandenvisuals mit meinen Sprüchen.
+      <strong>Fast 30.000 live im Stadion, dazu massive TV-Reichweite.</strong>
+      Das ist genau die Art von humorvollem, unkonventionellem und pointiertem Marketing, für die ich stehe —
+      offenbar kam's an. Mein Geschäftsführer Daniel Horak wurde im Stadion sogar darauf angesprochen.
+      Als Kind war ich etliche Male beim SK Rapid im Stadion. Wer mit 10 Jahren Rapid im Europacup gesehen hat, weiß, wie groß sich so etwas anfühlt.
+      Heute eigene Botschaften dort zu sehen — <strong>das trifft.</strong>
+    </p>
+    <div class="quote-author">
+      <img src="nico-stangl.jpg" alt="Nicolaus Stangl" class="quote-photo" onerror="this.style.display='none'">
+      <div>
+        <div class="quote-name">Nicolaus Stangl</div>
+        <div class="quote-role">Marketing · CONDA Capital Market</div>
+      </div>
+      <a href="https://www.linkedin.com/posts/nicolausstangl_marketing-copywriting-branding-ugcPost-7378120271024705536-rcIa/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB08r4oBHAnVuiizFAmG6z8mBvLJ0KflSB0" target="_blank" rel="noopener" class="quote-li-link">
+        <svg class="li-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn-Post
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SLOGANS
+══════════════════════════════════ -->
+<div class="slogans-outer">
+  <div class="section-label reveal" style="padding-top:60px;">Die Sprüche</div>
+  <h2 class="section-h2 reveal">Werbung, die<br><em>im Stadion bleibt.</em></h2>
+  <div class="slogans-grid" id="slogans-grid"></div>
+</div>
+
+<footer>
+  <div class="footer-brand">SK Rapid Wien <span>×</span> CONDA Capital Market</div>
+  <div>Bandenwerbung im Allianz Stadion, Wien-Hütteldorf</div>
+  <a href="index.html">← Zurück zu Nicolaus Stangl</a>
+</footer>
+
+<script>
+(function(){
+
+  var SLOGANS_D = [
+    "Fußball ist real. Unsere Investitionen auch.",
+    "Wer hier investiert, jubelt auch ohne Elfmeter.",
+    "Hütteldorf statt Hedgefonds.",
+    "Dein Kapital braucht kein Valley. Nur Hütteldorf.",
+    "Investments, die du am Stammtisch erklären kannst.",
+    "Keine Eigentore im Portfolio.",
+    "Spieler wechseln, wir bleiben.",
+    "Die Investmentplattform, die deine Oma empfehlen würde.",
+    "Renditen, die du deiner Mama vorstellen würdest.",
+    "Investments, nach denen dein(e) Ex sich wieder meldet.",
+    "Investiere nachhaltig, bevor es cool wird.",
+    "Weniger Meta, mehr Meidling."
+  ];
+  var SLOGANS = SLOGANS_D; // alias for existing code below
+
+  /* ── BANDEN ── */
+  function fillBande(id, cls) {
+    const el = document.getElementById(id);
+    let html = '';
+    for (let r = 0; r < 2; r++) {
+      SLOGANS.forEach(s => {
+        html += `<span class="bande-item"><span class="${cls}">${s}</span><span class="bande-sep"></span></span>`;
+      });
+    }
+    el.innerHTML = html;
+  }
+  fillBande('bande-a','bande-text');
+  fillBande('bande-b','bande-text');
+
+  /* ── SLOGANS GRID ── */
+  const grid = document.getElementById('slogans-grid');
+  SLOGANS.forEach((s, i) => {
+    const d = document.createElement('div');
+    d.className = 'slogan-card reveal';
+    d.innerHTML = `<div class="slogan-num">${String(i+1).padStart(2,'0')}</div><div class="slogan-text">${s}</div>`;
+    grid.appendChild(d);
+  });
+
+  /* ── SCROLL REVEAL ── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  /* ══ THREE.JS — Opus stadium ══ */
+  if (typeof THREE === 'undefined') return;
+
+  var canvas3 = document.getElementById('three-canvas');
+  var wrap    = document.getElementById('stadium-wrap');
+  if (!canvas3 || !wrap) return;
+
+  var scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x05080a);
+  scene.fog = new THREE.Fog(0x05080a, 220, 900);
+
+  var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 3000);
+  camera.position.set(0, 140, 320);
+
+  var renderer = new THREE.WebGLRenderer({ canvas: canvas3, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  window.addEventListener('resize', function () {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  function makeCanvas(w, h) { var c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
+
+  // ── Rasen ──
+  function makeGrassTexture() {
+    var c = makeCanvas(1050, 680); var ctx = c.getContext('2d');
+    var stripes = 16, sw = c.width / stripes;
+    for (var i = 0; i < stripes; i++) {
+      ctx.fillStyle = (i % 2 === 0) ? '#1f7a34' : '#1a6b2d';
+      ctx.fillRect(i * sw, 0, sw, c.height);
+    }
+    ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 4;
+    var m = 30;
+    ctx.strokeRect(m, m, c.width - 2*m, c.height - 2*m);
+    ctx.beginPath(); ctx.moveTo(c.width/2, m); ctx.lineTo(c.width/2, c.height-m); ctx.stroke();
+    ctx.beginPath(); ctx.arc(c.width/2, c.height/2, 90, 0, Math.PI*2); ctx.stroke();
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.beginPath(); ctx.arc(c.width/2, c.height/2, 6, 0, Math.PI*2); ctx.fill();
+    var pbW=150, pbH=300, gbW=55, gbH=160;
+    [m, c.width-m-pbW].forEach(function(x, idx) {
+      ctx.strokeRect(x, c.height/2-pbH/2, pbW, pbH);
+      var gx = (idx===0) ? m : c.width-m-gbW;
+      ctx.strokeRect(gx, c.height/2-gbH/2, gbW, gbH);
+      var px = (idx===0) ? m+pbW-35 : c.width-m-pbW+35;
+      ctx.beginPath(); ctx.arc(px, c.height/2, 6, 0, Math.PI*2); ctx.fill();
+    });
+    var tex = new THREE.CanvasTexture(c); tex.anisotropy = 4; return tex;
+  }
+  var pitch3 = new THREE.Mesh(new THREE.PlaneGeometry(105,68), new THREE.MeshLambertMaterial({map:makeGrassTexture()}));
+  pitch3.rotation.x = -Math.PI/2; scene.add(pitch3);
+  var surround3 = new THREE.Mesh(new THREE.PlaneGeometry(125,88), new THREE.MeshLambertMaterial({color:0x14391f}));
+  surround3.rotation.x = -Math.PI/2; surround3.position.y = -0.05; scene.add(surround3);
+  var ground3 = new THREE.Mesh(new THREE.PlaneGeometry(800,800), new THREE.MeshLambertMaterial({color:0x0a120b}));
+  ground3.rotation.x = -Math.PI/2; ground3.position.y = -0.3; scene.add(ground3);
+
+  // ── Sitz-Textur ──
+  var seatCanvas3 = (function() {
+    var c = makeCanvas(256,128); var ctx = c.getContext('2d');
+    ctx.fillStyle = '#0e2a16'; ctx.fillRect(0,0,c.width,c.height);
+    var cols=24, rows=12, cw=c.width/cols, ch=c.height/rows;
+    for (var y=0; y<rows; y++) for (var x=0; x<cols; x++) {
+      ctx.fillStyle = ((x+y*2)%5===0) ? '#e8eee8' : '#1f8a3a';
+      ctx.fillRect(x*cw+1, y*ch+1, cw-2, ch-2);
+    }
+    return c;
+  })();
+  function seatMaterial(longLen) {
+    var t = new THREE.CanvasTexture(seatCanvas3);
+    t.wrapS = THREE.RepeatWrapping; t.wrapT = THREE.RepeatWrapping;
+    t.repeat.set(Math.max(2, Math.round(longLen/3)), 1.4); t.needsUpdate = true;
+    return new THREE.MeshLambertMaterial({map:t});
+  }
+  var concreteMat3 = new THREE.MeshLambertMaterial({color:0x3a3f44});
+  var darkMat3     = new THREE.MeshLambertMaterial({color:0x10161a});
+  var roofMat3     = new THREE.MeshLambertMaterial({color:0x1a2024});
+  var whiteMat3    = new THREE.MeshLambertMaterial({color:0xf2f4f2});
+
+  // ── Schüssel (geschlossener Ring) ──
+  var bowl3 = new THREE.Group(); scene.add(bowl3);
+  var ROWS=22, RISE=0.95, RUN=1.05, inX=60, inZ=42, baseY=0.8, boxH=RISE*1.3, boxD=RUN*1.3;
+  function addSeatBox(w,h,d,x,y,z) {
+    var m = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), seatMaterial(Math.max(w,d)));
+    m.position.set(x,y,z); bowl3.add(m);
+  }
+  for (var r=0; r<ROWS; r++) {
+    var hx=inX+r*RUN, hz=inZ+r*RUN, ry=baseY+r*RISE;
+    addSeatBox(2*hx, boxH, boxD, 0, ry, -hz);
+    addSeatBox(2*hx, boxH, boxD, 0, ry,  hz);
+    addSeatBox(boxD, boxH, 2*hz,  hx, ry, 0);
+    addSeatBox(boxD, boxH, 2*hz, -hx, ry, 0);
+  }
+  var topY3=baseY+(ROWS-1)*RISE, topHx=inX+(ROWS-1)*RUN, topHz=inZ+(ROWS-1)*RUN;
+
+  // Brüstung
+  [[2*inX, -inZ+0.5],[2*inX, inZ-0.5]].forEach(function(b) {
+    var w3 = new THREE.Mesh(new THREE.BoxGeometry(b[0],1.6,0.6), darkMat3);
+    w3.position.set(0, 0.9, b[1]); bowl3.add(w3);
+  });
+  [[inX-0.5,2*inZ],[-inX+0.5,2*inZ]].forEach(function(b) {
+    var w3 = new THREE.Mesh(new THREE.BoxGeometry(0.6,1.6,b[1]), darkMat3);
+    w3.position.set(b[0], 0.9, 0); bowl3.add(w3);
+  });
+
+  // ── Außenfassade ──
+  var outHx=topHx+2, outHz=topHz+2, wallH=topY3+3;
+  function addWall(w,h,d,x,z) {
+    var m = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), concreteMat3);
+    m.position.set(x,h/2,z); scene.add(m);
+  }
+  addWall(2*outHx+3, wallH, 2, 0, -outHz);
+  addWall(2*outHx+3, wallH, 2, 0,  outHz);
+  addWall(2, wallH, 2*outHz+3,  outHx, 0);
+  addWall(2, wallH, 2*outHz+3, -outHx, 0);
+
+  // ── Ringdach ──
+  var roofY3=topY3+4.5, roofDepth3=24, rInnerX3=outHx-roofDepth3, rInnerZ3=outHz-roofDepth3;
+  function addRoof(w,d,x,z) {
+    var m = new THREE.Mesh(new THREE.BoxGeometry(w,0.7,d), roofMat3);
+    m.position.set(x,roofY3,z); scene.add(m);
+  }
+  addRoof(2*outHx, roofDepth3, 0, -(outHz-roofDepth3/2));
+  addRoof(2*outHx, roofDepth3, 0,  (outHz-roofDepth3/2));
+  addRoof(roofDepth3, 2*rInnerZ3,  (outHx-roofDepth3/2), 0);
+  addRoof(roofDepth3, 2*rInnerZ3, -(outHx-roofDepth3/2), 0);
+
+  // ── Tore + Netze ──
+  var netCanvas3 = (function() {
+    var c = makeCanvas(128,128); var ctx = c.getContext('2d');
+    ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (var i=0; i<=8; i++) { var p=i*16; ctx.moveTo(p,0); ctx.lineTo(p,128); ctx.moveTo(0,p); ctx.lineTo(128,p); }
+    ctx.stroke(); return c;
+  })();
+  function netPanel(w,h) {
+    var t = new THREE.CanvasTexture(netCanvas3);
+    t.wrapS=THREE.RepeatWrapping; t.wrapT=THREE.RepeatWrapping;
+    t.repeat.set(Math.max(2,Math.round(w/0.45)), Math.max(2,Math.round(h/0.45))); t.needsUpdate=true;
+    return new THREE.Mesh(new THREE.PlaneGeometry(w,h),
+      new THREE.MeshLambertMaterial({map:t,transparent:true,side:THREE.DoubleSide,depthWrite:false}));
+  }
+  function makeGoal(x) {
+    var g=new THREE.Group(), gw=7.32, gh=2.44, t3=0.18, depth=2.0, dir=x>0?1:-1;
+    var p1=new THREE.Mesh(new THREE.BoxGeometry(t3,gh,t3),whiteMat3); p1.position.set(0,gh/2,-gw/2); g.add(p1);
+    var p2=new THREE.Mesh(new THREE.BoxGeometry(t3,gh,t3),whiteMat3); p2.position.set(0,gh/2, gw/2); g.add(p2);
+    var bar=new THREE.Mesh(new THREE.BoxGeometry(t3,t3,gw),whiteMat3); bar.position.set(0,gh,0); g.add(bar);
+    var back=netPanel(gw,gh); back.rotation.y=Math.PI/2; back.position.set(dir*depth,gh/2,0); g.add(back);
+    var top=netPanel(depth,gw); top.rotation.x=-Math.PI/2; top.position.set(dir*depth/2,gh,0); g.add(top);
+    var sA=netPanel(depth,gh); sA.position.set(dir*depth/2,gh/2, gw/2); g.add(sA);
+    var sB=netPanel(depth,gh); sB.position.set(dir*depth/2,gh/2,-gw/2); g.add(sB);
+    g.position.set(x,0,0); return g;
+  }
+  scene.add(makeGoal(52.5)); scene.add(makeGoal(-52.5));
+
+  // ── Stilisierte Spieler ──
+  var skinMat3=new THREE.MeshLambertMaterial({color:0xddaa88});
+  var homeMat3=new THREE.MeshLambertMaterial({color:0x1f8a3a});
+  var awayMat3=new THREE.MeshLambertMaterial({color:0x2b3a8c});
+  function makePlayer(shirtMat) {
+    var g=new THREE.Group();
+    var body=new THREE.Mesh(new THREE.CylinderGeometry(0.26,0.34,1.25,8),shirtMat); body.position.set(0,0.95,0); g.add(body);
+    var legs=new THREE.Mesh(new THREE.CylinderGeometry(0.2,0.22,0.7,8),darkMat3); legs.position.set(0,0.35,0); g.add(legs);
+    var head=new THREE.Mesh(new THREE.SphereGeometry(0.22,12,10),skinMat3); head.position.set(0,1.78,0); g.add(head);
+    return g;
+  }
+  [[-48,0,homeMat3],[-30,-14,homeMat3],[-30,14,homeMat3],[-16,-6,homeMat3],[-16,8,homeMat3],
+   [-6,-18,homeMat3],[-8,2,homeMat3],[48,0,awayMat3],[30,12,awayMat3],[30,-12,awayMat3],
+   [14,6,awayMat3],[14,-8,awayMat3],[4,16,awayMat3],[6,-2,awayMat3]].forEach(function(p) {
+    var pl=makePlayer(p[2]); pl.position.set(p[0],0,p[1]);
+    pl.rotation.y=Math.random()*Math.PI*2; scene.add(pl);
+  });
+  var ball3=new THREE.Mesh(new THREE.SphereGeometry(0.22,12,10),whiteMat3);
+  ball3.position.set(-2,0.22,1); scene.add(ball3);
+
+  // ── LED-Banden ──
+  var ledTextures3=[];
+  var tickerText3 = SLOGANS_D.join('   *   ') + '   *   ';
+  function makeLedTexture3() {
+    var c=makeCanvas(4096,128); var ctx=c.getContext('2d');
+    ctx.fillStyle='#04140a'; ctx.fillRect(0,0,c.width,c.height);
+    ctx.font='bold 78px Arial,sans-serif'; ctx.textBaseline='middle'; ctx.textAlign='left';
+    ctx.shadowColor='#00FF66'; ctx.shadowBlur=18; ctx.fillStyle='#00FF66';
+    var unit=ctx.measureText(tickerText3).width, x=0;
+    while (x < c.width+unit) { ctx.fillText(tickerText3, x, c.height/2); x+=unit; }
+    var tex=new THREE.CanvasTexture(c); tex.wrapS=THREE.RepeatWrapping; tex.wrapT=THREE.ClampToEdgeWrapping;
+    return tex;
+  }
+  function makeLedBand3(length) {
+    var tex=makeLedTexture3(); tex.repeat.set(length/30,1); ledTextures3.push(tex);
+    return new THREE.Mesh(new THREE.PlaneGeometry(length,2), new THREE.MeshBasicMaterial({map:tex}));
+  }
+  var ledY3=1.1;
+  var ledN3=makeLedBand3(104); ledN3.position.set(0,ledY3,-35.5); scene.add(ledN3);
+  var ledS3=makeLedBand3(104); ledS3.position.set(0,ledY3,35.5); ledS3.rotation.y=Math.PI; scene.add(ledS3);
+  var ledE3=makeLedBand3(68); ledE3.position.set(54,ledY3,0); ledE3.rotation.y=-Math.PI/2; scene.add(ledE3);
+  var ledW3=makeLedBand3(68); ledW3.position.set(-54,ledY3,0); ledW3.rotation.y=Math.PI/2; scene.add(ledW3);
+
+  // ── Flutlichtmasten ──
+  var mastPts3=[[outHx+5,outHz+5],[-(outHx+5),outHz+5],[outHx+5,-(outHz+5)],[-(outHx+5),-(outHz+5)]];
+  function makeMast3(x,z) {
+    var g=new THREE.Group();
+    var pole=new THREE.Mesh(new THREE.CylinderGeometry(0.8,1.2,65,12),new THREE.MeshLambertMaterial({color:0x2a2f33}));
+    pole.position.set(0,32.5,0); g.add(pole);
+    var head=new THREE.Mesh(new THREE.BoxGeometry(11,5.5,2.4),new THREE.MeshLambertMaterial({color:0x111417}));
+    head.position.set(0,64,0); g.add(head);
+    var lamp=new THREE.Mesh(new THREE.BoxGeometry(10.4,4.8,0.5),new THREE.MeshBasicMaterial({color:0xfff6d8}));
+    lamp.position.set(0,64,-1.3); g.add(lamp);
+    g.position.set(x,0,z); g.lookAt(0,45,0); return g;
+  }
+  mastPts3.forEach(function(p) { scene.add(makeMast3(p[0],p[1])); });
+
+  // ── Sternenhimmel ──
+  (function() {
+    var count=1600; var arr=new Float32Array(count*3);
+    for (var i=0; i<count; i++) {
+      var rr=900+Math.random()*500, theta=Math.random()*Math.PI*2, phi=Math.acos(Math.random()*0.6+0.2);
+      arr[i*3]  =rr*Math.sin(phi)*Math.cos(theta);
+      arr[i*3+1]=Math.abs(rr*Math.cos(phi))+70;
+      arr[i*3+2]=rr*Math.sin(phi)*Math.sin(theta);
+    }
+    var geo=new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(arr,3));
+    scene.add(new THREE.Points(geo, new THREE.PointsMaterial({color:0x99aabb,size:1.8,sizeAttenuation:true})));
+  })();
+
+  // ── Beleuchtung ──
+  scene.add(new THREE.AmbientLight(0x223322, 0.55));
+  scene.add(new THREE.HemisphereLight(0x335533, 0x0a150a, 0.45));
+  mastPts3.forEach(function(p) {
+    var sp=new THREE.SpotLight(0xfff4dd,2.2,700,Math.PI/4.5,0.45,1.5);
+    sp.position.set(p[0],64,p[1]); sp.target.position.set(0,0,0);
+    scene.add(sp); scene.add(sp.target);
+  });
+  var pl3=new THREE.PointLight(0xffffff,1.0,380,1.5); pl3.position.set(0,80,0); scene.add(pl3);
+
+  // ── Kamera-Pfad (scroll-gesteuert) ──
+  var camPos3=[
+    new THREE.Vector3(0,140,320), new THREE.Vector3(0,70,180),
+    new THREE.Vector3(0,18,50),   new THREE.Vector3(5,5,15)
+  ];
+  var camLook3=[
+    new THREE.Vector3(0,0,0),    new THREE.Vector3(0,10,0),
+    new THREE.Vector3(0,3,-20),  new THREE.Vector3(0,3,-60)
+  ];
+  function easeInOut3(t) { return t<0.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
+  var _p3=new THREE.Vector3(), _l3=new THREE.Vector3();
+  function sampleCam3(arr, t) {
+    var segs=arr.length-1, scaled=t*segs, idx=Math.min(Math.floor(scaled),segs-1);
+    var local=easeInOut3(scaled-idx);
+    return arr[idx].clone().lerp(arr[idx+1], local);
+  }
+  function getScrollP() {
+    var rect=wrap.getBoundingClientRect(), h=wrap.offsetHeight, vh=window.innerHeight;
+    return Math.max(0, Math.min(1, -rect.top/(h-vh)));
+  }
+  function applyCam3(p) {
+    _p3.copy(sampleCam3(camPos3,p)); _l3.copy(sampleCam3(camLook3,p));
+    camera.position.copy(_p3); camera.lookAt(_l3);
+    var step=Math.round(p*3);
+    document.querySelectorAll('.sp-dot').forEach(function(d,idx){ d.classList.toggle('active',idx<=step); });
+  }
+  window.addEventListener('scroll', function(){ applyCam3(getScrollP()); }, {passive:true});
+  applyCam3(0);
+
+  // ── Render-Loop ──
+  function animate3() {
+    requestAnimationFrame(animate3);
+    for (var i=0; i<ledTextures3.length; i++) ledTextures3[i].offset.x += 0.00018;
+    renderer.render(scene, camera);
+  }
+  animate3();
+
+})();
+</script>
+</body>
+</html>
