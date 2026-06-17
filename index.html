@@ -81,10 +81,10 @@ section{position:relative;}
 
 /* PROJECTS */
 #work{padding:100px 0;}
-.projects-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:all .25s;cursor:default;display:flex;flex-direction:column;}
+.projects-grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:all .25s;cursor:default;}
 .project-card:hover{border-color:var(--accent-mid);box-shadow:0 8px 32px rgba(107,66,38,.08);transform:translateY(-2px);}
-.project-card.featured{background:var(--bg2);border-color:var(--accent-light);border-left:3px solid var(--accent);}
+.project-card.featured{grid-column:span 2;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;background:var(--bg2);}
 .proj-cat{display:inline-block;background:var(--accent-light);border:1px solid rgba(107,66,38,.2);border-radius:6px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding:3px 10px;margin-bottom:14px;}
 .project-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.25;letter-spacing:-.02em;}
 .project-card p{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:16px;}
@@ -92,6 +92,10 @@ section{position:relative;}
 .proj-tag{background:var(--bg2);border-radius:6px;font-size:11px;font-weight:500;color:var(--muted);padding:4px 10px;}
 .proj-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;margin-top:16px;letter-spacing:.02em;}
 .proj-link:hover{opacity:.7;}
+.feat-metrics{display:flex;flex-direction:column;gap:12px;flex-shrink:0;}
+.feat-metric{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 24px;text-align:center;min-width:120px;}
+.feat-metric .n{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;color:var(--text);}
+.feat-metric .l{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:3px;}
 
 /* SKILLS */
 #skills{padding:100px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -132,18 +136,12 @@ footer p{font-size:12px;color:var(--muted);}
 /* DIVIDER */
 .rule{height:1px;background:var(--border);}
 
-/* SCROLL ANIMATIONS */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.25,.46,.45,.94),transform .65s cubic-bezier(.25,.46,.45,.94);}
-.reveal.visible{opacity:1;transform:translateY(0);}
-
-@media(max-width:960px){
-  .projects-grid{grid-template-columns:repeat(2,1fr);}
-}
 @media(max-width:768px){
   nav{padding:14px 24px;}.nav-links{display:none;}
   .container{padding:0 24px;}
-  .hero-grid,.story-grid,.skills-row,.contact-inner{grid-template-columns:1fr;}
-  .projects-grid{grid-template-columns:1fr;}
+  .hero-grid,.story-grid,.projects-grid,.skills-row,.contact-inner{grid-template-columns:1fr;}
+  .project-card.featured{grid-column:span 1;grid-template-columns:1fr;}
+  .feat-metrics{flex-direction:row;}
   .tools-wrap{grid-column:span 1;}
   #hero{padding:100px 0 60px;}
 }
@@ -517,16 +515,23 @@ footer p{font-size:12px;color:var(--muted);}
     <div class="projects-grid">
 
       <div class="project-card featured">
-        <div class="proj-cat">Featured · Case Study</div>
-        <h3>CONDA Capital Market<br>Frontend Relaunch</h3>
-        <p>Vollständige Neugestaltung einer Crowdinvesting-Plattform — von der Conversion-Analyse über Card Sorting und Usability Testing bis zum Go-Live. Intern realisiert statt extern vergeben. Wissenschaftlich begleitet als Masterarbeit.</p>
-        <div class="proj-meta">
-          <span class="proj-tag">UX Research</span>
-          <span class="proj-tag">IA</span>
-          <span class="proj-tag">Lovable AI</span>
-          <span class="proj-tag">Masterarbeit</span>
+        <div>
+          <div class="proj-cat">Featured · Case Study</div>
+          <h3>CONDA Capital Market<br>Frontend Relaunch</h3>
+          <p>Vollständige Neugestaltung einer Crowdinvesting-Plattform — von der Conversion-Analyse über Card Sorting und Usability Testing bis zum Go-Live. Intern realisiert statt extern vergeben. Wissenschaftlich begleitet als Masterarbeit.</p>
+          <div class="proj-meta">
+            <span class="proj-tag">UX Research</span>
+            <span class="proj-tag">IA</span>
+            <span class="proj-tag">Lovable AI</span>
+            <span class="proj-tag">Masterarbeit</span>
+          </div>
+          <a href="https://nicolausstangl-dot.github.io/Projekt-CONDA-relaunch/" target="_blank" class="proj-link">Case Study ansehen →</a>
         </div>
-        <a href="https://nicolausstangl-dot.github.io/Projekt-CONDA-relaunch/" target="_blank" class="proj-link">Case Study ansehen →</a>
+        <div class="feat-metrics">
+          <div class="feat-metric"><div class="n">€18K</div><div class="l">Ersparnis für CONDA</div></div>
+          <div class="feat-metric"><div class="n">12</div><div class="l">Plattformbereiche</div></div>
+          <div class="feat-metric"><div class="n">139</div><div class="l">Seiten Masterarbeit</div></div>
+        </div>
       </div>
 
       <div class="project-card">
@@ -538,7 +543,7 @@ footer p{font-size:12px;color:var(--muted);}
           <span class="proj-tag">OOH</span>
           <span class="proj-tag">Kampagne</span>
         </div>
-        <a href="https://www.linkedin.com/posts/nicolausstangl_marketing-copywriting-branding-ugcPost-7378120271024705536-rcIa/" target="_blank" class="proj-link">LinkedIn Post →</a>
+        <a href="rapid.html" class="proj-link">Zum Projekt →</a>
       </div>
 
       <div class="project-card">
@@ -550,7 +555,7 @@ footer p{font-size:12px;color:var(--muted);}
           <span class="proj-tag">Schnitt</span>
           <span class="proj-tag">Content Strategy</span>
         </div>
-        <a href="conda-inside.html" class="proj-link">Podcast ansehen →</a>
+        <a href="https://conda-capital.com/conda-inside-podcast/" target="_blank" class="proj-link">Podcast ansehen →</a>
       </div>
 
       <div class="project-card">
@@ -665,89 +670,8 @@ footer p{font-size:12px;color:var(--muted);}
 
 <footer>
   <p>© 2026 Nicolaus Stangl</p>
+  <p>Marketing & Content Strategist · Wien</p>
 </footer>
 
-<script>
-(function(){
-
-  /* ── SCROLL REVEAL ──────────────────────────────────────────── */
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
-  },{threshold:0.1});
-
-  function reveal(el, delay){
-    el.classList.add('reveal');
-    if(delay) el.style.transitionDelay = delay + 'ms';
-    observer.observe(el);
-  }
-
-  document.querySelectorAll('.section-label').forEach(function(el){ reveal(el); });
-  document.querySelectorAll('#story h2, .story-text, .story-img').forEach(function(el, i){ reveal(el, i*80); });
-  document.querySelectorAll('.project-card').forEach(function(el, i){ reveal(el, i*80); });
-  document.querySelectorAll('.skill-group').forEach(function(el, i){ reveal(el, i*60); });
-  document.querySelectorAll('.contact-left, .contact-links').forEach(function(el, i){ reveal(el, i*100); });
-
-  /* ── COUNTER ANIMATION ──────────────────────────────────────── */
-  var counted = false;
-  var counterObserver = new IntersectionObserver(function(entries){
-    if(entries[0].isIntersecting && !counted){
-      counted = true;
-      document.querySelectorAll('.hstat .n').forEach(function(el){
-        var raw = el.textContent.trim();
-        var num = parseInt(raw);
-        if(isNaN(num)){ // non-numeric (MA, C1) — just pop in
-          el.style.opacity='0';
-          el.style.transform='scale(.8)';
-          setTimeout(function(){
-            el.style.transition='opacity .5s ease, transform .5s cubic-bezier(.34,1.56,.64,1)';
-            el.style.opacity='1'; el.style.transform='scale(1)';
-          }, 100);
-          return;
-        }
-        var suffix = raw.replace(String(num),'');
-        var duration = 900;
-        var start = null;
-        el.textContent = '0' + suffix;
-        function step(ts){
-          if(!start) start = ts;
-          var progress = Math.min((ts - start) / duration, 1);
-          var eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(eased * num) + suffix;
-          if(progress < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-      });
-    }
-  },{threshold:0.6});
-  var heroStats = document.querySelector('.hero-stats');
-  if(heroStats) counterObserver.observe(heroStats);
-
-  /* ── PHOTO TILT ─────────────────────────────────────────────── */
-  var tiltEl = document.querySelector('.hero-photo') || document.querySelector('#hero img') || document.querySelector('img');
-  if(tiltEl){
-    tiltEl.style.transition = 'transform .12s ease-out';
-    tiltEl.style.willChange = 'transform';
-    var tiltWrap = tiltEl.parentElement;
-    function onTiltMove(e){
-      var rect = tiltWrap.getBoundingClientRect();
-      var cx = rect.left + rect.width/2;
-      var cy = rect.top  + rect.height/2;
-      var mx = e.clientX || (e.touches && e.touches[0].clientX) || cx;
-      var my = e.clientY || (e.touches && e.touches[0].clientY) || cy;
-      var rx = ((my - cy) / rect.height) * -14;
-      var ry = ((mx - cx) / rect.width)  *  14;
-      tiltEl.style.transform = 'perspective(600px) rotateX('+rx+'deg) rotateY('+ry+'deg) scale(1.03)';
-    }
-    function onTiltLeave(){
-      tiltEl.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)';
-    }
-    tiltWrap.addEventListener('mousemove', onTiltMove);
-    tiltWrap.addEventListener('mouseleave', onTiltLeave);
-    tiltWrap.addEventListener('touchmove', function(e){ onTiltMove(e); }, {passive:true});
-    tiltWrap.addEventListener('touchend', onTiltLeave);
-  }
-
-})();
-</script>
 </body>
 </html>
