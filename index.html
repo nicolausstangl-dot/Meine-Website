@@ -82,7 +82,7 @@ section{position:relative;}
 /* PROJECTS */
 #work{padding:100px 0;}
 .projects-grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:all .25s;cursor:default;}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:all .25s;cursor:pointer;position:relative;}
 .project-card:hover{border-color:var(--accent-mid);box-shadow:0 8px 32px rgba(107,66,38,.08);transform:translateY(-2px);}
 .project-card.featured{grid-column:span 2;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;background:var(--bg2);}
 .proj-cat{display:inline-block;background:var(--accent-light);border:1px solid rgba(107,66,38,.2);border-radius:6px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding:3px 10px;margin-bottom:14px;}
@@ -92,6 +92,7 @@ section{position:relative;}
 .proj-tag{background:var(--bg2);border-radius:6px;font-size:11px;font-weight:500;color:var(--muted);padding:4px 10px;}
 .proj-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;margin-top:16px;letter-spacing:.02em;}
 .proj-link:hover{opacity:.7;}
+.proj-link::after{content:'';position:absolute;inset:0;}
 .feat-metrics{display:flex;flex-direction:column;gap:12px;flex-shrink:0;}
 .feat-metric{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 24px;text-align:center;min-width:120px;}
 .feat-metric .n{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;color:var(--text);}
