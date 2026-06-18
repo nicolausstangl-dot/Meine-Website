@@ -154,6 +154,29 @@ footer p{font-size:12px;color:var(--muted);}
 @keyframes wspin{to{transform:rotate(360deg);}}
 @keyframes exhaust{0%{opacity:.6;r:2px;}100%{opacity:0;r:5px;transform:translateX(-12px);}}
 .ep{animation:exhaust .55s ease-out infinite;transform-box:fill-box;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1);}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-fade{opacity:0;transition:opacity .6s ease;}
+.reveal-fade.visible{opacity:1;}
+
+/* stagger children inside grids */
+.reveal:nth-child(2){transition-delay:.08s;}
+.reveal:nth-child(3){transition-delay:.14s;}
+.reveal:nth-child(4){transition-delay:.20s;}
+.reveal:nth-child(5){transition-delay:.26s;}
+.reveal:nth-child(6){transition-delay:.32s;}
+
+/* hero entrance */
+#hero .hero-eyebrow{animation:fadeUp .6s cubic-bezier(.22,1,.36,1) .1s both;}
+#hero h1{animation:fadeUp .6s cubic-bezier(.22,1,.36,1) .2s both;}
+#hero .hero-sub{animation:fadeUp .6s cubic-bezier(.22,1,.36,1) .3s both;}
+#hero .hero-ctas{animation:fadeUp .6s cubic-bezier(.22,1,.36,1) .4s both;}
+#hero .hero-right{animation:fadeIn .8s ease .35s both;}
 </style>
 </head>
 <body>
@@ -436,9 +459,9 @@ footer p{font-size:12px;color:var(--muted);}
 
 <section id="story">
   <div class="container">
-    <div class="section-label">Über mich</div>
+    <div class="section-label reveal-fade">Über mich</div>
     <div class="story-grid">
-      <div class="story-text">
+      <div class="story-text reveal">
         <h2>Wiener. Wahlsteirer.<br>Wandlungsfähig.</h2>
         <p>Ich bin in Wien geboren und mit 14 Jahren in die Steiermark gezogen — Wahlsteirer, wie ich heute sage, mit einem kleinen Schmunzeln. Nach der Handelsakademie und dem Bundesheer, dem ich als <strong>stolzer Milizsoldat</strong> bis heute verbunden bin, kam der Lockdown. Meine Pläne, die ich bis dahin hatte, wurden einmal kräftig durchgeschüttelt. Aber davon habe ich mich nicht unterkriegen lassen.</p>
         <p>Durch Zufall landete ich einige hundert Meter von meiner Kaserne entfernt bei Sappi in Gratkorn. Fast vier Jahre. Frühschicht. Spätschicht. Nachtschicht. Neben meiner Tätigkeit in der Produktion habe ich eines der seltensten Handwerke überhaupt erlernt und darf mich <strong>gelernter Papiertechniker</strong> nennen. Diese Zeit hat mich viel gelehrt. Glücklich gemacht hat sie mich nicht. Also habe ich mein Glück selbst in die Hand genommen und neben Vollzeitarbeit im Schichtbetrieb in ein Fernstudium investiert. Ich habe es durchgezogen – schneller als ich selbst damit gerechnet hätte.</p>
@@ -509,10 +532,10 @@ footer p{font-size:12px;color:var(--muted);}
 
 <section id="work">
   <div class="container">
-    <div class="section-label">Projekte</div>
+    <div class="section-label reveal-fade">Projekte</div>
     <div class="projects-grid">
 
-      <div class="project-card">
+      <div class="project-card reveal">
           <div class="proj-cat">Featured · Case Study</div>
           <h3>CONDA Capital Market<br>Frontend Relaunch</h3>
           <p>Vollständige Neugestaltung einer Crowdinvesting-Plattform — von der Conversion-Analyse über Card Sorting und Usability Testing bis zum Go-Live. Intern realisiert statt extern vergeben. Wissenschaftlich begleitet als Masterarbeit.</p>
@@ -525,7 +548,7 @@ footer p{font-size:12px;color:var(--muted);}
           <a href="https://nicolausstangl-dot.github.io/Projekt-CONDA-relaunch/" target="_blank" class="proj-link">Case Study ansehen →</a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="proj-cat">OOH · Kampagne</div>
         <h3>SK Rapid Wien<br>Bandenwerbung</h3>
         <p>Konzeption und Umsetzung einer Out-of-Home-Kampagne für CONDA — sichtbar im Allianz Stadion. Von der Kreation bis zur Abstimmung mit dem Verein.</p>
@@ -537,7 +560,7 @@ footer p{font-size:12px;color:var(--muted);}
         <a href="rapid.html" class="proj-link">Zum Projekt →</a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="proj-cat">Podcast · Content</div>
         <h3>CONDA Inside<br>Corporate Podcast</h3>
         <p>Konzeption, Aufnahme, Schnitt und Distribution eines Corporate Podcasts für CONDA — von der Formatentwicklung bis zur laufenden Produktion.</p>
@@ -549,7 +572,7 @@ footer p{font-size:12px;color:var(--muted);}
         <a href="conda-inside.html" class="proj-link">Podcast ansehen →</a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="proj-cat">Branding · Privat</div>
         <h3>Barkingham Palace<br>Branding & Digitalpräsenz</h3>
         <p>Aufbau einer eigenen Brand-Identität und digitalen Präsenz — von der Namensgebung bis zur visuellen Umsetzung. Ein persönliches Projekt mit vollem kreativem Spielraum.</p>
@@ -561,7 +584,7 @@ footer p{font-size:12px;color:var(--muted);}
         <a href="https://www.barkinghampalace.at" target="_blank" class="proj-link">Website ansehen →</a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="proj-cat">Branding · Web</div>
         <h3>Art Atelier Amberg<br>Marke & Onlineauftritt</h3>
         <p>Entwicklung von Markenidentität und digitalem Auftritt für ein Kunstkreativstudio — konzeptuell und visuell von Grund auf gedacht.</p>
@@ -573,7 +596,7 @@ footer p{font-size:12px;color:var(--muted);}
         <a href="https://www.artatelieramberg.com" target="_blank" class="proj-link">Website ansehen →</a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="proj-cat">Performance · Sparring</div>
         <h3>Ad.Boutique<br>Kundenseitiges Sparring</h3>
         <p>Enge Begleitung einer Performance-Marketing-Agentur als strategischer Gegenpart — Impulse setzen, Daten lesen, Entscheidungen treffen.</p>
@@ -592,9 +615,9 @@ footer p{font-size:12px;color:var(--muted);}
 
 <section id="skills">
   <div class="container">
-    <div class="section-label">Skills & Tools</div>
+    <div class="section-label reveal-fade">Skills & Tools</div>
     <div class="skills-row">
-      <div class="skill-block">
+      <div class="skill-block reveal">
         <h3>Kernkompetenzen</h3>
         <div class="skill-list">
           <div class="sk">Content Strategy & Governance</div>
@@ -644,9 +667,9 @@ footer p{font-size:12px;color:var(--muted);}
 
 <section id="contact">
   <div class="container">
-    <div class="contact-inner">
+    <div class="contact-inner reveal">
       <div class="contact-left">
-        <div class="section-label">Kontakt</div>
+        <div class="section-label reveal-fade">Kontakt</div>
         <h2>Lass uns<br>etwas bauen.</h2>
         <p>Du suchst jemanden, der nicht nur Strategie denkt, sondern auch Dinge in die Welt bringt? Ich freue mich über eine Nachricht — egal ob Jobangebot, Projekt oder einfach ein gutes Gespräch.</p>
         <div class="contact-links">
@@ -664,5 +687,21 @@ footer p{font-size:12px;color:var(--muted);}
   <p>Marketing & Content Strategist · Wien</p>
 </footer>
 
+<script>
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal, .reveal-fade').forEach(function(el){
+    io.observe(el);
+  });
+})();
+</script>
 </body>
 </html>
