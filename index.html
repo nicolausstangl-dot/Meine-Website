@@ -84,7 +84,6 @@ section{position:relative;}
 .projects-grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
 .project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:all .25s;cursor:pointer;position:relative;}
 .project-card:hover{border-color:var(--accent-mid);box-shadow:0 8px 32px rgba(107,66,38,.08);transform:translateY(-2px);}
-.project-card.featured{grid-column:span 2;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;background:var(--bg2);}
 .proj-cat{display:inline-block;background:var(--accent-light);border:1px solid rgba(107,66,38,.2);border-radius:6px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding:3px 10px;margin-bottom:14px;}
 .project-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.25;letter-spacing:-.02em;}
 .project-card p{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:16px;}
@@ -141,9 +140,6 @@ footer p{font-size:12px;color:var(--muted);}
   nav{padding:14px 24px;}.nav-links{display:none;}
   .container{padding:0 24px;}
   .hero-grid,.story-grid,.projects-grid,.skills-row,.contact-inner{grid-template-columns:1fr;}
-  .project-card.featured{grid-column:span 1;grid-template-columns:1fr;}
-  .feat-metrics{flex-direction:row;flex-wrap:wrap;}
-  .feat-metric{min-width:0;flex:1 1 calc(33% - 8px);}
   .tools-wrap{grid-column:span 1;}
   #hero{padding:100px 0 60px;}
 }
@@ -516,8 +512,7 @@ footer p{font-size:12px;color:var(--muted);}
     <div class="section-label">Projekte</div>
     <div class="projects-grid">
 
-      <div class="project-card featured">
-        <div>
+      <div class="project-card">
           <div class="proj-cat">Featured · Case Study</div>
           <h3>CONDA Capital Market<br>Frontend Relaunch</h3>
           <p>Vollständige Neugestaltung einer Crowdinvesting-Plattform — von der Conversion-Analyse über Card Sorting und Usability Testing bis zum Go-Live. Intern realisiert statt extern vergeben. Wissenschaftlich begleitet als Masterarbeit.</p>
@@ -528,12 +523,6 @@ footer p{font-size:12px;color:var(--muted);}
             <span class="proj-tag">Masterarbeit</span>
           </div>
           <a href="https://nicolausstangl-dot.github.io/Projekt-CONDA-relaunch/" target="_blank" class="proj-link">Case Study ansehen →</a>
-        </div>
-        <div class="feat-metrics">
-          <div class="feat-metric"><div class="n">€18K</div><div class="l">Ersparnis für CONDA</div></div>
-          <div class="feat-metric"><div class="n">12</div><div class="l">Plattformbereiche</div></div>
-          <div class="feat-metric"><div class="n">139</div><div class="l">Seiten Masterarbeit</div></div>
-        </div>
       </div>
 
       <div class="project-card">
