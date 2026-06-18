@@ -157,62 +157,85 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
 .banner-hint span{color:var(--gold);}
 
 /* ── LAPTOP ── */
-.laptop-wrap{
-  width:min(680px,88vw);cursor:pointer;
-  transition:transform .35s ease;
+.macbook-wrap{
+  width:min(720px,90vw);cursor:pointer;
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
   position:relative;
 }
-.laptop-wrap:hover{transform:translateY(-8px);}
-.laptop-body{
-  background:#1C1C1E;border-radius:14px 14px 0 0;
-  padding:16px 16px 0;
-  box-shadow:0 40px 80px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.06);
-}
-.laptop-cam-row{
-  display:flex;justify-content:center;
-  padding-bottom:10px;
-}
-.laptop-cam{width:8px;height:8px;background:#2A2A2C;border-radius:50%;}
-.laptop-screen{
-  background:#000;border-radius:6px 6px 0 0;overflow:hidden;
-  aspect-ratio:16/10;border:1px solid rgba(255,255,255,.05);
-}
-.laptop-screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
-.laptop-chin{
-  height:16px;background:#1C1C1E;
-  border-radius:0 0 3px 3px;margin:0;
-  border-top:1px solid rgba(0,0,0,.4);
-}
-.laptop-hinge{
-  height:4px;background:linear-gradient(#111,#222);
-  border-radius:0 0 2px 2px;
-}
-.laptop-base{
-  height:14px;
-  background:linear-gradient(#252525,#1A1A1A);
-  border-radius:0 0 10px 10px;
-  box-shadow:0 8px 20px rgba(0,0,0,.5);
-}
-.laptop-foot{
-  width:200px;height:6px;
-  background:#1A1A1A;margin:0 auto;
-  border-radius:0 0 6px 6px;
-}
-.laptop-link{
-  text-align:center;margin-top:20px;
-  font-size:12px;color:var(--muted);
-}
-.laptop-link a{color:var(--gold);text-decoration:none;font-weight:500;}
-.laptop-link a:hover{text-decoration:underline;}
+.macbook-wrap:hover{transform:translateY(-10px);}
 
-/* ── FOOTER ── */
-footer{
-  padding:40px;text-align:center;
-  font-size:12px;color:var(--muted);
-  border-top:1px solid rgba(201,168,76,.1);
+/* Lid */
+.macbook-lid{
+  background:linear-gradient(160deg,#3a3a3c 0%,#2c2c2e 40%,#1c1c1e 100%);
+  border-radius:12px 12px 0 0;
+  padding:10px 10px 0;
+  box-shadow:
+    0 -1px 0 rgba(255,255,255,.1),
+    inset 0 1px 0 rgba(255,255,255,.07),
+    0 50px 100px -20px rgba(0,0,0,.8);
+  position:relative;
 }
-footer a{color:var(--gold);text-decoration:none;}
-footer a:hover{text-decoration:underline;}
+/* Notch */
+.macbook-lid::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:140px;height:10px;
+  background:linear-gradient(#1c1c1e,#2c2c2e);
+  border-radius:0 0 10px 10px;
+  z-index:2;
+}
+/* Camera dot */
+.macbook-lid::after{
+  content:'';position:absolute;top:4px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;background:#3a3a3c;border-radius:50%;
+  box-shadow:0 0 0 1px rgba(255,255,255,.06);z-index:3;
+}
+.macbook-screen{
+  background:#000;
+  border-radius:6px 6px 0 0;
+  overflow:hidden;
+  aspect-ratio:16/10;
+  border:1px solid rgba(0,0,0,.8);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
+}
+.macbook-screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+
+/* Hinge */
+.macbook-hinge{
+  height:3px;
+  background:linear-gradient(#0a0a0a,#222);
+}
+
+/* Base */
+.macbook-base{
+  background:linear-gradient(175deg,#3a3a3c 0%,#2c2c2e 50%,#242426 100%);
+  border-radius:0 0 8px 8px;
+  height:22px;
+  position:relative;
+  box-shadow:0 12px 40px rgba(0,0,0,.6);
+  border-top:1px solid rgba(255,255,255,.05);
+}
+/* Trackpad hint line */
+.macbook-base::after{
+  content:'';position:absolute;bottom:5px;left:50%;transform:translateX(-50%);
+  width:60px;height:2px;background:rgba(255,255,255,.06);border-radius:2px;
+}
+
+/* Table reflection */
+.macbook-shadow{
+  width:75%;height:12px;margin:0 auto;
+  background:radial-gradient(ellipse,rgba(0,0,0,.5) 0%,transparent 70%);
+  filter:blur(6px);
+}
+
+.macbook-link{
+  text-align:center;margin-top:18px;
+  font-size:12px;color:var(--muted);
+}
+.macbook-link a{color:var(--gold);text-decoration:none;font-weight:500;}
+.macbook-link a:hover{text-decoration:underline;}
+
+/* ── BANNER img ── */
+#banner-sec img{border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
@@ -284,26 +307,18 @@ footer a:hover{text-decoration:underline;}
   <h2 class="reveal">Die Website.</h2>
   <p class="section-desc reveal">Aufgebaut mit Jimdo — inklusive integriertem Buchungstool. Struktur, Copy und visuelles Konzept komplett selbst umgesetzt.</p>
 
-  <div class="laptop-wrap reveal" id="laptop" onclick="window.open('https://www.barkinghampalace.at','_blank')">
-    <div class="laptop-body">
-      <div class="laptop-cam-row"><div class="laptop-cam"></div></div>
-      <div class="laptop-screen">
+  <div class="macbook-wrap reveal" onclick="window.open('https://www.barkinghampalace.at','_blank')">
+    <div class="macbook-lid">
+      <div class="macbook-screen">
         <img src="Bildschirmfoto 2026-06-18 um 14.57.44.png" alt="barkinghampalace.at Screenshot">
       </div>
-      <div class="laptop-chin"></div>
     </div>
-    <div class="laptop-hinge"></div>
-    <div class="laptop-base"></div>
-    <div class="laptop-foot"></div>
-    <p class="laptop-link"><a href="https://www.barkinghampalace.at" target="_blank">barkinghampalace.at besuchen →</a></p>
+    <div class="macbook-hinge"></div>
+    <div class="macbook-base"></div>
+    <div class="macbook-shadow"></div>
+    <p class="macbook-link"><a href="https://www.barkinghampalace.at" target="_blank">barkinghampalace.at besuchen →</a></p>
   </div>
 </section>
-
-<div class="gold-rule"></div>
-
-<footer>
-  <p>← <a href="index.html">Zurück zum Portfolio</a> &nbsp;·&nbsp; Projekt für <a href="https://www.barkinghampalace.at" target="_blank">Barkingham Palace</a> &nbsp;·&nbsp; <a href="https://www.instagram.com/barkinghampalace" target="_blank">@barkinghampalace</a></p>
-</footer>
 
 <script>
 (function(){
