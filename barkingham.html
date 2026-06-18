@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barkingham Palace — Branding</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C9A84C; --gold-d:#8B6914; --gold-l:#E8C96A;
+  --red:#8B0000; --brown:#3D2A0A;
+  --bg:#0C0903; --bg2:#13100A; --bg3:#1A1508;
+  --text:#F0E8D0; --muted:rgba(240,232,208,.5);
+  --r:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;}
+
+/* ── HERO ── */
+#hero{
+  height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:40px;position:relative;
+}
+#hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 60%, rgba(201,168,76,.07) 0%, transparent 65%);
+}
+.hero-logo{width:130px;margin-bottom:28px;animation:fadeUp .8s ease both;}
+.hero-tag{
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;animation:fadeUp .8s ease .1s both;
+}
+#hero h1{
+  font-family:'Playfair Display',serif;font-size:clamp(38px,6vw,78px);
+  font-weight:400;line-height:1.08;margin-bottom:20px;
+  animation:fadeUp .8s ease .2s both;
+}
+#hero h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{
+  font-size:15px;color:var(--muted);max-width:440px;
+  line-height:1.75;animation:fadeUp .8s ease .3s both;
+}
+.scroll-hint{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  animation:fadeIn 1s ease 1.2s both;
+}
+.scroll-hint::after{
+  content:'';width:1px;height:44px;
+  background:linear-gradient(var(--gold),transparent);
+  animation:scrollLine 1.6s ease-in-out infinite;
+}
+@keyframes scrollLine{0%,100%{opacity:.3;transform:scaleY(.5);}50%{opacity:1;transform:scaleY(1);}}
+
+/* ── DIVIDER ── */
+.gold-rule{
+  width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,.25),transparent);
+}
+
+/* ── SECTIONS ── */
+.section{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:80px 40px;
+}
+.section.dark{background:var(--bg2);}
+.sec-label{
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:12px;text-align:center;
+}
+.section h2{
+  font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,48px);
+  font-weight:400;text-align:center;margin-bottom:12px;
+}
+.section-desc{
+  font-size:14px;color:var(--muted);text-align:center;
+  max-width:400px;line-height:1.75;margin-bottom:48px;
+}
+
+/* ── FLYER ── */
+.flyer-scene{
+  perspective:1600px;
+  cursor:grab;user-select:none;
+  padding:40px;
+}
+.flyer-scene:active{cursor:grabbing;}
+.flyer-orbit{transform-style:preserve-3d;transform:rotateX(-6deg) rotateY(22deg);}
+.flyer-panels{
+  display:flex;transform-style:preserve-3d;
+  position:relative;
+}
+.panel{
+  width:270px;height:380px;
+  transform-style:preserve-3d;
+  transition:transform .85s cubic-bezier(.4,0,.2,1);
+  position:relative;flex-shrink:0;
+}
+.face{
+  position:absolute;inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  border:1px solid rgba(201,168,76,.2);
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
+}
+.face.back{transform:rotateY(180deg);}
+
+/* Outside: 3 panels = background-size 300% */
+.p1 .face.front{background:url('Falzflyer/Außenseite.png') 0% center/300% 100%;}
+.p2 .face.front{background:url('Falzflyer/Außenseite.png') 50% center/300% 100%;}
+.p3 .face.front{background:url('Falzflyer/Außenseite.png') 100% center/300% 100%;}
+/* Inside reverse order for Z-fold */
+.p1 .face.back{background:url('Falzflyer/Innenseite.png') 100% center/300% 100%;}
+.p2 .face.back{background:url('Falzflyer/Innenseite.png') 50% center/300% 100%;}
+.p3 .face.back{background:url('Falzflyer/Innenseite.png') 0% center/300% 100%;}
+
+.p1{transform-origin:right center;}
+.p3{transform-origin:left center;}
+
+/* Closed state — p1 goes behind p2, p3 comes in front */
+.closed .p1{transform:rotateY(-158deg);}
+.closed .p3{transform:rotateY(-158deg);}
+/* Open state */
+.open .p1{transform:rotateY(0deg);}
+.open .p3{transform:rotateY(0deg);}
+
+.flyer-cta{
+  margin-top:24px;display:flex;align-items:center;gap:20px;
+  justify-content:center;
+}
+.flyer-btn{
+  background:transparent;border:1px solid rgba(201,168,76,.4);
+  color:var(--gold);font-family:'Inter',sans-serif;font-size:12px;
+  font-weight:600;letter-spacing:.08em;padding:10px 22px;
+  border-radius:6px;cursor:pointer;transition:all .2s;
+}
+.flyer-btn:hover{background:rgba(201,168,76,.1);border-color:var(--gold);}
+.drag-hint{font-size:11px;color:var(--muted);letter-spacing:.04em;}
+
+/* ── BANNER ── */
+#banner-canvas{
+  display:block;
+  width:min(860px,92vw);height:auto;
+  cursor:pointer;
+  border:1px solid rgba(201,168,76,.15);
+  border-radius:4px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  transition:box-shadow .3s;
+}
+#banner-canvas:hover{box-shadow:0 24px 80px rgba(0,0,0,.65),0 0 40px rgba(201,168,76,.08);}
+.banner-hint{
+  margin-top:18px;font-size:12px;color:var(--muted);
+  letter-spacing:.05em;
+}
+.banner-hint span{color:var(--gold);}
+
+/* ── LAPTOP ── */
+.laptop-wrap{
+  width:min(680px,88vw);cursor:pointer;
+  transition:transform .35s ease;
+  position:relative;
+}
+.laptop-wrap:hover{transform:translateY(-8px);}
+.laptop-body{
+  background:#1C1C1E;border-radius:14px 14px 0 0;
+  padding:16px 16px 0;
+  box-shadow:0 40px 80px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.06);
+}
+.laptop-cam-row{
+  display:flex;justify-content:center;
+  padding-bottom:10px;
+}
+.laptop-cam{width:8px;height:8px;background:#2A2A2C;border-radius:50%;}
+.laptop-screen{
+  background:#000;border-radius:6px 6px 0 0;overflow:hidden;
+  aspect-ratio:16/10;border:1px solid rgba(255,255,255,.05);
+}
+.laptop-screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+.laptop-chin{
+  height:16px;background:#1C1C1E;
+  border-radius:0 0 3px 3px;margin:0;
+  border-top:1px solid rgba(0,0,0,.4);
+}
+.laptop-hinge{
+  height:4px;background:linear-gradient(#111,#222);
+  border-radius:0 0 2px 2px;
+}
+.laptop-base{
+  height:14px;
+  background:linear-gradient(#252525,#1A1A1A);
+  border-radius:0 0 10px 10px;
+  box-shadow:0 8px 20px rgba(0,0,0,.5);
+}
+.laptop-foot{
+  width:200px;height:6px;
+  background:#1A1A1A;margin:0 auto;
+  border-radius:0 0 6px 6px;
+}
+.laptop-link{
+  text-align:center;margin-top:20px;
+  font-size:12px;color:var(--muted);
+}
+.laptop-link a{color:var(--gold);text-decoration:none;font-weight:500;}
+.laptop-link a:hover{text-decoration:underline;}
+
+/* ── FOOTER ── */
+footer{
+  padding:40px;text-align:center;
+  font-size:12px;color:var(--muted);
+  border-top:1px solid rgba(201,168,76,.1);
+}
+footer a{color:var(--gold);text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-fade{opacity:0;transition:opacity .65s ease;}
+.reveal-fade.visible{opacity:1;}
+.reveal:nth-child(2){transition-delay:.07s;}
+.reveal:nth-child(3){transition-delay:.14s;}
+
+@media(max-width:600px){
+  .panel{width:180px;height:254px;}
+  .section{padding:60px 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section id="hero">
+  <img src="Barkingham Logos.png" class="hero-logo" alt="Barkingham Palace Logo">
+  <div class="hero-tag">Branding · Print · Digital</div>
+  <h1>Royal gemacht.<br><em>Von Grund auf.</em></h1>
+  <p class="hero-sub">Ein Blick hinter die Kulissen — die Branding-Materialien, die ich für Barkingham Palace, Wiens ersten Hunde Spa, entwickelt habe.</p>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- FLYER -->
+<section class="section dark" id="flyer-sec">
+  <div class="sec-label reveal-fade">Print · Dreierfalz</div>
+  <h2 class="reveal">Der Eröffnungsflyer.</h2>
+  <p class="section-desc reveal">Dreierfalz-Flyer für die Eröffnung im Oktober 2025. Ziehen zum Drehen, Klicken zum Auf- und Zuklappen.</p>
+
+  <div class="flyer-scene reveal" id="flyer-scene">
+    <div class="flyer-orbit" id="flyer-orbit">
+      <div class="flyer-panels open" id="flyer-panels">
+        <div class="panel p1"><div class="face front"></div><div class="face back"></div></div>
+        <div class="panel p2"><div class="face front"></div><div class="face back"></div></div>
+        <div class="panel p3"><div class="face front"></div><div class="face back"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flyer-cta reveal">
+    <button class="flyer-btn" id="flyer-btn">Zuklappen</button>
+    <span class="drag-hint">Ziehen zum Drehen</span>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- BANNER -->
+<section class="section" id="banner-sec">
+  <div class="sec-label reveal-fade">Print · OOH</div>
+  <h2 class="reveal">Das Eröffnungsbanner.</h2>
+  <p class="section-desc reveal">Outdoor-Banner zur Eröffnung im Oktober 2025.</p>
+
+  <img src="Eröffnung Banner.png" class="reveal" style="width:min(860px,92vw);height:auto;display:block;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.5);" alt="Eröffnungsbanner Barkingham Palace">
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- WEBSITE MOCKUP -->
+<section class="section dark" id="web-sec">
+  <div class="sec-label reveal-fade">Digital · Web</div>
+  <h2 class="reveal">Die Website.</h2>
+  <p class="section-desc reveal">Aufgebaut mit Jimdo — inklusive integriertem Buchungstool. Struktur, Copy und visuelles Konzept komplett selbst umgesetzt.</p>
+
+  <div class="laptop-wrap reveal" id="laptop" onclick="window.open('https://www.barkinghampalace.at','_blank')">
+    <div class="laptop-body">
+      <div class="laptop-cam-row"><div class="laptop-cam"></div></div>
+      <div class="laptop-screen">
+        <img src="Bildschirmfoto 2026-06-18 um 14.57.44.png" alt="barkinghampalace.at Screenshot">
+      </div>
+      <div class="laptop-chin"></div>
+    </div>
+    <div class="laptop-hinge"></div>
+    <div class="laptop-base"></div>
+    <div class="laptop-foot"></div>
+    <p class="laptop-link"><a href="https://www.barkinghampalace.at" target="_blank">barkinghampalace.at besuchen →</a></p>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<footer>
+  <p>← <a href="index.html">Zurück zum Portfolio</a> &nbsp;·&nbsp; Projekt für <a href="https://www.barkinghampalace.at" target="_blank">Barkingham Palace</a> &nbsp;·&nbsp; <a href="https://www.instagram.com/barkinghampalace" target="_blank">@barkinghampalace</a></p>
+</footer>
+
+<script>
+(function(){
+
+  /* ── SCROLL REVEAL ── */
+  var sio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); sio.unobserve(e.target); }
+    });
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal,.reveal-fade').forEach(function(el){ sio.observe(el); });
+
+  /* ══ FLYER ══ */
+  var flyerPanels = document.getElementById('flyer-panels');
+  var flyerBtn    = document.getElementById('flyer-btn');
+  var flyerOrbit  = document.getElementById('flyer-orbit');
+  var flyerScene  = document.getElementById('flyer-scene');
+  var isOpen = true;
+
+  flyerBtn.addEventListener('click', function(){
+    isOpen = !isOpen;
+    flyerPanels.classList.toggle('closed', !isOpen);
+    flyerPanels.classList.toggle('open', isOpen);
+    flyerBtn.textContent = isOpen ? 'Zuklappen' : 'Aufklappen';
+  });
+
+  /* Drag orbit */
+  var dragging=false, dsx=0, dsy=0, orx=-6, ory=22;
+  function applyOrbit(){ flyerOrbit.style.transform='rotateX('+orx+'deg) rotateY('+ory+'deg)'; }
+  applyOrbit();
+
+  flyerScene.addEventListener('mousedown',function(e){dragging=true;dsx=e.clientX;dsy=e.clientY;});
+  window.addEventListener('mousemove',function(e){
+    if(!dragging)return;
+    ory+=(e.clientX-dsx)*0.5; orx-=(e.clientY-dsy)*0.25;
+    orx=Math.max(-35,Math.min(35,orx));
+    dsx=e.clientX;dsy=e.clientY;applyOrbit();
+  });
+  window.addEventListener('mouseup',function(){dragging=false;});
+  flyerScene.addEventListener('touchstart',function(e){dragging=true;dsx=e.touches[0].clientX;dsy=e.touches[0].clientY;},{passive:true});
+  window.addEventListener('touchmove',function(e){
+    if(!dragging)return;
+    ory+=(e.touches[0].clientX-dsx)*0.5;orx-=(e.touches[0].clientY-dsy)*0.25;
+    orx=Math.max(-35,Math.min(35,orx));
+    dsx=e.touches[0].clientX;dsy=e.touches[0].clientY;applyOrbit();
+  },{passive:true});
+  window.addEventListener('touchend',function(){dragging=false;});
+
+  /* ══ BANNER — per-pixel sampling wave (smooth flag, no seams) ══ */
+
+})();
+</script>
+</body>
+</html>
