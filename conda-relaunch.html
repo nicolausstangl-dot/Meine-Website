@@ -23,7 +23,7 @@
     .slide.active { opacity:1; pointer-events:all; transform:translateX(0) scale(1); }
     .slide-inner { width:100%; max-width:1200px; }
     #progress { position:fixed; bottom:0; left:0; height:2px; background:var(--accent); transition:width .48s cubic-bezier(.4,0,.2,1); z-index:101; }
-    #counter { position:fixed; top:36px; right:48px; font-size:11px; letter-spacing:.14em; color:var(--w40); font-weight:600; text-transform:uppercase; z-index:100; }
+    #counter { position:fixed; top:36px; left:50%; transform:translateX(-50%); font-size:11px; letter-spacing:.14em; color:var(--w40); font-weight:600; text-transform:uppercase; z-index:100; }
     #counter span { color:var(--white); }
     .arr { position:fixed; top:50%; transform:translateY(-50%); width:44px; height:44px; background:var(--w15); border:1px solid rgba(255,255,255,.08); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:none; transition:background .18s,border-color .18s,color .18s; z-index:100; color:var(--w40); font-size:15px; backdrop-filter:blur(8px); }
     .arr:hover { background:var(--accent-dim); border-color:var(--accent-border); color:var(--accent); }
@@ -127,7 +127,7 @@
 <div id="progress"></div>
 <button class="arr prev off" id="prev">←</button>
 <button class="arr next" id="next">→</button>
-<div id="hint"><span class="kc">←</span><span class="kc">→</span><span style="margin-left:4px;">Navigieren</span></div>
+<div id="hint"><span class="kc">←</span><span class="kc">→</span><span style="margin-left:4px;" data-i18n="cr-nav">Navigieren</span></div>
 <div id="slides">
 
 <!-- 01 Cover -->
@@ -138,13 +138,13 @@
     <h1 class="t-xl a2" data-i18n="cr-h1">FROM<br><span class="acc">THESIS</span><br>TO<br>PLATFORM.</h1>
     <p class="body a3" style="margin-top:26px;max-width:440px;" data-i18n="cr-body0">Wie eine datenbasierte Masterarbeit, ein Pitch und ein neues Tool dabei halfen, eine Investment-Plattform von Grund auf neu zu denken.</p>
     <div class="a4" style="margin-top:40px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
-      <div><div style="font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--w40);margin-bottom:3px;">Unternehmen</div><div style="font-size:14px;font-weight:600;">CONDA Capital Market</div></div>
+      <div><div style="font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--w40);margin-bottom:3px;" data-i18n="cr-meta-company">Unternehmen</div><div style="font-size:14px;font-weight:600;">CONDA Capital Market</div></div>
       <div style="width:1px;height:30px;background:rgba(255,255,255,.1);"></div>
-      <div><div style="font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--w40);margin-bottom:3px;">Rolle</div><div style="font-size:14px;font-weight:600;">Marketing Manager</div></div>
+      <div><div style="font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--w40);margin-bottom:3px;" data-i18n="cr-meta-role">Rolle</div><div style="font-size:14px;font-weight:600;">Marketing Manager</div></div>
       <div style="width:1px;height:30px;background:rgba(255,255,255,.1);"></div>
-      <div><div style="font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--w40);margin-bottom:3px;">Studium</div><div style="font-size:14px;font-weight:600;">MA Content Strategy, FH Joanneum</div></div>
+      <div><div style="font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--w40);margin-bottom:3px;" data-i18n="cr-meta-study">Studium</div><div style="font-size:14px;font-weight:600;">MA Content Strategy, FH Joanneum</div></div>
       <div style="width:1px;height:30px;background:rgba(255,255,255,.1);"></div>
-      <div><div style="font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--w40);margin-bottom:3px;">Go-Live</div><div style="font-size:14px;font-weight:600;color:var(--accent);">September 2026</div></div>
+      <div data-i18n="cr-meta-golive"><div style="font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--w40);margin-bottom:3px;">Go-Live</div><div style="font-size:14px;font-weight:600;color:var(--accent);">September 2026</div></div>
     </div>
   </div>
 </div>
@@ -155,15 +155,15 @@
     <div class="s60">
       <div>
         <span class="lbl a1" data-i18n="cr-lbl1">Kontext</span>
-        <h2 class="t-lg a2">Die Plattform hinter<br><span class="acc">Crowdinvesting</span><br>im DACH-Raum.</h2>
+        <h2 class="t-lg a2" data-i18n="cr-t-lg1">Die Plattform hinter<br><span class="acc">Crowdinvesting</span><br>im DACH-Raum.</h2>
         <div class="div a3"></div>
         <p class="body a3" style="max-width:500px;" data-i18n="cr-body1">CONDA Capital Market ermöglicht Investor:innen Beteiligungen an Wachstumsunternehmen — reguliert durch die ECSP-VO und beaufsichtigt von der FMA Österreich.</p>
         <p class="body a4" style="margin-top:12px;max-width:500px;" data-i18n="cr-body1b">Als Marketing Manager war ich gleichzeitig interner Stakeholder und — durch die Masterarbeit — jemand, der das Problem systematisch untersucht hat.</p>
       </div>
       <div class="a5" style="display:flex;flex-direction:column;gap:13px;">
-        <div class="card-s"><div style="font-size:10px;color:var(--w40);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;">Anlageformen</div><div style="font-size:14px;font-weight:600;">Aktien · Anleihen · Genussscheine<br>Wandelanleihen · Indirekte Beteiligungen</div></div>
-        <div class="card-s"><div style="font-size:10px;color:var(--w40);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;">Regulierung</div><div style="font-size:14px;font-weight:600;">ECSP-VO (EU 2020/1503)</div><div style="font-size:12px;color:var(--w40);margin-top:3px;">Aufsicht: FMA Österreich</div></div>
-        <div class="card-s" style="background:var(--accent-dim);border-color:var(--accent-border);"><div style="font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;">Ausgangspunkt</div><div style="font-size:13px;font-weight:500;color:var(--white);">Die Conversion-Daten aus dem internen Reporting haben die Frage aufgeworfen: Woran verlieren wir die Nutzer:innen?</div></div>
+        <div class="card-s"><div style="font-size:10px;color:var(--w40);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;" data-i18n="cr-inv-label">Anlageformen</div><div style="font-size:14px;font-weight:600;" data-i18n="cr-inv-1">Aktien · Anleihen · Genussscheine<br>Wandelanleihen · Indirekte Beteiligungen</div></div>
+        <div class="card-s"><div style="font-size:10px;color:var(--w40);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;" data-i18n="cr-reg-label">Regulierung</div><div style="font-size:14px;font-weight:600;" data-i18n="cr-reg-1">ECSP-VO (EU 2020/1503)</div><div style="font-size:12px;color:var(--w40);margin-top:3px;" data-i18n="cr-reg-2">Aufsicht: FMA Österreich</div></div>
+        <div class="card-s" style="background:var(--accent-dim);border-color:var(--accent-border);"><div style="font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;" data-i18n="cr-start-label">Ausgangspunkt</div><div style="font-size:13px;font-weight:500;color:var(--white);" data-i18n="cr-start-q">Die Conversion-Daten aus dem internen Reporting haben die Frage aufgeworfen: Woran verlieren wir die Nutzer:innen?</div></div>
       </div>
     </div>
   </div>
@@ -173,19 +173,19 @@
 <div class="slide" id="s3">
   <div class="slide-inner">
     <span class="lbl a1" data-i18n="cr-lbl2">Das Problem</span>
-    <h2 class="t-md a2" style="max-width:580px;margin-bottom:22px;">60.779 Besucher:innen.<br>450 abgeschlossene Investments.</h2>
+    <h2 class="t-md a2" style="max-width:580px;margin-bottom:22px;" data-i18n="cr-t-md2">60.779 Besucher:innen.<br>450 abgeschlossene Investments.</h2>
     <div class="s50 a3">
       <div>
         <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--w40);margin-bottom:13px;">Investment Funnel Q4 2025</div>
         <div class="fn"><span class="fl">Traffic</span><span class="fn-pct">100 %</span><span class="fn-n" style="color:var(--white);">60.779</span></div>
         <div class="fa">↓</div>
-        <div class="fn"><span class="fl">View Product (Emissionsseite)</span><span class="fn-pct">39,6 %</span><span class="fn-n" style="color:var(--w70);">24.059</span></div>
-        <div class="fa">↓ <span style="color:#ff4444;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;">95 % Drop-off</span></div>
-        <div class="fn red"><span class="fl" style="color:#ffaaaa;">Add to Cart (Invest-Button)</span><span class="fn-pct" style="color:#ff6b6b;">1,9 %</span><span class="fn-n" style="color:#ff5555;">1.165</span></div>
+        <div class="fn"><span class="fl" data-i18n="cr-fn-view">View Product (Emissionsseite)</span><span class="fn-pct">39,6 %</span><span class="fn-n" style="color:var(--w70);">24.059</span></div>
+        <div class="fa">↓ <span style="color:#ff4444;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;" data-i18n="cr-fn-drop">95 % Drop-off</span></div>
+        <div class="fn red"><span class="fl" style="color:#ffaaaa;" data-i18n="cr-fn-cart">Add to Cart (Invest-Button)</span><span class="fn-pct" style="color:#ff6b6b;">1,9 %</span><span class="fn-n" style="color:#ff5555;">1.165</span></div>
         <div class="fa">↓</div>
         <div class="fn"><span class="fl">Begin Checkout</span><span class="fn-pct" style="color:var(--w40);">1,4 %</span><span class="fn-n" style="color:var(--w70);">838</span></div>
         <div class="fa">↓</div>
-        <div class="fn"><span class="fl">KYC / Qualifizierung</span><span class="fn-pct" style="color:var(--w40);">1,0 %</span><span class="fn-n" style="color:var(--w70);">638</span></div>
+        <div class="fn"><span class="fl" data-i18n="cr-fn-kyc">KYC / Qualifizierung</span><span class="fn-pct" style="color:var(--w40);">1,0 %</span><span class="fn-n" style="color:var(--w70);">638</span></div>
         <div class="fa">↓</div>
         <div class="fn"><span class="fl">Order</span><span class="fn-pct" style="color:var(--w40);">0,9 %</span><span class="fn-n" style="color:var(--w70);">522</span></div>
         <div class="fa">↓</div>
@@ -198,14 +198,14 @@
         <div class="card-s" style="background:rgba(255,68,68,.06);border-color:rgba(255,100,100,.2);">
           <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#ff9999;margin-bottom:8px;">Mobile Gap</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-            <div style="text-align:center;padding:8px;background:rgba(255,255,255,.04);border-radius:7px;"><div style="font-size:22px;font-weight:800;color:#ff9999;">2/3</div><div style="font-size:10px;color:var(--w40);">des Traffics</div></div>
-            <div style="text-align:center;padding:8px;background:rgba(255,255,255,.04);border-radius:7px;"><div style="font-size:22px;font-weight:800;color:#ffcc99;">1/5</div><div style="font-size:10px;color:var(--w40);">des Revenues</div></div>
+            <div style="text-align:center;padding:8px;background:rgba(255,255,255,.04);border-radius:7px;"><div style="font-size:22px;font-weight:800;color:#ff9999;">2/3</div><div style="font-size:10px;color:var(--w40);" data-i18n="cr-mob-1">des Traffics</div></div>
+            <div style="text-align:center;padding:8px;background:rgba(255,255,255,.04);border-radius:7px;"><div style="font-size:22px;font-weight:800;color:#ffcc99;">1/5</div><div style="font-size:10px;color:var(--w40);" data-i18n="cr-mob-2">des Revenues</div></div>
           </div>
-          <div style="font-size:11px;color:var(--w40);margin-top:7px;line-height:1.4;">Mobile Nutzer:innen kommen, konvertieren aber deutlich seltener — ein starkes Signal für UX-Defizite.</div>
+          <div style="font-size:11px;color:var(--w40);margin-top:7px;line-height:1.4;" data-i18n="cr-mob-desc">Mobile Nutzer:innen kommen, konvertieren aber deutlich seltener — ein starkes Signal für UX-Defizite.</div>
         </div>
         <div class="card-s" style="background:rgba(255,68,68,.06);border-color:rgba(255,68,68,.16);">
-          <div style="font-size:12px;font-weight:600;color:#ffaaaa;margin-bottom:4px;">Kernhypothese</div>
-          <div style="font-size:12px;color:var(--w70);line-height:1.5;">Das Problem liegt nicht am Produkt — sondern an IA, Vertrauenssignalen und UI-Klarheit.</div>
+          <div style="font-size:12px;font-weight:600;color:#ffaaaa;margin-bottom:4px;" data-i18n="cr-hyp-label">Kernhypothese</div>
+          <div style="font-size:12px;color:var(--w70);line-height:1.5;" data-i18n="cr-hyp">Das Problem liegt nicht am Produkt — sondern an IA, Vertrauenssignalen und UI-Klarheit.</div>
         </div>
       </div>
     </div>
@@ -218,14 +218,14 @@
     <div class="s60s" style="align-items:stretch;">
       <div>
         <span class="lbl a1" data-i18n="cr-lbl3">Akademischer Rahmen</span>
-        <h2 class="t-lg a2">Masterstudium<br>Content Strategy —<br><span class="acc">als Forschungsfeld.</span></h2>
+        <h2 class="t-lg a2" data-i18n="cr-t-lg3">Masterstudium<br>Content Strategy —<br><span class="acc">als Forschungsfeld.</span></h2>
         <div class="div a3"></div>
         <p class="body a3" style="max-width:490px;" data-i18n="cr-body3">Parallel zur praktischen Arbeit am Relaunch ist das Projekt auch Gegenstand meiner Masterarbeit an der FH Joanneum geworden.</p>
         <p class="body-sm a4" style="margin-top:12px;max-width:490px;font-style:italic;color:var(--w40);" data-i18n="cr-body4">"Gestaltung digitaler Investmentumgebungen — eine nutzerzentrierte Neugestaltung der Frontend-Infrastruktur von CONDA Capital Market"</p>
-        <div class="a5" style="margin-top:22px;"><div class="card-s" style="background:var(--accent-dim);border-color:var(--accent-border);display:inline-block;"><div style="font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;">Methodik</div><div style="font-size:14px;font-weight:700;">Design Science Research (DSR)</div><div style="font-size:12px;color:var(--w70);margin-top:2px;">Forschung durch Gestaltung — wissenschaftlich und praktisch zugleich.</div></div></div>
+        <div class="a5" style="margin-top:22px;"><div class="card-s" style="background:var(--accent-dim);border-color:var(--accent-border);display:inline-block;"><div style="font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;" data-i18n="cr-meth-label">Methodik</div><div style="font-size:14px;font-weight:700;">Design Science Research (DSR)</div><div style="font-size:12px;color:var(--w70);margin-top:2px;" data-i18n="cr-meth-desc">Forschung durch Gestaltung — wissenschaftlich und praktisch zugleich.</div></div></div>
       </div>
       <div class="a5" style="display:flex;flex-direction:column;justify-content:space-between;">
-        <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--w40);margin-bottom:10px;">DSR — 6 Aktivitäten</div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--w40);margin-bottom:10px;" data-i18n="cr-meth-acts">DSR — 6 Aktivitäten</div>
         <div class="step" style="padding:14px 0;flex:1;"><span class="sn">01</span><div><div class="st" data-i18n="cr-st6">Problem Identification</div><div class="sd" data-i18n="cr-sd6">Conversion-Analyse · Heuristische Bewertung · Stakeholder-Gespräche</div></div></div>
         <div class="step" style="padding:14px 0;flex:1;"><span class="sn">02</span><div><div class="st" data-i18n="cr-st7">Define Objectives</div><div class="sd" data-i18n="cr-sd7">Nutzeranforderungen · ECSP-VO-Compliance · Geschäftsziele</div></div></div>
         <div class="step" style="padding:14px 0;flex:1;"><span class="sn">03</span><div><div class="st" data-i18n="cr-st8">Design &amp; Development</div><div class="sd" data-i18n="cr-sd8">Neue IA · Wireframes · Prototyp</div></div></div>
@@ -240,10 +240,10 @@
 <!-- 05 The Pitch -->
 <div class="slide" id="s5">
   <div class="slide-inner" style="max-width:800px;margin:0 auto;text-align:center;">
-    <span class="lbl a1" style="display:block;">Der Ausgangspunkt</span>
-    <h2 class="t-xl a2" style="margin-bottom:22px;">Mit Daten<br><span class="acc">ein Gespräch führen.</span></h2>
+    <span class="lbl a1" style="display:block;" data-i18n="cr-data-label">Der Ausgangspunkt</span>
+    <h2 class="t-xl a2" style="margin-bottom:22px;" data-i18n="cr-data-h2">Mit Daten<br><span class="acc">ein Gespräch führen.</span></h2>
     <p class="body a3" style="margin:0 auto 32px;max-width:580px;" data-i18n="cr-body5">Auf Basis der Conversion-Analyse bin ich auf Geschäftsführung und CMO zugegangen. Mit konkreten Zahlen lässt sich besser argumentieren als mit Meinungen.</p>
-    <div class="a4" style="display:flex;justify-content:center;margin-bottom:28px;"><div class="card" style="display:inline-flex;gap:36px;padding:22px 36px;flex-wrap:wrap;justify-content:center;"><div style="text-align:center;"><div class="stat-n" style="font-size:48px;color:var(--white);">€18K</div><div class="stat-l" data-i18n="cr-stat2">Budget freigegeben</div></div><div style="width:1px;background:rgba(255,255,255,.07);"></div><div style="text-align:center;"><div class="stat-n" style="font-size:48px;color:var(--white);">intern</div><div class="stat-l" data-i18n="cr-stat3">Umsetzung</div></div><div style="width:1px;background:rgba(255,255,255,.07);"></div><div style="text-align:center;"><div class="stat-n" style="font-size:48px;color:var(--white);">0</div><div class="stat-l" data-i18n="cr-stat4">Agentur-Stunden</div></div></div></div>
+    <div class="a4" style="display:flex;justify-content:center;margin-bottom:28px;"><div class="card" style="display:inline-flex;gap:36px;padding:22px 36px;flex-wrap:wrap;justify-content:center;"><div style="text-align:center;"><div class="stat-n" style="font-size:48px;color:var(--white);">€18K</div><div class="stat-l" data-i18n="cr-stat2">Budget freigegeben</div></div><div style="width:1px;background:rgba(255,255,255,.07);"></div><div style="text-align:center;"><div class="stat-n" style="font-size:48px;color:var(--white);" data-i18n="cr-stat-intern">intern</div><div class="stat-l" data-i18n="cr-stat3">Umsetzung</div></div><div style="width:1px;background:rgba(255,255,255,.07);"></div><div style="text-align:center;"><div class="stat-n" style="font-size:48px;color:var(--white);">0</div><div class="stat-l" data-i18n="cr-stat4">Agentur-Stunden</div></div></div></div>
     <p class="body-sm a5" style="max-width:580px;margin:0 auto 12px;" data-i18n="cr-body6">Das Budget war ursprünglich für eine externe Agentur gedacht. Ich wollte zunächst einen Prototypen bauen, um zu zeigen was ich mir vorstelle — und stieß dabei auf Lovable, ein KI-gestütztes Entwicklungstool.</p>
     <p class="body-sm a6" style="max-width:580px;margin:0 auto;color:var(--w40);" data-i18n="cr-body7">Was als Visualisierungshilfe begann, wurde zur vollständigen Plattform. Nicht weil ich ein Entwickler bin, sondern weil ich die Probleme kenne.</p>
   </div>
@@ -253,7 +253,7 @@
 <div class="slide" id="s6">
   <div class="slide-inner">
     <span class="lbl a1" data-i18n="cr-lbl4">Research</span>
-    <h2 class="t-md a2" style="max-width:560px;margin-bottom:22px;">Fünf Methoden — damit Designentscheidungen<br>auf mehr als Annahmen beruhen.</h2>
+    <h2 class="t-md a2" style="max-width:560px;margin-bottom:22px;" data-i18n="cr-t-md4">Fünf Methoden — damit Designentscheidungen<br>auf mehr als Annahmen beruhen.</h2>
     <div class="a3" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
       <div class="meth"><span class="mi">📋</span><div><div class="ml" data-i18n="cr-ml1">Content Audit</div><div class="ms" data-i18n="cr-ms1">Bestand, Struktur und Lücken der bestehenden Plattform</div></div></div>
       <div class="meth"><span class="mi">🔭</span><div><div class="ml" data-i18n="cr-ml2">Benchmark-Analyse</div><div class="ms" data-i18n="cr-ms2">Trade Republic · Scalable Capital · Revolut · Republic Europe · Wealthsimple</div></div></div>
@@ -282,9 +282,9 @@
         <div class="a4" style="margin-top:16px;">
           <div class="step"><span class="sn">→</span><div><div class="st" data-i18n="cr-st1">Informationsarchitektur</div><div class="sd" data-i18n="cr-sd1">Card-Sort-basierte Navigation · verb-basierte Top-Level-Bereiche</div></div></div>
           <div class="step"><span class="sn">→</span><div><div class="st" data-i18n="cr-st3">Emissionsseiten</div><div class="sd" data-i18n="cr-sd3">Renditerechner · Sticky-Modul · Tab-Navigation · Inline-Glossar</div></div></div>
-          <div class="step"><span class="sn">→</span><div><div class="st">Registrierung & Investment-Prozess</div><div class="sd" data-i18n="cr-sd4">11-stufiger Flow · KYC-Weiche · ECSP-VO-konform</div></div></div>
+          <div class="step"><span class="sn">→</span><div><div class="st" data-i18n="cr-st4">Registrierung & Investment-Prozess</div><div class="sd" data-i18n="cr-sd4">11-stufiger Flow · KYC-Weiche · ECSP-VO-konform</div></div></div>
           <div class="step"><span class="sn">→</span><div><div class="st" data-i18n="cr-st2">Design System</div><div class="sd" data-i18n="cr-sd2">Dark/Light Toggle · Mobile-first · Barrierefreiheit</div></div></div>
-          <div class="step"><span class="sn">→</span><div><div class="st">Content Hub & Glossar</div><div class="sd" data-i18n="cr-sd5">Investment 1x1 · plattformweites Inline-Glossar · Blog · Podcast</div></div></div>
+          <div class="step"><span class="sn">→</span><div><div class="st" data-i18n="cr-st5">Content Hub & Glossar</div><div class="sd" data-i18n="cr-sd5">Investment 1x1 · plattformweites Inline-Glossar · Blog · Podcast</div></div></div>
         </div>
       </div>
       <div class="a5" style="display:flex;align-items:center;justify-content:center;"><div style="display:flex;flex-direction:column;align-items:center;"><div style="position:relative;width:310px;height:670px;background:#0c0c0c;border-radius:46px;border:2.5px solid rgba(255,255,255,.18);box-shadow:0 60px 120px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.05) inset,0 0 80px rgba(50,210,151,.08);"><div style="position:absolute;top:18px;left:50%;transform:translateX(-50%);width:82px;height:24px;background:#000;border-radius:12px;z-index:5;"></div><div style="position:absolute;inset:8px;border-radius:38px;overflow:hidden;background:#000;"><video src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAUl/NtZGF0AAACrgYF//+q
@@ -24247,7 +24247,7 @@ NTguNzYuMTAw" style="width:100%;height:100%;object-fit:cover;object-position:top
   </div>
 </div>
 
-<div class="slide" id="s7b"><div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 60px 28px;box-sizing:border-box;"><span class="lbl a1" style="display:block;margin-bottom:24px;align-self:flex-start;">Mobile · Live-Demo</span><div class="a2" style="display:flex;justify-content:center;align-items:flex-start;gap:52px;flex:1;min-height:0;"><div style="display:flex;flex-direction:column;align-items:center;"><div style="position:relative;width:340px;height:735px;background:#0c0c0c;border-radius:46px;border:2.5px solid rgba(255,255,255,.18);box-shadow:0 60px 120px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.05) inset,0 0 80px rgba(50,210,151,.08);"><div style="position:absolute;top:18px;left:50%;transform:translateX(-50%);width:82px;height:24px;background:#000;border-radius:12px;z-index:5;"></div><div style="position:absolute;inset:8px;border-radius:38px;overflow:hidden;background:#000;"><video src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAol/RtZGF0AAACrgYF//+q
+<div class="slide" id="s7b"><div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 60px 28px;box-sizing:border-box;"><span class="lbl a1" style="display:block;margin-bottom:24px;align-self:flex-start;" data-i18n="cr-demo-label">Mobile · Live-Demo</span><div class="a2" style="display:flex;justify-content:center;align-items:flex-start;gap:52px;flex:1;min-height:0;"><div style="display:flex;flex-direction:column;align-items:center;"><div style="position:relative;width:340px;height:735px;background:#0c0c0c;border-radius:46px;border:2.5px solid rgba(255,255,255,.18);box-shadow:0 60px 120px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.05) inset,0 0 80px rgba(50,210,151,.08);"><div style="position:absolute;top:18px;left:50%;transform:translateX(-50%);width:82px;height:24px;background:#000;border-radius:12px;z-index:5;"></div><div style="position:absolute;inset:8px;border-radius:38px;overflow:hidden;background:#000;"><video src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAol/RtZGF0AAACrgYF//+q
 3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2MyByMzA2MCA1ZGI2YWE2IC0gSC4yNjQvTVBF
 Ry00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAyMSAtIGh0dHA6Ly93d3cudmlkZW9sYW4u
 b3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTIgZGVibG9jaz0xOjA6MCBhbmFs
@@ -125252,14 +125252,14 @@ AAAKEwAAAecAAAYvAAAIkAAABXAAAAhDAAAHhQAABMoAAAf7AAAGVAAACz0AAAIeAAANFQAAAosA
 AAJ4AAAHTgAAB6IAAAgQAAAIUwAACGsAAAHCAAAHuwAAB1wAAAHNAAAG5wAAAc4AAAitAAACeQAA
 BJkAAAJgAAAAHHN0Y28AAAAAAAAAAwAAADAAD/oKAB/4kAAAAGJ1ZHRhAAAAWm1ldGEAAAAAAAAA
 IWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAA
-AQAAAABMYXZmNTguNzYuMTAw" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" autoplay muted loop playsinline></video></div><div style="position:absolute;right:-4px;top:198px;width:3.5px;height:74px;background:#1e1e1e;border-radius:0 2px 2px 0;"></div><div style="position:absolute;left:-4px;top:162px;width:3.5px;height:51px;background:#1e1e1e;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-4px;top:228px;width:3.5px;height:51px;background:#1e1e1e;border-radius:2px 0 0 2px;"></div><div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:70px;height:5px;background:rgba(255,255,255,.22);border-radius:3px;"></div></div><div style="text-align:center;margin-top:14px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--w40);">Investmentflow</div></div></div></div></div>
+AQAAAABMYXZmNTguNzYuMTAw" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" autoplay muted loop playsinline></video></div><div style="position:absolute;right:-4px;top:198px;width:3.5px;height:74px;background:#1e1e1e;border-radius:0 2px 2px 0;"></div><div style="position:absolute;left:-4px;top:162px;width:3.5px;height:51px;background:#1e1e1e;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-4px;top:228px;width:3.5px;height:51px;background:#1e1e1e;border-radius:2px 0 0 2px;"></div><div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:70px;height:5px;background:rgba(255,255,255,.22);border-radius:3px;"></div></div><div style="text-align:center;margin-top:14px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--w40);" data-i18n="cr-demo-2">Investmentflow</div></div></div></div></div>
 
 <!-- 07b Emissionsseite — KAPO Anleihe -->
 <div class="slide" id="07bemissionsseite—kapoanleihe">
   <div style="position:relative;width:100%;height:100%;display:flex;flex-direction:column;padding:40px 56px 32px;">
-    <div class="a1" style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w40);margin-bottom:10px;flex-shrink:0;">Emissionsseite · Sticky-Modul + Renditerechner interaktiv</div>
+    <div class="a1" style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w40);margin-bottom:10px;flex-shrink:0;" data-i18n="cr-demo-3">Emissionsseite · Sticky-Modul + Renditerechner interaktiv</div>
     <div class="a2" style="flex:1;position:relative;border-radius:12px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.08);">
-      <div style="position:absolute;top:50px;right:16px;z-index:10;background:var(--accent);color:var(--bg);font-size:11px;font-weight:700;letter-spacing:.06em;padding:5px 14px;border-radius:20px;pointer-events:none;box-shadow:0 4px 20px rgba(50,210,151,.5);">↙ Sticky Invest-Modul</div>
+      <div style="position:absolute;top:50px;right:16px;z-index:10;background:var(--accent);color:var(--bg);font-size:11px;font-weight:700;letter-spacing:.06em;padding:5px 14px;border-radius:20px;pointer-events:none;box-shadow:0 4px 20px rgba(50,210,151,.5);" data-i18n="cr-demo-cap">↙ Sticky Invest-Modul</div>
       <div style="background:#1e1e1e;padding:9px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,.06);">
         <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
         <div style="width:8px;height:8px;border-radius:50%;background:#febc2e;margin-left:4px;"></div>
@@ -125275,20 +125275,20 @@ AQAAAABMYXZmNTguNzYuMTAw" style="width:100%;height:100%;object-fit:cover;object-
 <div class="slide" id="s8" style="padding:52px 80px;">
   <div class="slide-inner" style="max-width:780px;margin:0 auto;">
     <span class="lbl a1" data-i18n="cr-lbl6">Die neue Plattform</span>
-    <h2 class="t-lg a2" style="margin-bottom:20px;">Startseite &amp;<br>Investment-Übersicht.</h2>
+    <h2 class="t-lg a2" style="margin-bottom:20px;" data-i18n="cr-t-lg6">Startseite &amp;<br>Investment-Übersicht.</h2>
     <p class="body a3" style="max-width:540px;margin-bottom:32px;" data-i18n="cr-body9">Die Homepage folgt einer Feed-Logik mit neun inhaltlichen Blöcken. Animierter Social-Proof-Counter, Vier-Schritte-Erklärung und ein vollständiges Tag-System als universelles Navigationsprinzip.</p>
     <div class="a4" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
       <div class="card-s" style="text-align:center;padding:20px;">
         <div style="font-size:28px;font-weight:900;color:var(--accent);letter-spacing:-.03em;">300M</div>
-        <div style="font-size:11px;color:var(--w40);margin-top:3px;">EUR finanziertes Volumen</div>
+        <div style="font-size:11px;color:var(--w40);margin-top:3px;" data-i18n="cr-vol">EUR finanziertes Volumen</div>
       </div>
       <div class="card-s" style="text-align:center;padding:20px;">
         <div style="font-size:28px;font-weight:900;color:var(--accent);letter-spacing:-.03em;">70K+</div>
-        <div style="font-size:11px;color:var(--w40);margin-top:3px;">Anleger:innen</div>
+        <div style="font-size:11px;color:var(--w40);margin-top:3px;" data-i18n="cr-investors">Anleger:innen</div>
       </div>
       <div class="card-s" style="text-align:center;padding:20px;">
         <div style="font-size:28px;font-weight:900;color:var(--accent);letter-spacing:-.03em;">380+</div>
-        <div style="font-size:11px;color:var(--w40);margin-top:3px;">Projekte</div>
+        <div style="font-size:11px;color:var(--w40);margin-top:3px;" data-i18n="cr-projects">Projekte</div>
       </div>
     </div>
   </div>
@@ -125297,7 +125297,7 @@ AQAAAABMYXZmNTguNzYuMTAw" style="width:100%;height:100%;object-fit:cover;object-
 <!-- 08b Startseite -->
 <div class="slide" id="08bstartseite">
   <div style="position:relative;width:100%;height:100%;display:flex;flex-direction:column;padding:40px 56px 32px;">
-    <div class="a1" style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w40);margin-bottom:10px;flex-shrink:0;">Startseite · Feed-Logik + animierter Social-Proof-Counter</div>
+    <div class="a1" style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w40);margin-bottom:10px;flex-shrink:0;" data-i18n="cr-home-cap">Startseite · Feed-Logik + animierter Social-Proof-Counter</div>
     <div class="a2" style="flex:1;position:relative;border-radius:12px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.08);">
       <div style="background:#1e1e1e;padding:9px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,.06);">
         <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
@@ -125313,9 +125313,9 @@ AQAAAABMYXZmNTguNzYuMTAw" style="width:100%;height:100%;object-fit:cover;object-
 <!-- 08c Alle Investments -->
 <div class="slide" id="08calleinvestments">
   <div style="position:relative;width:100%;height:100%;display:flex;flex-direction:column;padding:40px 56px 32px;">
-    <div class="a1" style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w40);margin-bottom:10px;flex-shrink:0;">Alle Investments · Tag-Filter System</div>
+    <div class="a1" style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w40);margin-bottom:10px;flex-shrink:0;" data-i18n="cr-allinv-cap">Alle Investments · Tag-Filter System</div>
     <div class="a2" style="flex:1;position:relative;border-radius:12px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.08);">
-      <div style="position:absolute;top:50px;right:16px;z-index:10;background:var(--accent);color:var(--bg);font-size:11px;font-weight:700;letter-spacing:.06em;padding:5px 14px;border-radius:20px;pointer-events:none;box-shadow:0 4px 20px rgba(50,210,151,.5);">↙ Tags als Filter</div>
+      <div style="position:absolute;top:50px;right:16px;z-index:10;background:var(--accent);color:var(--bg);font-size:11px;font-weight:700;letter-spacing:.06em;padding:5px 14px;border-radius:20px;pointer-events:none;box-shadow:0 4px 20px rgba(50,210,151,.5);" data-i18n="cr-allinv-tag">↙ Tags als Filter</div>
       <div style="background:#1e1e1e;padding:9px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,.06);">
         <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
         <div style="width:8px;height:8px;border-radius:50%;background:#febc2e;margin-left:4px;"></div>
@@ -125334,9 +125334,9 @@ AQAAAABMYXZmNTguNzYuMTAw" style="width:100%;height:100%;object-fit:cover;object-
     <h2 class="t-lg a2" style="margin-bottom:20px;" data-i18n="cr-t-lg7">Vom ersten Klick<br>bis zum <span class="acc">Dashboard.</span></h2>
     <p class="body a3" style="max-width:540px;margin-bottom:28px;" data-i18n="cr-body10">Registrierung und KYC in 11 Schritten — mit Weichen-Screen nach Schritt 2 (KYC sofort oder Plattform erkunden) und Gamification-Element in der Anlegerqualifizierung. Der Kontobereich ist vollständig neu konzipiert.</p>
     <div class="a4" style="display:flex;flex-direction:column;gap:10px;max-width:540px;">
-      <div class="card-s"><div style="font-size:12px;font-weight:700;">Investor Dashboard</div><div style="font-size:11px;color:var(--w40);margin-top:2px;">KPI-Block · Wallet mit Transaktionsverlauf · Aktivitäts-Feed</div></div>
-      <div class="card-s"><div style="font-size:12px;font-weight:700;">Meine Investments</div><div style="font-size:11px;color:var(--w40);margin-top:2px;">4-Tab-Detailansicht: Übersicht · Dokumente · Mitteilungen · Reports</div></div>
-      <div class="card-s" style="background:var(--accent-dim);border-color:var(--accent-border);"><div style="font-size:12px;font-weight:700;color:var(--accent);">CONDA Marktplatz (Beta)</div><div style="font-size:11px;color:var(--w70);margin-top:2px;">Sekundärmarkt für Bestandsinvestments — adressiert strukturelle Illiquidität</div></div>
+      <div class="card-s"><div style="font-size:12px;font-weight:700;">Investor Dashboard</div><div style="font-size:11px;color:var(--w40);margin-top:2px;" data-i18n="cr-dash-1d">KPI-Block · Wallet mit Transaktionsverlauf · Aktivitäts-Feed</div></div>
+      <div class="card-s"><div style="font-size:12px;font-weight:700;" data-i18n="cr-dash-2">Meine Investments</div><div style="font-size:11px;color:var(--w40);margin-top:2px;" data-i18n="cr-dash-2d">4-Tab-Detailansicht: Übersicht · Dokumente · Mitteilungen · Reports</div></div>
+      <div class="card-s" style="background:var(--accent-dim);border-color:var(--accent-border);"><div style="font-size:12px;font-weight:700;color:var(--accent);" data-i18n="cr-dash-3">CONDA Marktplatz (Beta)</div><div style="font-size:11px;color:var(--w70);margin-top:2px;" data-i18n="cr-dash-3d">Sekundärmarkt für Bestandsinvestments — adressiert strukturelle Illiquidität</div></div>
     </div>
   </div>
 </div>
@@ -125344,7 +125344,7 @@ AQAAAABMYXZmNTguNzYuMTAw" style="width:100%;height:100%;object-fit:cover;object-
 <!-- 09b Dashboard -->
 <div class="slide" id="09bdashboard">
   <div style="position:relative;width:100%;height:100%;display:flex;flex-direction:column;padding:40px 56px 32px;">
-    <div class="a1" style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w40);margin-bottom:10px;flex-shrink:0;">Investor-Dashboard · KPI-Block + Wallet + Aktivitäts-Feed</div>
+    <div class="a1" style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w40);margin-bottom:10px;flex-shrink:0;" data-i18n="cr-dash-cap">Investor-Dashboard · KPI-Block + Wallet + Aktivitäts-Feed</div>
     <div class="a2" style="flex:1;position:relative;border-radius:12px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.08);">
       <div style="background:#1e1e1e;padding:9px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,.06);">
         <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
@@ -125367,33 +125367,33 @@ AQAAAABMYXZmNTguNzYuMTAw" style="width:100%;height:100%;object-fit:cover;object-
     <div class="a3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
       <div class="card-s">
         <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;">Navigation & Tags</div>
-        <div style="font-size:13px;font-weight:600;margin-bottom:5px;">Verbnbasierte IA + universelles Tag-System</div>
-        <div style="font-size:11px;color:var(--w40);line-height:1.5;">5 Top-Level-Bereiche (Investieren, Finanzieren, Wissen, Events, Über uns). Tags als Navigations- und Filterelement auf der gesamten Plattform — konsistent trainiertes Nutzerverhalten.</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:5px;" data-i18n="cr-rd1-s">Verbnbasierte IA + universelles Tag-System</div>
+        <div style="font-size:11px;color:var(--w40);line-height:1.5;" data-i18n="cr-rd1-d">5 Top-Level-Bereiche (Investieren, Finanzieren, Wissen, Events, Über uns). Tags als Navigations- und Filterelement auf der gesamten Plattform — konsistent trainiertes Nutzerverhalten.</div>
       </div>
       <div class="card-s">
         <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;">Homepage</div>
-        <div style="font-size:13px;font-weight:600;margin-bottom:5px;">Feed-Logik statt statischer Seite</div>
-        <div style="font-size:11px;color:var(--w40);line-height:1.5;">9 inhaltliche Blöcke entlang der Message Architecture. Animierter Social-Proof-Counter (300 Mio. EUR, 70.000+ Anleger:innen, 380+ Projekte). Vier-Schritte-Erklärung des Investitionsprozesses auf Einstiegsebene.</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:5px;" data-i18n="cr-rd2-s">Feed-Logik statt statischer Seite</div>
+        <div style="font-size:11px;color:var(--w40);line-height:1.5;" data-i18n="cr-rd2-d">9 inhaltliche Blöcke entlang der Message Architecture. Animierter Social-Proof-Counter (300 Mio. EUR, 70.000+ Anleger:innen, 380+ Projekte). Vier-Schritte-Erklärung des Investitionsprozesses auf Einstiegsebene.</div>
       </div>
       <div class="card-s">
-        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;">Emissionsseite</div>
-        <div style="font-size:13px;font-weight:600;margin-bottom:5px;">Sticky-Modul + Renditerechner</div>
-        <div style="font-size:11px;color:var(--w40);line-height:1.5;">Investitionsmodul fix rechts verankert. Szenario-Rechner je Instrumententyp. Tab-Navigation (Übersicht, Details, Dokumente, News). MARKETINGINHALT-Divider als ECSP-Anforderung. Inline-Glossar für Fachbegriffe.</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;" data-i18n="cr-rd3-t">Emissionsseite</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:5px;" data-i18n="cr-rd3-s">Sticky-Modul + Renditerechner</div>
+        <div style="font-size:11px;color:var(--w40);line-height:1.5;" data-i18n="cr-rd3-d">Investitionsmodul fix rechts verankert. Szenario-Rechner je Instrumententyp. Tab-Navigation (Übersicht, Details, Dokumente, News). MARKETINGINHALT-Divider als ECSP-Anforderung. Inline-Glossar für Fachbegriffe.</div>
       </div>
       <div class="card-s">
-        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;">Registrierung</div>
-        <div style="font-size:13px;font-weight:600;margin-bottom:5px;">KYC-Weiche + Gamification</div>
-        <div style="font-size:11px;color:var(--w40);line-height:1.5;">11 Schritte mit Fortschrittsanzeige. Weichen-Screen nach Schritt 2: KYC sofort oder Plattform erkunden. Anlegerqualifizierung als geführte Fragestrecke mit Münzglas-Gamification statt vier separaten Modulen.</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;" data-i18n="cr-rd4-t">Registrierung</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:5px;" data-i18n="cr-rd4-s">KYC-Weiche + Gamification</div>
+        <div style="font-size:11px;color:var(--w40);line-height:1.5;" data-i18n="cr-rd4-d">11 Schritte mit Fortschrittsanzeige. Weichen-Screen nach Schritt 2: KYC sofort oder Plattform erkunden. Anlegerqualifizierung als geführte Fragestrecke mit Münzglas-Gamification statt vier separaten Modulen.</div>
       </div>
       <div class="card-s">
-        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;">Kontobereich</div>
-        <div style="font-size:13px;font-weight:600;margin-bottom:5px;">Vollständiger Investor-Relations-Layer</div>
-        <div style="font-size:11px;color:var(--w40);line-height:1.5;">Dashboard mit KPI-Block, Wallet und Aktivitäts-Feed. Meine Investments mit 4-Tab-Detailansicht (Übersicht, Dokumente, Mitteilungen, Reports). Nachrichten-Inbox ersetzt fragmentierte E-Mail-Kommunikation.</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;" data-i18n="cr-rd5-t">Kontobereich</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:5px;" data-i18n="cr-rd5-s">Vollständiger Investor-Relations-Layer</div>
+        <div style="font-size:11px;color:var(--w40);line-height:1.5;" data-i18n="cr-rd5-d">Dashboard mit KPI-Block, Wallet und Aktivitäts-Feed. Meine Investments mit 4-Tab-Detailansicht (Übersicht, Dokumente, Mitteilungen, Reports). Nachrichten-Inbox ersetzt fragmentierte E-Mail-Kommunikation.</div>
       </div>
       <div class="card-s" style="background:var(--accent-dim);border-color:var(--accent-border);">
         <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;">Mobile-First</div>
-        <div style="font-size:13px;font-weight:600;margin-bottom:5px;color:var(--white);">Technologischer Neustart</div>
-        <div style="font-size:11px;color:var(--w70);line-height:1.5;">2/3 des Traffics kommen mobil — bisher nur 1/5 des Revenue. Das neue Frontend ist von Beginn an responsiv entwickelt. Quellcode als Basis für eine native App nutzbar.</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:5px;color:var(--white);" data-i18n="cr-rd6-s">Technologischer Neustart</div>
+        <div style="font-size:11px;color:var(--w70);line-height:1.5;" data-i18n="cr-rd6-d">2/3 des Traffics kommen mobil — bisher nur 1/5 des Revenue. Das neue Frontend ist von Beginn an responsiv entwickelt. Quellcode als Basis für eine native App nutzbar.</div>
       </div>
     </div>
   </div>
@@ -125406,11 +125406,11 @@ AQAAAABMYXZmNTguNzYuMTAw" style="width:100%;height:100%;object-fit:cover;object-
     <h2 class="t-xl a2" style="margin-bottom:22px;" data-i18n="cr-t-xl-live">Live.<br><span class="acc">September 2026.</span></h2>
     <p class="body a3" style="margin:0 auto 28px;max-width:560px;" data-i18n="cr-body11">Nach Forschung, Prototyping und Validierung geht die neue Plattform am 1. September 2026 live — für alle Nutzer:innen auf CONDA Capital Market.</p>
     <div class="a4" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;">
-      <div class="card-s" style="text-align:center;padding:20px;"><div style="font-size:26px;margin-bottom:7px;">🎓</div><div style="font-size:13px;font-weight:700;margin-bottom:2px;">Abschluss Masterstudium</div><div class="muted">FH Joanneum · 2026</div></div>
-      <div class="card-s" style="text-align:center;background:var(--accent-dim);border-color:var(--accent-border);padding:20px;"><div style="font-size:26px;margin-bottom:7px;">🚀</div><div style="font-size:13px;font-weight:700;margin-bottom:2px;color:var(--accent);">Go-Live</div><div style="font-size:12px;color:var(--w70);">1. September 2026</div></div>
-      <div class="card-s" style="text-align:center;padding:20px;"><div style="font-size:26px;margin-bottom:7px;">📊</div><div style="font-size:13px;font-weight:700;margin-bottom:2px;">Conversion messen</div><div class="muted">Baseline: 0,7 %</div></div>
+      <div class="card-s" style="text-align:center;padding:20px;"><div style="font-size:26px;margin-bottom:7px;">🎓</div><div style="font-size:13px;font-weight:700;margin-bottom:2px;" data-i18n="cr-tl1-t">Abschluss Masterstudium</div><div class="muted">FH Joanneum · 2026</div></div>
+      <div class="card-s" style="text-align:center;background:var(--accent-dim);border-color:var(--accent-border);padding:20px;"><div style="font-size:26px;margin-bottom:7px;">🚀</div><div style="font-size:13px;font-weight:700;margin-bottom:2px;color:var(--accent);">Go-Live</div><div style="font-size:12px;color:var(--w70);" data-i18n="cr-tl2-d">1. September 2026</div></div>
+      <div class="card-s" style="text-align:center;padding:20px;"><div style="font-size:26px;margin-bottom:7px;">📊</div><div style="font-size:13px;font-weight:700;margin-bottom:2px;" data-i18n="cr-tl3-t">Conversion messen</div><div class="muted" data-i18n="cr-tl3-d">Baseline: 0,7 %</div></div>
     </div>
-    <div class="a5"><a href="https://euro-nectar.lovable.app" target="_blank" class="live-btn">🔗 Plattform live ansehen</a></div>
+    <div class="a5"><a href="https://euro-nectar.lovable.app" target="_blank" class="live-btn" data-i18n="cr-link-live">🔗 Plattform live ansehen</a></div>
   </div>
 </div>
 
@@ -125569,38 +125569,58 @@ setTimeout(hh,5000);
       'cr-body4':'"Gestaltung digitaler Investmentumgebungen — eine nutzerzentrierte Neugestaltung der Frontend-Infrastruktur von CONDA Capital Market"',
       'cr-lbl4':'Research',
       'cr-t-md4':'Fünf Methoden — damit Designentscheidungen Daten folgen, nicht Meinungen.',
-      'cr-ml1':'Content Audit','cr-ms1':'Bestand, Struktur und Lücken der bestehenden Plattform',
-      'cr-ml2':'Benchmark-Analyse','cr-ms2':'Trade Republic · Scalable Capital · Revolut · Republic Europe · Wealthsimple',
-      'cr-ml3':'Card Sorting','cr-ms3':'Nutzerbezogene Kategorisierung der Inhaltsstruktur',
-      'cr-ml4':'IA Lenses Evaluation','cr-ms4':'Systematische IA-Bewertung nach Morville &amp; Rosenfeld',
-      'cr-ml5':'Think-Aloud Usability Testing','cr-ms5':'Moderiertes Testing mit Nutzer:innen · Remote &amp; Präsenz · Österreich',
-      'cr-stat2':'Budget freigegeben','cr-stat3':'Umsetzung',
-      'cr-stat4':'Agentur-Stunden','cr-stat5':'Methoden',
-      'cr-stat6':'Benchmark-Plattformen','cr-stat7':'Iterationsrunden','cr-stat8':'Seiten Masterarbeit',
+      'cr-ml1':'Content Audit',
+      'cr-ms1':'Bestand, Struktur und Lücken der bestehenden Plattform',
+      'cr-ml2':'Benchmark-Analyse',
+      'cr-ms2':'Trade Republic · Scalable Capital · Revolut · Republic Europe · Wealthsimple',
+      'cr-ml3':'Card Sorting',
+      'cr-ms3':'Nutzerbezogene Kategorisierung der Inhaltsstruktur',
+      'cr-ml4':'IA Lenses Evaluation',
+      'cr-ms4':'Systematische IA-Bewertung nach Morville &amp; Rosenfeld',
+      'cr-ml5':'Think-Aloud Usability Testing',
+      'cr-ms5':'Moderiertes Testing mit Nutzer:innen · Remote &amp; Präsenz · Österreich',
+      'cr-stat2':'Budget freigegeben',
+      'cr-stat3':'Umsetzung',
+      'cr-stat4':'Agentur-Stunden',
+      'cr-stat5':'Methoden',
+      'cr-stat6':'Benchmark-Plattformen',
+      'cr-stat7':'Iterationsrunden',
+      'cr-stat8':'Seiten Masterarbeit',
       'cr-body5':'Auf Basis der Conversion-Analyse bin ich auf Geschäftsführung und CMO zugegangen. Mit konkreten Zahlen lässt sich besser argumentieren als mit Meinungen.',
       'cr-body6':'Das Budget war ursprünglich für eine externe Agentur gedacht. Ich wollte zunächst einen Prototypen bauen, um zu zeigen was ich mir vorstelle — und stieß auf ein neues KI-Tool.',
       'cr-lbl5':'Was gebaut wurde',
       'cr-t-lg5':'Neue Struktur.<br>Neues Erlebnis.<br><span class="acc">Selbes Produkt.</span>',
       'cr-body7':'Was als Visualisierungshilfe begann, wurde zur vollständigen Plattform. Nicht weil ich ein Entwickler bin, sondern weil ich die Probleme kenne.',
       'cr-body8':'Informationsarchitektur, Navigation, Emissionsseiten und der gesamte Investment-Prozess wurden von Grund auf neu gedacht — gebaut mit Lovable statt externer Agentur.',
-      'cr-t-md5':'Sechs Bereiche.',
-      'cr-st1':'Informationsarchitektur','cr-sd1':'Card-Sort-basierte Navigation · verb-basierte Top-Level-Bereiche',
-      'cr-st2':'Design System','cr-sd2':'Dark/Light Toggle · Mobile-first · Barrierefreiheit',
-      'cr-st3':'Emissionsseiten','cr-sd3':'Renditerechner · Sticky-Modul · Tab-Navigation · Inline-Glossar',
-      'cr-st4':'Registrierung &amp; Investment-Prozess','cr-sd4':'11-stufiger Flow · KYC-Weiche · ECSP-VO-konform',
-      'cr-st5':'Content Hub &amp; Glossar','cr-sd5':'Investment 1x1 · plattformweites Inline-Glossar · Blog · Podcast',
+      'cr-t-md5':'Sechs Bereiche.<br>Eine durchgängige Logik.',
+      'cr-st1':'Informationsarchitektur',
+      'cr-sd1':'Card-Sort-basierte Navigation · verb-basierte Top-Level-Bereiche',
+      'cr-st2':'Design System',
+      'cr-sd2':'Dark/Light Toggle · Mobile-first · Barrierefreiheit',
+      'cr-st3':'Emissionsseiten',
+      'cr-sd3':'Renditerechner · Sticky-Modul · Tab-Navigation · Inline-Glossar',
+      'cr-st4':'Registrierung &amp; Investment-Prozess',
+      'cr-sd4':'11-stufiger Flow · KYC-Weiche · ECSP-VO-konform',
+      'cr-st5':'Content Hub &amp; Glossar',
+      'cr-sd5':'Investment 1x1 · plattformweites Inline-Glossar · Blog · Podcast',
       'cr-lbl6':'Die neue Plattform',
-      'cr-t-lg6':'Startseite &amp;<br>Navigation.',
+      'cr-t-lg6':'Startseite &amp;<br>Investment-Übersicht.',
       'cr-body9':'Die Homepage folgt einer Feed-Logik mit neun inhaltlichen Blöcken. Animierter Social-Proof-Counter, Vier-Schritte-Erklärung und ein vollständiges Tag-System für Emissionen.',
       'cr-lbl7':'Das Investor-Erlebnis',
       'cr-t-lg7':'Vom ersten Klick<br>bis zum <span class="acc">Dashboard.</span>',
       'cr-body10':'Registrierung und KYC in 11 Schritten — mit Weichen-Screen nach Schritt 2 (KYC sofort oder Plattform erkunden) und Gamification-Element in der Anlegerprofilierung.',
-      'cr-st6':'Problem Identification','cr-sd6':'Conversion-Analyse · Heuristische Bewertung · Stakeholder-Gespräche',
-      'cr-st7':'Define Objectives','cr-sd7':'Nutzeranforderungen · ECSP-VO-Compliance · Geschäftsziele',
-      'cr-st8':'Design &amp; Development','cr-sd8':'Neue IA · Wireframes · Prototyp',
-      'cr-st9':'Evaluation','cr-sd9':'Think-Aloud Usability Testing',
-      'cr-st10':'Communication','cr-sd10':'Masterarbeit (139 Seiten) + Live-Plattform',
-      'cr-st11':'Demonstration','cr-sd11':'Funktionierende Plattform als Artefakt',
+      'cr-st6':'Problem Identification',
+      'cr-sd6':'Conversion-Analyse · Heuristische Bewertung · Stakeholder-Gespräche',
+      'cr-st7':'Define Objectives',
+      'cr-sd7':'Nutzeranforderungen · ECSP-VO-Compliance · Geschäftsziele',
+      'cr-st8':'Design &amp; Development',
+      'cr-sd8':'Neue IA · Wireframes · Prototyp',
+      'cr-st9':'Evaluation',
+      'cr-sd9':'Think-Aloud Usability Testing',
+      'cr-st10':'Communication',
+      'cr-sd10':'Masterarbeit (139 Seiten) + Live-Plattform',
+      'cr-st11':'Demonstration',
+      'cr-sd11':'Funktionierende Plattform als Artefakt',
       'cr-lbl8':'Das Redesign',
       'cr-lbl9':'Über mich',
       'cr-t-lg9':'Marketing, Strategie<br>und <span class="acc">Umsetzung</span>.',
@@ -125608,56 +125628,139 @@ setTimeout(hh,5000);
       'cr-t-xl-live':'Live.<br><span class="acc">September 2026.</span>',
       'cr-body11':'Nach Forschung, Prototyping und Validierung geht die neue Plattform am 1. September 2026 live — für alle Nutzer:innen auf CONDA Capital Market.',
       'cr-body12':'Dieses Projekt verbindet internes Plattformwissen, strukturierte Content-Forschung und praktische Umsetzung — etwas, das von außen in dieser Form kaum möglich gewesen wäre.',
+      'cr-nav':'Navigieren',
+      'cr-meta-company':'Unternehmen',
+      'cr-meta-role':'Rolle',
+      'cr-meta-study':'Studium',
+      'cr-meta-golive':'Go-Live',
+      'cr-inv-label':'Anlageformen',
+      'cr-inv-1':'Aktien · Anleihen · Genussscheine<br>Wandelanleihen · Indirekte Beteiligungen',
+      'cr-reg-label':'Regulierung',
+      'cr-reg-1':'ECSP-VO (EU 2020/1503)',
+      'cr-reg-2':'Aufsicht: FMA Österreich',
+      'cr-start-label':'Ausgangspunkt',
+      'cr-start-q':'Die Conversion-Daten aus dem internen Reporting haben die Frage aufgeworfen: Woran verlieren wir die Nutzer:innen?',
+      'cr-fn-view':'View Product (Emissionsseite)',
+      'cr-fn-cart':'Add to Cart (Invest-Button)',
+      'cr-fn-kyc':'KYC / Qualifizierung',
+      'cr-fn-drop':'95 % Drop-off',
+      'cr-mob-1':'des Traffics',
+      'cr-mob-2':'des Revenues',
+      'cr-mob-desc':'Mobile Nutzer:innen kommen, konvertieren aber deutlich seltener — ein starkes Signal für UX-Defizite.',
+      'cr-hyp-label':'Kernhypothese',
+      'cr-hyp':'Das Problem liegt nicht am Produkt — sondern an IA, Vertrauenssignalen und UI-Klarheit.',
+      'cr-meth-label':'Methodik',
+      'cr-meth-desc':'Forschung durch Gestaltung — wissenschaftlich und praktisch zugleich.',
+      'cr-meth-acts':'DSR — 6 Aktivitäten',
+      'cr-data-label':'Der Ausgangspunkt',
+      'cr-data-h2':'Mit Daten<br><span class="acc">ein Gespräch führen.</span>',
+      'cr-stat-intern':'intern',
+      'cr-demo-label':'Mobile · Live-Demo',
+      'cr-demo-2':'Investmentflow',
+      'cr-demo-3':'Emissionsseite · Sticky-Modul + Renditerechner interaktiv',
+      'cr-demo-cap':'↙ Sticky Invest-Modul',
+      'cr-vol':'EUR finanziertes Volumen',
+      'cr-investors':'Anleger:innen',
+      'cr-projects':'Projekte',
+      'cr-home-cap':'Startseite · Feed-Logik + animierter Social-Proof-Counter',
+      'cr-allinv-cap':'Alle Investments · Tag-Filter System',
+      'cr-allinv-tag':'↙ Tags als Filter',
+      'cr-dash-1d':'KPI-Block · Wallet mit Transaktionsverlauf · Aktivitäts-Feed',
+      'cr-dash-2':'Meine Investments',
+      'cr-dash-2d':'4-Tab-Detailansicht: Übersicht · Dokumente · Mitteilungen · Reports',
+      'cr-dash-3':'CONDA Marktplatz (Beta)',
+      'cr-dash-3d':'Sekundärmarkt für Bestandsinvestments — adressiert strukturelle Illiquidität',
+      'cr-dash-cap':'Investor-Dashboard · KPI-Block + Wallet + Aktivitäts-Feed',
+      'cr-rd1-s':'Verbnbasierte IA + universelles Tag-System',
+      'cr-rd1-d':'5 Top-Level-Bereiche (Investieren, Finanzieren, Wissen, Events, Über uns). Tags als Navigations- und Filterelement auf der gesamten Plattform — konsistent trainiertes Nutzerverhalten.',
+      'cr-rd2-s':'Feed-Logik statt statischer Seite',
+      'cr-rd2-d':'9 inhaltliche Blöcke entlang der Message Architecture. Animierter Social-Proof-Counter (300 Mio. EUR, 70.000+ Anleger:innen, 380+ Projekte). Vier-Schritte-Erklärung des Investitionsprozesses auf Einstiegsebene.',
+      'cr-rd3-t':'Emissionsseite',
+      'cr-rd3-s':'Sticky-Modul + Renditerechner',
+      'cr-rd3-d':'Investitionsmodul fix rechts verankert. Szenario-Rechner je Instrumententyp. Tab-Navigation (Übersicht, Details, Dokumente, News). MARKETINGINHALT-Divider als ECSP-Anforderung. Inline-Glossar für Fachbegriffe.',
+      'cr-rd4-t':'Registrierung',
+      'cr-rd4-s':'KYC-Weiche + Gamification',
+      'cr-rd4-d':'11 Schritte mit Fortschrittsanzeige. Weichen-Screen nach Schritt 2: KYC sofort oder Plattform erkunden. Anlegerqualifizierung als geführte Fragestrecke mit Münzglas-Gamification statt vier separaten Modulen.',
+      'cr-rd5-t':'Kontobereich',
+      'cr-rd5-s':'Vollständiger Investor-Relations-Layer',
+      'cr-rd5-d':'Dashboard mit KPI-Block, Wallet und Aktivitäts-Feed. Meine Investments mit 4-Tab-Detailansicht (Übersicht, Dokumente, Mitteilungen, Reports). Nachrichten-Inbox ersetzt fragmentierte E-Mail-Kommunikation.',
+      'cr-rd6-s':'Technologischer Neustart',
+      'cr-rd6-d':'2/3 des Traffics kommen mobil — bisher nur 1/5 des Revenue. Das neue Frontend ist von Beginn an responsiv entwickelt. Quellcode als Basis für eine native App nutzbar.',
+      'cr-tl1-t':'Abschluss Masterstudium',
+      'cr-tl3-t':'Conversion messen',
+      'cr-tl3-d':'Baseline: 0,7 %',
+      'cr-tl2-d':'1. September 2026',
+      'cr-link-live':'🔗 Plattform live ansehen',
     },
     en:{
       'cr-eyebrow':'Nicolaus Stangl — Case Study',
       'cr-h1':'FROM<br><span class="acc">THESIS</span><br>TO<br>PLATFORM.',
-      'cr-body0':'How a data-driven master\'s thesis, a pitch, and a new tool helped rethink an investment platform from the ground up.',
+      'cr-body0':'How a data-driven master\\\'s thesis, a pitch, and a new tool helped rethink an investment platform from the ground up.',
       'cr-lbl1':'Context',
       'cr-t-lg1':'The platform behind<br>crowdinvesting in the DACH region.',
       'cr-body1':'CONDA Capital Market enables investors to take stakes in growth companies — regulated under the ECSP Regulation and supervised by the Austrian FMA.',
-      'cr-body1b':'As Marketing Manager, I was simultaneously an internal stakeholder and — through my master\'s thesis — someone who investigated the problem systematically.',
+      'cr-body1b':'As Marketing Manager, I was simultaneously an internal stakeholder and — through my master\\\'s thesis — someone who investigated the problem systematically.',
       'cr-lbl2':'The Problem',
-      'cr-t-md2':'60,779 visitors.<br>450 investments.',
+      'cr-t-md2':'60,779 visitors.<br>450 completed investments.',
       'cr-stat1':'Drop-off before the first investment step',
       'cr-lbl3':'Academic Framework',
-      'cr-t-lg3':'Master\'s in<br>Content Strategy — as a research field.',
-      'cr-body3':'Alongside the practical work on the relaunch, the project also became the subject of my master\'s thesis at FH Joanneum.',
+      'cr-t-lg3':'Master\\\'s in<br>Content Strategy — as a research field.',
+      'cr-body3':'Alongside the practical work on the relaunch, the project also became the subject of my master\\\'s thesis at FH Joanneum.',
       'cr-body4':'"Designing Digital Investment Environments — A User-Centred Redesign of the Frontend Infrastructure of CONDA Capital Market"',
       'cr-lbl4':'Research',
       'cr-t-md4':'Five methods — so design decisions follow data, not opinions.',
-      'cr-ml1':'Content Audit','cr-ms1':'Existing platform: inventory, structure and gaps',
-      'cr-ml2':'Benchmark Analysis','cr-ms2':'Trade Republic · Scalable Capital · Revolut · Republic Europe · Wealthsimple',
-      'cr-ml3':'Card Sorting','cr-ms3':'User-based categorisation of the content structure',
-      'cr-ml4':'IA Lenses Evaluation','cr-ms4':'Systematic IA assessment after Morville &amp; Rosenfeld',
-      'cr-ml5':'Think-Aloud Usability Testing','cr-ms5':'Moderated testing with users · Remote &amp; in-person · Austria',
-      'cr-stat2':'Budget approved','cr-stat3':'Implementation',
-      'cr-stat4':'Agency hours','cr-stat5':'Methods',
-      'cr-stat6':'Benchmark platforms','cr-stat7':'Iteration rounds','cr-stat8':'Pages of thesis',
+      'cr-ml1':'Content Audit',
+      'cr-ms1':'Existing platform: inventory, structure and gaps',
+      'cr-ml2':'Benchmark Analysis',
+      'cr-ms2':'Trade Republic · Scalable Capital · Revolut · Republic Europe · Wealthsimple',
+      'cr-ml3':'Card Sorting',
+      'cr-ms3':'User-based categorisation of the content structure',
+      'cr-ml4':'IA Lenses Evaluation',
+      'cr-ms4':'Systematic IA assessment after Morville &amp; Rosenfeld',
+      'cr-ml5':'Think-Aloud Usability Testing',
+      'cr-ms5':'Moderated testing with users · Remote &amp; in-person · Austria',
+      'cr-stat2':'Budget approved',
+      'cr-stat3':'Implementation',
+      'cr-stat4':'Agency hours',
+      'cr-stat5':'Methods',
+      'cr-stat6':'Benchmark platforms',
+      'cr-stat7':'Iteration rounds',
+      'cr-stat8':'Pages of thesis',
       'cr-body5':'Based on the conversion analysis, I approached management and the CMO. Hard numbers make for better arguments than opinions.',
-      'cr-body6':'The budget was originally earmarked for an external agency. I wanted to build a prototype first to show what I had in mind — and came across a new AI tool.',
+      'cr-body6':'The budget was originally earmarked for an external agency. I wanted to build a prototype first to show what I had in mind — and came across Lovable, an AI-powered development tool.',
       'cr-lbl5':'What was built',
       'cr-t-lg5':'New structure.<br>New experience.<br><span class="acc">Same product.</span>',
-      'cr-body7':'What started as a visualisation aid became a full platform. Not because I\'m a developer, but because I know the problems.',
+      'cr-body7':'What started as a visualisation aid became a full platform. Not because I\\\'m a developer, but because I know the problems.',
       'cr-body8':'Information architecture, navigation, project pages and the entire investment process were rethought from scratch — built with Lovable instead of an external agency.',
-      'cr-t-md5':'Six areas.',
-      'cr-st1':'Information Architecture','cr-sd1':'Card-sort-based navigation · verb-based top-level areas',
-      'cr-st2':'Design System','cr-sd2':'Dark/Light toggle · Mobile-first · Accessibility',
-      'cr-st3':'Project Pages','cr-sd3':'Return calculator · Sticky module · Tab navigation · Inline glossary',
-      'cr-st4':'Registration &amp; Investment Process','cr-sd4':'11-step flow · KYC gate · ECSP-compliant',
-      'cr-st5':'Content Hub &amp; Glossary','cr-sd5':'Investing 101 · platform-wide inline glossary · Blog · Podcast',
+      'cr-t-md5':'Six areas.<br>One consistent logic.',
+      'cr-st1':'Information Architecture',
+      'cr-sd1':'Card-sort-based navigation · verb-based top-level areas',
+      'cr-st2':'Design System',
+      'cr-sd2':'Dark/Light toggle · Mobile-first · Accessibility',
+      'cr-st3':'Project Pages',
+      'cr-sd3':'Return calculator · Sticky module · Tab navigation · Inline glossary',
+      'cr-st4':'Registration &amp; Investment Process',
+      'cr-sd4':'11-step flow · KYC gate · ECSP-compliant',
+      'cr-st5':'Content Hub &amp; Glossary',
+      'cr-sd5':'Investing 101 · platform-wide inline glossary · Blog · Podcast',
       'cr-lbl6':'The new platform',
-      'cr-t-lg6':'Homepage &amp;<br>Navigation.',
+      'cr-t-lg6':'Homepage &amp;<br>investment overview.',
       'cr-body9':'The homepage follows a feed logic with nine content blocks. Animated social-proof counter, four-step explainer and a complete tag system for projects.',
       'cr-lbl7':'The Investor Experience',
       'cr-t-lg7':'From the first click<br>to the <span class="acc">dashboard.</span>',
       'cr-body10':'Registration and KYC in 11 steps — with a routing screen after step 2 (KYC now or explore the platform) and a gamification element in investor profiling.',
-      'cr-st6':'Problem Identification','cr-sd6':'Conversion analysis · Heuristic evaluation · Stakeholder interviews',
-      'cr-st7':'Define Objectives','cr-sd7':'User requirements · ECSP compliance · Business goals',
-      'cr-st8':'Design &amp; Development','cr-sd8':'New IA · Wireframes · Prototype',
-      'cr-st9':'Evaluation','cr-sd9':'Think-Aloud Usability Testing',
-      'cr-st10':'Communication','cr-sd10':'Master\'s thesis (139 pages) + live platform',
-      'cr-st11':'Demonstration','cr-sd11':'Working platform as artefact',
+      'cr-st6':'Problem Identification',
+      'cr-sd6':'Conversion analysis · Heuristic evaluation · Stakeholder interviews',
+      'cr-st7':'Define Objectives',
+      'cr-sd7':'User requirements · ECSP compliance · Business goals',
+      'cr-st8':'Design &amp; Development',
+      'cr-sd8':'New IA · Wireframes · Prototype',
+      'cr-st9':'Evaluation',
+      'cr-sd9':'Think-Aloud Usability Testing',
+      'cr-st10':'Communication',
+      'cr-sd10':'Master\\\'s thesis (139 pages) + live platform',
+      'cr-st11':'Demonstration',
+      'cr-sd11':'Working platform as artefact',
       'cr-lbl8':'The Redesign',
       'cr-lbl9':'About me',
       'cr-t-lg9':'Marketing, Strategy<br>and <span class="acc">Execution</span>.',
@@ -125665,6 +125768,69 @@ setTimeout(hh,5000);
       'cr-t-xl-live':'Live.<br><span class="acc">September 2026.</span>',
       'cr-body11':'After research, prototyping and validation, the new platform goes live on 1 September 2026 — for all users on CONDA Capital Market.',
       'cr-body12':'This project combines internal platform knowledge, structured content research and practical execution — something that would have been near-impossible to achieve from the outside.',
+      'cr-nav':'Navigate',
+      'cr-meta-company':'Company',
+      'cr-meta-role':'Role',
+      'cr-meta-study':'Studies',
+      'cr-meta-golive':'Go-Live',
+      'cr-inv-label':'Investment types',
+      'cr-inv-1':'Shares · Bonds · Profit-participation certificates<br>Convertible bonds · Indirect holdings',
+      'cr-reg-label':'Regulation',
+      'cr-reg-1':'ECSPR (EU 2020/1503)',
+      'cr-reg-2':'Supervised by the Austrian FMA',
+      'cr-start-label':'Starting point',
+      'cr-start-q':'The conversion data from internal reporting raised the question: where are we losing users?',
+      'cr-fn-view':'View Product (project page)',
+      'cr-fn-cart':'Add to Cart (invest button)',
+      'cr-fn-kyc':'KYC / Qualification',
+      'cr-fn-drop':'95% drop-off',
+      'cr-mob-1':'of traffic',
+      'cr-mob-2':'of revenue',
+      'cr-mob-desc':'Mobile users show up but convert far less often — a strong signal of UX shortcomings.',
+      'cr-hyp-label':'Core hypothesis',
+      'cr-hyp':'The problem isn\'t the product — it\'s IA, trust signals and UI clarity.',
+      'cr-meth-label':'Methodology',
+      'cr-meth-desc':'Research through design — academic and practical at once.',
+      'cr-meth-acts':'DSR — 6 activities',
+      'cr-data-label':'The starting point',
+      'cr-data-h2':'Let the data <span class="acc">do the talking.</span>',
+      'cr-stat-intern':'In-house',
+      'cr-demo-label':'Mobile · Live Demo',
+      'cr-demo-2':'Investment flow',
+      'cr-demo-3':'Project page · Sticky module + interactive return calculator',
+      'cr-demo-cap':'↙ Sticky invest module',
+      'cr-vol':'EUR volume financed',
+      'cr-investors':'Investors',
+      'cr-projects':'Projects',
+      'cr-home-cap':'Homepage · Feed logic + animated social-proof counter',
+      'cr-allinv-cap':'All investments · Tag-filter system',
+      'cr-allinv-tag':'↙ Tags as filters',
+      'cr-dash-1d':'KPI block · Wallet with transaction history · Activity feed',
+      'cr-dash-2':'My Investments',
+      'cr-dash-2d':'4-tab detail view: Overview · Documents · Notifications · Reports',
+      'cr-dash-3':'CONDA Marketplace (Beta)',
+      'cr-dash-3d':'Secondary market for existing investments — tackling structural illiquidity',
+      'cr-dash-cap':'Investor dashboard · KPI block + Wallet + Activity feed',
+      'cr-rd1-s':'Verb-based IA + universal tag system',
+      'cr-rd1-d':'Five top-level areas (Invest, Finance, Knowledge, Events, About us). Tags as a navigation and filter element across the entire platform — consistently trained user behaviour.',
+      'cr-rd2-s':'Feed logic instead of a static page',
+      'cr-rd2-d':'Nine content blocks along the message architecture. Animated social-proof counter (€300M, 70,000+ investors, 380+ projects). Four-step explainer of the investment process at entry level.',
+      'cr-rd3-t':'Project page',
+      'cr-rd3-s':'Sticky module + return calculator',
+      'cr-rd3-d':'Investment module anchored on the right. Scenario calculator per instrument type. Tab navigation (Overview, Details, Documents, News). A MARKETING-CONTENT divider as an ECSP requirement. Inline glossary for technical terms.',
+      'cr-rd4-t':'Registration',
+      'cr-rd4-s':'KYC gate + gamification',
+      'cr-rd4-d':'11 steps with a progress indicator. Routing screen after step 2: KYC now or explore the platform. Investor profiling as a guided question flow with coin-jar gamification instead of four separate modules.',
+      'cr-rd5-t':'Account area',
+      'cr-rd5-s':'Complete investor-relations layer',
+      'cr-rd5-d':'Dashboard with KPI block, wallet and activity feed. My Investments with a 4-tab detail view (Overview, Documents, Notifications, Reports). A message inbox replaces fragmented email communication.',
+      'cr-rd6-s':'A technological restart',
+      'cr-rd6-d':'Two-thirds of traffic comes from mobile — yet only one-fifth of revenue so far. The new frontend is built responsive from the start. The source code can serve as the basis for a native app.',
+      'cr-tl1-t':'Master\'s degree completed',
+      'cr-tl3-t':'Measuring conversion',
+      'cr-tl3-d':'Baseline: 0.7%',
+      'cr-tl2-d':'1 September 2026',
+      'cr-link-live':'🔗 See the platform live',
     }
   };
   function applyLang(l){
