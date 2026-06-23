@@ -247,7 +247,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
 .reveal:nth-child(2){transition-delay:.07s;}
 .reveal:nth-child(3){transition-delay:.14s;}
 
-@media(max-width:600px){
+/* ── LANG TOGGLE ── */.lang-toggle{display:flex;align-items:center;gap:5px;background:transparent;  border:1px solid var(--border);border-radius:20px;padding:5px 13px;  cursor:pointer;font-family:inherit;font-size:11px;font-weight:700;  letter-spacing:.1em;color:var(--muted);transition:border-color .2s;margin-left:16px;}.lang-toggle:hover{border-color:var(--accent,#6b4226);}.lt-sep{opacity:.25;margin:0 1px;}.lt-active{color:var(--text,#1a120a);}@media(max-width:600px){
   .panel{width:180px;height:254px;}
   .section{padding:60px 24px;}
 }
@@ -258,19 +258,20 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
 <!-- HERO -->
 <section id="hero">
   <img src="Barkingham Logos.png" class="hero-logo" alt="Barkingham Palace Logo">
-  <div class="hero-tag">Branding · Print · Digital</div>
-  <h1>Royal gemacht.<br><em>Von Grund auf.</em></h1>
-  <p class="hero-sub">Ein Blick hinter die Kulissen — die Branding-Materialien, die ich für Barkingham Palace, Wiens ersten Hunde Spa, entwickelt habe.</p>
+  <div class="hero-tag" data-i18n="bark-tag">Branding · Print · Digital</div>
+  <h1 data-i18n="bark-h1">Royal gemacht.<br><em>Von Grund auf.</em></h1>
+  <p class="hero-sub" data-i18n="bark-sub">Ein Blick hinter die Kulissen — die Branding-Materialien, die ich für Barkingham Palace, Wiens ersten Hunde Spa, entwickelt habe.</p>
   <div class="scroll-hint">Scroll</div>
+  <div style="position:fixed;top:20px;right:24px;z-index:200;"><button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language"><span id="lt-de" class="lt-active">DE</span><span class="lt-sep">|</span><span id="lt-en">EN</span></button></div>
 </section>
 
 <div class="gold-rule"></div>
 
 <!-- FLYER -->
 <section class="section dark" id="flyer-sec">
-  <div class="sec-label reveal-fade">Print · Dreierfalz</div>
-  <h2 class="reveal">Der Eröffnungsflyer.</h2>
-  <p class="section-desc reveal">Dreierfalz-Flyer für die Eröffnung im Oktober 2025. Ziehen zum Drehen, Klicken zum Auf- und Zuklappen.</p>
+  <div class="sec-label reveal-fade" data-i18n="bark-sec1-label">Print · Dreierfalz</div>
+  <h2 class="reveal" data-i18n="bark-sec1-h2">Der Eröffnungsflyer.</h2>
+  <p class="section-desc reveal"data-i18n="bark-sec1-desc">Dreierfalz-Flyer für die Eröffnung im Oktober 2025. Ziehen zum Drehen, Klicken zum Auf- und Zuklappen.</p>
 
   <div class="flyer-scene reveal" id="flyer-scene">
     <div class="flyer-orbit" id="flyer-orbit">
@@ -283,8 +284,8 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
   </div>
 
   <div class="flyer-cta reveal">
-    <button class="flyer-btn" id="flyer-btn">Zuklappen</button>
-    <span class="drag-hint">Ziehen zum Drehen</span>
+    <button class="flyer-btn" id="flyer-btn" data-i18n="bark-btn-fold" data-open="true">Zuklappen</button>
+    <span class="drag-hint" data-i18n="bark-drag">Ziehen zum Drehen</span>
   </div>
 </section>
 
@@ -292,9 +293,9 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
 
 <!-- BANNER -->
 <section class="section" id="banner-sec">
-  <div class="sec-label reveal-fade">Print · OOH</div>
-  <h2 class="reveal">Das Eröffnungsbanner.</h2>
-  <p class="section-desc reveal">Outdoor-Banner zur Eröffnung im Oktober 2025.</p>
+  <div class="sec-label reveal-fade" data-i18n="bark-sec2-label">Print · OOH</div>
+  <h2 class="reveal" data-i18n="bark-sec2-h2">Das Eröffnungsbanner.</h2>
+  <p class="section-desc reveal" data-i18n="bark-sec2-desc">Outdoor-Banner zur Eröffnung im Oktober 2025.</p>
 
   <img src="Eröffnung Banner.png" class="reveal" style="width:min(860px,92vw);height:auto;display:block;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.5);" alt="Eröffnungsbanner Barkingham Palace">
 </section>
@@ -303,9 +304,9 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
 
 <!-- WEBSITE MOCKUP -->
 <section class="section dark" id="web-sec">
-  <div class="sec-label reveal-fade">Digital · Web</div>
-  <h2 class="reveal">Die Website.</h2>
-  <p class="section-desc reveal">Aufgebaut mit Jimdo — inklusive integriertem Buchungstool. Struktur, Copy und visuelles Konzept komplett selbst umgesetzt.</p>
+  <div class="sec-label reveal-fade" data-i18n="bark-sec3-label">Digital · Web</div>
+  <h2 class="reveal" data-i18n="bark-sec3-h2">Die Website.</h2>
+  <p class="section-desc reveal" data-i18n="bark-sec3-desc">Aufgebaut mit Jimdo — inklusive integriertem Buchungstool. Struktur, Copy und visuelles Konzept komplett selbst umgesetzt.</p>
 
   <div class="macbook-wrap reveal" onclick="window.open('https://www.barkinghampalace.at','_blank')">
     <div class="macbook-lid">
@@ -316,7 +317,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
     <div class="macbook-hinge"></div>
     <div class="macbook-base"></div>
     <div class="macbook-shadow"></div>
-    <p class="macbook-link"><a href="https://www.barkinghampalace.at" target="_blank">barkinghampalace.at besuchen →</a></p>
+    <p class="macbook-link"><a href="https://www.barkinghampalace.at" target="_blank" data-i18n="bark-visit">barkinghampalace.at besuchen →</a></p>
   </div>
 </section>
 
@@ -342,7 +343,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
     isOpen = !isOpen;
     flyerPanels.classList.toggle('closed', !isOpen);
     flyerPanels.classList.toggle('open', isOpen);
-    flyerBtn.textContent = isOpen ? 'Zuklappen' : 'Aufklappen';
+    flyerBtn.setAttribute('data-open', isOpen); if(typeof setLang==='function') setLang(localStorage.getItem('nlang')||'de');
   });
 
   /* Drag orbit */
@@ -369,6 +370,207 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
 
   /* ══ BANNER — per-pixel sampling wave (smooth flag, no seams) ══ */
 
+})();
+</script>
+
+<script>
+/* ── i18n ENGINE ── */
+(function(){
+  var KEY='nlang';
+  var lang=localStorage.getItem(KEY)||'de';
+
+  var T={
+    de:{
+      /* NAV */
+      'nav-story':'Story','nav-projects':'Projekte','nav-skills':'Skills',
+      'nav-contact':'Kontakt','nav-cta':'Schreib mir',
+      /* HERO */
+      'hero-eyebrow':'Marketing · Content Strategy · Wien &amp; Graz',
+      'hero-h1':'Schichtarbeiter<br>mit <em>Masterplan.</em>',
+      'hero-quote':'„Ich kuratiere mein Leben wie eine Kampagne: bisschen Speed, viel Geschmack, gute Leute, starke Stories – und am Ende sieht’s einfach cool aus.“',
+      'hero-btn-work':'Projekte ansehen','hero-btn-contact':'Kontakt aufnehmen',
+      /* HERO STATS */
+      'stat-loc':'Zwischen Wien &amp; Graz','stat-years':'Jahre Marketing',
+      'stat-age':'Jahre alt',
+      /* ABOUT */
+      'sec-about':'Über mich',
+      'about-h2':'Wiener. Wahlsteirer.<br>Wandlungsfähig.',
+      'about-p1':'Ich bin in Wien geboren und mit 14 Jahren in die Steiermark gezogen — Wahlsteirer, wie ich heute sage, mit einem kleinen Schmunzeln. Nach der Handelsakademie und dem Bundesheer, dem ich als <strong>stolzer Milizsoldat</strong> bis heute verbunden bin, kam der Lockdown. Meine Pläne, die ich bis dahin hatte, wurden einmal kräftig durchgeschüttelt. Aber davon habe ich mich nicht unterkriegen lassen.',
+      'about-p2':'Durch Zufall landete ich einige hundert Meter von meiner Kaserne entfernt bei Sappi in Gratkorn. Fast vier Jahre. Frühschicht. Spätschicht. Nachtschicht. Neben meiner Tätigkeit in der Produktion habe ich eines der seltensten Handwerke überhaupt erlernt und darf mich <strong>gelernter Papiertechniker</strong> nennen. Diese Zeit hat mich viel gelehrt. Glücklich gemacht hat sie mich nicht. Also habe ich mein Glück selbst in die Hand genommen und neben Vollzeitarbeit im Schichtbetrieb in ein Fernstudium investiert. Ich habe es durchgezogen – schneller als ich selbst damit gerechnet hätte.',
+      'about-p3':'Danach ging es schnell: HEINZ Liebenau, ROCKETS, CONDA Capital — immer einen Schritt weiter. Schnell war klar: Das ist es. Marketing. 2024 habe ich neben dem Vollzeitjob noch ein <strong>Masterstudium an der FH Joanneum</strong> draufgelegt. Abschluss: Juli 2026.',
+      'about-p4':'Privat bin ich ebenso vielschichtig. Ich fahre Motorrad — wegen des Speeds &amp; der Freiheit. Ich koche gerne und schätze das Feine im Leben. Ich fotografiere und drehe kleine Videos. Und ich habe eine Zwergdackeldame namens <strong>Frida</strong>, die das alles miterlebt. Nicht zuletzt liebe ich es, mit Menschen ins Gespräch zu kommen – so wie hoffentlich auch mit dir!',
+      /* TIMELINE */
+      'tl-current':'Aktuell',
+      'tl-conda-role':'Marketing Manager','tl-conda-sub':'UX, Kampagnen, Podcast, OOH, Plattform-Relaunch',
+      'tl-rockets-sub':'End-to-End Kampagnen, Content, PR',
+      'tl-fhj-sub':'Laufend · Abschluss Juli 2026',
+      'tl-iu-sub':'Regelstudienzeit auf die Hälfte verkürzt',
+      'tl-heinz-sub':'Marketingstrategie &amp; Content-Umsetzung',
+      'tl-sappi-role':'Papiertechniker','tl-sappi-sub':'Schichtbetrieb · Streichmaschine 9 · PL3',
+      /* PROJECTS */
+      'sec-projects':'Projekte',
+      'cat-featured':'Featured · Case Study','cat-ooh':'OOH · Kampagne',
+      'cat-podcast':'Podcast · Content','cat-branding-priv':'Branding · Privat',
+      'cat-branding-web':'Branding · Web','cat-perf':'Performance · Sparring',
+      'proj-conda-title':'CONDA Capital Market<br>Frontend Relaunch',
+      'proj-conda-desc':'Vollständige Neugestaltung einer Crowdinvesting-Plattform — von der Conversion-Analyse über Card Sorting und Usability Testing bis zum Go-Live. Intern realisiert statt extern vergeben. Wissenschaftlich begleitet als Masterarbeit.',
+      'proj-rapid-title':'SK Rapid Wien<br>Bandenwerbung',
+      'proj-rapid-desc':'Konzeption und Umsetzung einer Out-of-Home-Kampagne für CONDA — sichtbar im Allianz Stadion. Von der Kreation bis zur Abstimmung mit dem Verein.',
+      'proj-podcast-title':'CONDA Inside<br>Corporate Podcast',
+      'proj-podcast-desc':'Konzeption, Aufnahme, Schnitt und Distribution eines Corporate Podcasts für CONDA — von der Formatentwicklung bis zur laufenden Produktion.',
+      'proj-bark-title':'Barkingham Palace<br>Branding &amp; Digitalpräsenz',
+      'proj-bark-desc':'Aufbau einer eigenen Brand-Identität und digitalen Präsenz — von der Namensgebung bis zur visuellen Umsetzung. Ein persönliches Projekt mit vollem kreativem Spielraum.',
+      'proj-art-title':'Art Atelier Amberg<br>Marke &amp; Onlineauftritt',
+      'proj-art-desc':'Entwicklung von Markenidentität und digitalem Auftritt für ein Kunstkreativstudio — konzeptuell und visuell von Grund auf gedacht.',
+      'proj-ad-title':'Ad.Boutique<br>Kundenseitiges Sparring',
+      'proj-ad-desc':'Enge Begleitung einer Performance-Marketing-Agentur als strategischer Gegenpart — Impulse setzen, Daten lesen, Entscheidungen treffen.',
+      'cta-project':'Zum Projekt →',
+      'tag-masterarbeit':'Masterarbeit','tag-kampagne':'Kampagne','tag-kreation':'Kreation',
+      'tag-schnitt':'Schnitt','tag-eigenprojekt':'Eigenprojekt','tag-kreativstudio':'Kreativstudio',
+      'tag-datenmonitoring':'Datenmonitoring',
+      /* SKILLS */
+      'sec-skills':'Skills &amp; Tools',
+      'sk-core':'Kernkompetenzen','sk-ia':'Informationsarchitektur',
+      'sk-kampagne':'Kampagnenmanagement','sk-podcast':'Podcast-Produktion',
+      'sk-soft':'Soft Skills','sk-strat':'Strategie + Umsetzung',
+      'sk-learn':'Schnelle Lernkurve','sk-stake':'Stakeholder-Kommunikation',
+      'sk-crea':'Kreativität mit Substanz','sk-eigen':'Eigenverantwortung',
+      'sk-lang':'Sprachen','sk-de':'Deutsch','sk-de-level':'Muttersprache',
+      'sk-tools':'Tools &amp; Technologien',
+      /* CONTACT */
+      'sec-contact':'Kontakt',
+      'contact-h2':'Lass uns<br>etwas bauen.',
+      'contact-desc':'Du suchst jemanden, der nicht nur Strategie denkt, sondern auch Dinge in die Welt bringt? Ich freue mich über eine Nachricht — egal ob Jobangebot, Projekt oder einfach ein gutes Gespräch.',
+      'contact-li':'in LinkedIn-Profil ansehen →',
+      /* FOOTER */
+      'footer-sub':'Marketing &amp; Content Strategist · Wien',
+      /* BARKINGHAM */
+      'bark-tag':'Branding · Print · Digital',
+      'bark-h1':'Royal gemacht.<br><em>Von Grund auf.</em>',
+      'bark-sub':'Ein Blick hinter die Kulissen — die Branding-Materialien, die ich für Barkingham Palace, Wiens ersten Hunde Spa, entwickelt habe.',
+      'bark-sec1-label':'Print · Dreierfalz',
+      'bark-sec1-h2':'Der Eröffnungsflyer.',
+      'bark-sec1-desc':'Dreierfalz-Flyer für die Eröffnung im Oktober 2025. Ziehen zum Drehen, Klicken zum Auf- und Zuklappen.',
+      'bark-btn-fold':'Zuklappen','bark-btn-unfold':'Aufklappen',
+      'bark-drag':'Ziehen zum Drehen',
+      'bark-sec2-label':'Print · OOH',
+      'bark-sec2-h2':'Das Eröffnungsbanner.',
+      'bark-sec2-desc':'Outdoor-Banner zur Eröffnung im Oktober 2025.',
+      'bark-sec3-label':'Digital · Web',
+      'bark-sec3-h2':'Die Website.',
+      'bark-sec3-desc':'Aufgebaut mit Jimdo — inklusive integriertem Buchungstool. Struktur, Copy und visuelles Konzept komplett selbst umgesetzt.',
+      'bark-visit':'barkinghampalace.at besuchen →',
+    },
+    en:{
+      /* NAV */
+      'nav-story':'Story','nav-projects':'Projects','nav-skills':'Skills',
+      'nav-contact':'Contact','nav-cta':'Write me',
+      /* HERO */
+      'hero-eyebrow':'Marketing · Content Strategy · Vienna &amp; Graz',
+      'hero-h1':'Shift Worker<br>with a <em>Master Plan.</em>',
+      'hero-quote':'“I curate my life like a campaign: a bit of speed, great taste, good people, strong stories — and in the end, it just looks cool.”',
+      'hero-btn-work':'View projects','hero-btn-contact':'Get in touch',
+      /* HERO STATS */
+      'stat-loc':'Between Vienna &amp; Graz','stat-years':'Years in Marketing',
+      'stat-age':'Years old',
+      /* ABOUT */
+      'sec-about':'About me',
+      'about-h2':'Viennese. Styrian by Choice.<br>Versatile.',
+      'about-p1':'I was born in Vienna and moved to Styria at 14 — a “Styrian by choice”, as I like to say with a slight smile. After finishing commercial college and serving in the Austrian Army, which I remain proudly connected to as a <strong>reservist</strong> to this day, the lockdown hit. The plans I’d had up to that point got thoroughly shaken up. But I refused to let that get me down.',
+      'about-p2':'By chance, I ended up at Sappi in Gratkorn, just a few hundred metres from my barracks. Nearly four years. Early shift. Late shift. Night shift. Alongside my work in production, I learned one of the rarest trades there is — I can proudly call myself a <strong>qualified paper technologist</strong>. That time taught me a lot. It didn’t make me happy. So I took matters into my own hands — while working full-time on rotating shifts, I enrolled in a distance-learning degree. I saw it through — faster than I’d ever expected.',
+      'about-p3':'After that, things moved fast: HEINZ Liebenau, ROCKETS, CONDA Capital — always one step further. It quickly became clear: this is it. Marketing. In 2024, on top of a full-time job, I started a <strong>Master’s degree at FH Joanneum</strong>. Graduating: July 2026.',
+      'about-p4':'My personal life is just as layered. I ride motorcycles — for the speed &amp; the freedom. I love to cook and appreciate the finer things in life. I take photos and shoot short videos. And I have a miniature dachshund named <strong>Frida</strong> who witnesses it all. Not least, I love getting into good conversations with people — hopefully including you!',
+      /* TIMELINE */
+      'tl-current':'Current',
+      'tl-conda-role':'Marketing Manager','tl-conda-sub':'UX, campaigns, podcast, OOH, platform relaunch',
+      'tl-rockets-sub':'End-to-end campaigns, content, PR',
+      'tl-fhj-sub':'Ongoing · Graduating July 2026',
+      'tl-iu-sub':'Completed in half the standard time',
+      'tl-heinz-sub':'Marketing strategy &amp; content execution',
+      'tl-sappi-role':'Paper Technologist','tl-sappi-sub':'Shift operations · Coating Machine 9 · PL3',
+      /* PROJECTS */
+      'sec-projects':'Projects',
+      'cat-featured':'Featured · Case Study','cat-ooh':'OOH · Campaign',
+      'cat-podcast':'Podcast · Content','cat-branding-priv':'Branding · Personal',
+      'cat-branding-web':'Branding · Web','cat-perf':'Performance · Sparring',
+      'proj-conda-title':'CONDA Capital Market<br>Frontend Relaunch',
+      'proj-conda-desc':'Complete redesign of a crowdinvesting platform — from conversion analysis, card sorting and usability testing through to go-live. Delivered in-house rather than outsourced. Developed as an academic master’s thesis.',
+      'proj-rapid-title':'SK Rapid Wien<br>Perimeter Advertising',
+      'proj-rapid-desc':'Concept and execution of an out-of-home campaign for CONDA — visible at the Allianz Stadion. From creative development to coordination with the club.',
+      'proj-podcast-title':'CONDA Inside<br>Corporate Podcast',
+      'proj-podcast-desc':'Conception, recording, editing and distribution of a corporate podcast for CONDA — from format development through to ongoing production.',
+      'proj-bark-title':'Barkingham Palace<br>Branding &amp; Digital Presence',
+      'proj-bark-desc':'Building a complete brand identity and digital presence — from naming to visual execution. A personal project with full creative freedom.',
+      'proj-art-title':'Art Atelier Amberg<br>Brand &amp; Online Presence',
+      'proj-art-desc':'Developing brand identity and digital presence for a creative art studio — conceived from scratch, both conceptually and visually.',
+      'proj-ad-title':'Ad.Boutique<br>Client-Side Sparring',
+      'proj-ad-desc':'Close collaboration with a performance marketing agency as strategic counterpart — setting impulses, reading data, making decisions.',
+      'cta-project':'View Project →',
+      'tag-masterarbeit':'Master\'s Thesis','tag-kampagne':'Campaign','tag-kreation':'Creative',
+      'tag-schnitt':'Editing','tag-eigenprojekt':'Personal Project','tag-kreativstudio':'Creative Studio',
+      'tag-datenmonitoring':'Data Monitoring',
+      /* SKILLS */
+      'sec-skills':'Skills &amp; Tools',
+      'sk-core':'Core Skills','sk-ia':'Information Architecture',
+      'sk-kampagne':'Campaign Management','sk-podcast':'Podcast Production',
+      'sk-soft':'Soft Skills','sk-strat':'Strategy + Execution',
+      'sk-learn':'Fast Learner','sk-stake':'Stakeholder Communication',
+      'sk-crea':'Creativity with Substance','sk-eigen':'Self-Initiative',
+      'sk-lang':'Languages','sk-de':'German','sk-de-level':'Native',
+      'sk-tools':'Tools &amp; Technologies',
+      /* CONTACT */
+      'sec-contact':'Contact',
+      'contact-h2':'Let’s build<br>something.',
+      'contact-desc':'Looking for someone who doesn’t just think strategy but actually ships things? I’d love to hear from you — whether it’s a job offer, a project, or just a good conversation.',
+      'contact-li':'View LinkedIn profile →',
+      /* FOOTER */
+      'footer-sub':'Marketing &amp; Content Strategist · Vienna',
+      /* BARKINGHAM */
+      'bark-tag':'Branding · Print · Digital',
+      'bark-h1':'Made Royal.<br><em>From the Ground Up.</em>',
+      'bark-sub':'A look behind the scenes — the branding materials I developed for Barkingham Palace, Vienna’s first dog spa.',
+      'bark-sec1-label':'Print · Trifold',
+      'bark-sec1-h2':'The Opening Flyer.',
+      'bark-sec1-desc':'Trifold flyer for the October 2025 opening. Drag to rotate, click to open and close.',
+      'bark-btn-fold':'Fold','bark-btn-unfold':'Unfold',
+      'bark-drag':'Drag to rotate',
+      'bark-sec2-label':'Print · OOH',
+      'bark-sec2-h2':'The Opening Banner.',
+      'bark-sec2-desc':'Outdoor banner for the October 2025 opening.',
+      'bark-sec3-label':'Digital · Web',
+      'bark-sec3-h2':'The Website.',
+      'bark-sec3-desc':'Built with Jimdo — including an integrated booking tool. Structure, copy and visual concept all self-directed.',
+      'bark-visit':'Visit barkinghampalace.at →',
+    }
+  };
+
+  function applyLang(l){
+    lang=l; localStorage.setItem(KEY,l);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      if(T[l]&&T[l][k]!==undefined) el.innerHTML=T[l][k];
+    });
+    /* toggle button state */
+    var de=document.getElementById('lt-de'), en=document.getElementById('lt-en');
+    if(de) de.className=l==='de'?'lt-active':'';
+    if(en) en.className=l==='en'?'lt-active':'';
+    /* barkingham flyer button — sync text from state */
+    var fb=document.getElementById('flyer-btn');
+    if(fb){
+      var open=(fb.getAttribute('data-open')==='true');
+      fb.innerHTML=open
+        ?(l==='de'?T.de['bark-btn-fold']:T.en['bark-btn-fold'])
+        :(l==='de'?T.de['bark-btn-unfold']:T.en['bark-btn-unfold']);
+    }
+  }
+
+  window.setLang=function(l){ applyLang(l); };
+  window.toggleLang=function(){ applyLang(lang==='de'?'en':'de'); };
+
+  /* Run after DOM ready */
+  function run(){ applyLang(lang); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run);
+  else run();
 })();
 </script>
 </body>
