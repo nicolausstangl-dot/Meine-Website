@@ -27,6 +27,7 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;background:rgba(246,241,235,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
 .nav-logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;color:var(--text);letter-spacing:-.01em;}
 .nav-links{display:flex;gap:36px;}
+.nav-right{display:flex;align-items:center;gap:16px;}
 .nav-links a{font-size:13px;font-weight:500;color:var(--text2);text-decoration:none;transition:color .2s;}
 .nav-links a:hover{color:var(--text);}
 .nav-cta{background:var(--text);color:var(--bg);font-size:12px;font-weight:700;padding:9px 20px;border-radius:8px;text-decoration:none;letter-spacing:.02em;transition:opacity .2s;}
@@ -416,7 +417,7 @@ footer p{font-size:12px;color:var(--muted);}
     <a href="#skills" data-i18n="nav-skills">Skills</a>
     <a href="#contact" data-i18n="nav-contact">Kontakt</a>
   </div>
-  <a href="mailto:stangl375@gmail.com" class="nav-cta" data-i18n="nav-cta">Schreib mir</a><button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language"><span id="lt-de" class="lt-active">DE</span><span class="lt-sep">|</span><span id="lt-en">EN</span></button>
+  <div class="nav-right"><a href="mailto:stangl375@gmail.com" class="nav-cta" data-i18n="nav-cta">Schreib mir</a><button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language"><span id="lt-de" class="lt-active">DE</span><span class="lt-sep">|</span><span id="lt-en">EN</span></button></div>
 </nav>
 
 <section id="hero">
@@ -432,8 +433,8 @@ footer p{font-size:12px;color:var(--muted);}
           <cite>— Nicolaus Stangl</cite>
         </div>
         <div class="hero-btns">
-          <a href="#work" class="btn-dark">Projekte ansehen</a>
-          <a href="#contact" class="btn-outline">Kontakt aufnehmen</a>
+          <a href="#work" class="btn-dark" data-i18n="hero-btn-work">Projekte ansehen</a>
+          <a href="#contact" class="btn-outline" data-i18n="hero-btn-contact">Kontakt aufnehmen</a>
         </div>
       </div>
       <div class="hero-right">
@@ -447,7 +448,7 @@ footer p{font-size:12px;color:var(--muted);}
         <div class="hero-stats">
           <div class="hstat"><div class="n">3+</div><div class="l" data-i18n="stat-years">Jahre Marketing</div></div>
           <div class="hstat"><div class="n">MA</div><div class="l">Content Strategy</div></div>
-          <div class="hstat"><div class="n">C1</div><div class="l">Englisch</div></div>
+          <div class="hstat"><div class="n">C1</div><div class="l" data-i18n="stat-eng">Englisch</div></div>
           <div class="hstat"><div class="n">26</div><div class="l" data-i18n="stat-age">Jahre alt</div></div>
         </div>
       </div>
@@ -463,7 +464,7 @@ footer p{font-size:12px;color:var(--muted);}
     <div class="story-grid">
       <div class="story-text reveal">
         <h2 data-i18n="about-h2">Wiener. Wahlsteirer.<br>Wandlungsfähig.</h2>
-        <p>data-i18n="about-p1">Ich bin in Wien geboren und mit 14 Jahren in die Steiermark gezogen — Wahlsteirer, wie ich heute sage, mit einem kleinen Schmunzeln. Nach der Handelsakademie und dem Bundesheer, dem ich als <strong>stolzer Milizsoldat</strong> bis heute verbunden bin, kam der Lockdown. Meine Pläne, die ich bis dahin hatte, wurden einmal kräftig durchgeschüttelt. Aber davon habe ich mich nicht unterkriegen lassen.</p>
+        <p data-i18n="about-p1">Ich bin in Wien geboren und mit 14 Jahren in die Steiermark gezogen — Wahlsteirer, wie ich heute sage, mit einem kleinen Schmunzeln. Nach der Handelsakademie und dem Bundesheer, dem ich als <strong>stolzer Milizsoldat</strong> bis heute verbunden bin, kam der Lockdown. Meine Pläne, die ich bis dahin hatte, wurden einmal kräftig durchgeschüttelt. Aber davon habe ich mich nicht unterkriegen lassen.</p>
         <p data-i18n="about-p2">Durch Zufall landete ich einige hundert Meter von meiner Kaserne entfernt bei Sappi in Gratkorn. Fast vier Jahre. Frühschicht. Spätschicht. Nachtschicht. Neben meiner Tätigkeit in der Produktion habe ich eines der seltensten Handwerke überhaupt erlernt und darf mich <strong>gelernter Papiertechniker</strong> nennen. Diese Zeit hat mich viel gelehrt. Glücklich gemacht hat sie mich nicht. Also habe ich mein Glück selbst in die Hand genommen und neben Vollzeitarbeit im Schichtbetrieb in ein Fernstudium investiert. Ich habe es durchgezogen – schneller als ich selbst damit gerechnet hätte.</p>
         <p data-i18n="about-p3">Danach ging es schnell: HEINZ Liebenau, ROCKETS, CONDA Capital — immer einen Schritt weiter. Schnell war klar: Das ist es. Marketing. 2024 habe ich neben dem Vollzeitjob noch ein <strong>Masterstudium an der FH Joanneum</strong> draufgelegt. Abschluss: Juli 2026.</p>
         <p data-i18n="about-p4">Privat bin ich ebenso vielschichtig. Ich fahre Motorrad — wegen des Speeds & der Freiheit. Ich koche gerne und schätze das Feine im Leben. Ich fotografiere und drehe kleine Videos. Und ich habe eine Zwergdackeldame namens <strong>Frida</strong>, die das alles miterlebt. Nicht zuletzt liebe ich es, mit Menschen ins Gespräch zu kommen – so wie hoffentlich auch mit dir!</p>
@@ -643,7 +644,7 @@ footer p{font-size:12px;color:var(--muted);}
         <h3 data-i18n="sk-lang">Sprachen</h3>
         <div class="lang-row">
           <div class="lang"><span class="lang-name" data-i18n="sk-de">Deutsch</span><span class="lang-level" data-i18n="sk-de-level">Muttersprache</span></div>
-          <div class="lang"><span class="lang-name">Englisch</span><span class="lang-level">C1</span></div>
+          <div class="lang"><span class="lang-name" data-i18n="sk-en">Englisch</span><span class="lang-level">C1</span></div>
         </div>
       </div>
       <div class="tools-wrap">
@@ -712,6 +713,8 @@ footer p{font-size:12px;color:var(--muted);}
 
   var T={
     de:{
+      'stat-eng':'Englisch',
+      'sk-en':'Englisch',
       /* NAV */
       'nav-story':'Story','nav-projects':'Projekte','nav-skills':'Skills',
       'nav-contact':'Kontakt','nav-cta':'Schreib mir',
@@ -793,86 +796,86 @@ footer p{font-size:12px;color:var(--muted);}
       'bark-visit':'barkinghampalace.at besuchen →',
     },
     en:{
-      /* NAV */
-      'nav-story':'Story','nav-projects':'Projects','nav-skills':'Skills',
-      'nav-contact':'Contact','nav-cta':'Write me',
-      /* HERO */
-      'hero-eyebrow':'Marketing · Content Strategy · Vienna &amp; Graz',
-      'hero-h1':'Shift Worker<br>with a <em>Master Plan.</em>',
-      'hero-quote':'“I curate my life like a campaign: a bit of speed, great taste, good people, strong stories — and in the end, it just looks cool.”',
-      'hero-btn-work':'View projects','hero-btn-contact':'Get in touch',
-      /* HERO STATS */
-      'stat-loc':'Between Vienna &amp; Graz','stat-years':'Years in Marketing',
-      'stat-age':'Years old',
-      /* ABOUT */
-      'sec-about':'About me',
-      'about-h2':'Viennese. Styrian by Choice.<br>Versatile.',
-      'about-p1':'I was born in Vienna and moved to Styria at 14 — a “Styrian by choice”, as I like to say with a slight smile. After finishing commercial college and serving in the Austrian Army, which I remain proudly connected to as a <strong>reservist</strong> to this day, the lockdown hit. The plans I’d had up to that point got thoroughly shaken up. But I refused to let that get me down.',
-      'about-p2':'By chance, I ended up at Sappi in Gratkorn, just a few hundred metres from my barracks. Nearly four years. Early shift. Late shift. Night shift. Alongside my work in production, I learned one of the rarest trades there is — I can proudly call myself a <strong>qualified paper technologist</strong>. That time taught me a lot. It didn’t make me happy. So I took matters into my own hands — while working full-time on rotating shifts, I enrolled in a distance-learning degree. I saw it through — faster than I’d ever expected.',
-      'about-p3':'After that, things moved fast: HEINZ Liebenau, ROCKETS, CONDA Capital — always one step further. It quickly became clear: this is it. Marketing. In 2024, on top of a full-time job, I started a <strong>Master’s degree at FH Joanneum</strong>. Graduating: July 2026.',
-      'about-p4':'My personal life is just as layered. I ride motorcycles — for the speed &amp; the freedom. I love to cook and appreciate the finer things in life. I take photos and shoot short videos. And I have a miniature dachshund named <strong>Frida</strong> who witnesses it all. Not least, I love getting into good conversations with people — hopefully including you!',
-      /* TIMELINE */
-      'tl-current':'Current',
-      'tl-conda-role':'Marketing Manager','tl-conda-sub':'UX, campaigns, podcast, OOH, platform relaunch',
-      'tl-rockets-sub':'End-to-end campaigns, content, PR',
-      'tl-fhj-sub':'Ongoing · Graduating July 2026',
-      'tl-iu-sub':'Completed in half the standard time',
-      'tl-heinz-sub':'Marketing strategy &amp; content execution',
-      'tl-sappi-role':'Paper Technologist','tl-sappi-sub':'Shift operations · Coating Machine 9 · PL3',
-      /* PROJECTS */
-      'sec-projects':'Projects',
-      'cat-featured':'Featured · Case Study','cat-ooh':'OOH · Campaign',
-      'cat-podcast':'Podcast · Content','cat-branding-priv':'Branding · Personal',
-      'cat-branding-web':'Branding · Web','cat-perf':'Performance · Sparring',
-      'proj-conda-title':'CONDA Capital Market<br>Frontend Relaunch',
-      'proj-conda-desc':'Complete redesign of a crowdinvesting platform — from conversion analysis, card sorting and usability testing through to go-live. Delivered in-house rather than outsourced. Developed as an academic master’s thesis.',
-      'proj-rapid-title':'SK Rapid Wien<br>Perimeter Advertising',
-      'proj-rapid-desc':'Concept and execution of an out-of-home campaign for CONDA — visible at the Allianz Stadion. From creative development to coordination with the club.',
-      'proj-podcast-title':'CONDA Inside<br>Corporate Podcast',
-      'proj-podcast-desc':'Conception, recording, editing and distribution of a corporate podcast for CONDA — from format development through to ongoing production.',
-      'proj-bark-title':'Barkingham Palace<br>Branding &amp; Digital Presence',
-      'proj-bark-desc':'Building a complete brand identity and digital presence — from naming to visual execution. A personal project with full creative freedom.',
-      'proj-art-title':'Art Atelier Amberg<br>Brand &amp; Online Presence',
-      'proj-art-desc':'Developing brand identity and digital presence for a creative art studio — conceived from scratch, both conceptually and visually.',
-      'proj-ad-title':'Ad.Boutique<br>Client-Side Sparring',
-      'proj-ad-desc':'Close collaboration with a performance marketing agency as strategic counterpart — setting impulses, reading data, making decisions.',
-      'cta-project':'View Project →',
-      'tag-masterarbeit':'Master\'s Thesis','tag-kampagne':'Campaign','tag-kreation':'Creative',
-      'tag-schnitt':'Editing','tag-eigenprojekt':'Personal Project','tag-kreativstudio':'Creative Studio',
-      'tag-datenmonitoring':'Data Monitoring',
-      /* SKILLS */
-      'sec-skills':'Skills &amp; Tools',
-      'sk-core':'Core Skills','sk-ia':'Information Architecture',
-      'sk-kampagne':'Campaign Management','sk-podcast':'Podcast Production',
-      'sk-soft':'Soft Skills','sk-strat':'Strategy + Execution',
-      'sk-learn':'Fast Learner','sk-stake':'Stakeholder Communication',
-      'sk-crea':'Creativity with Substance','sk-eigen':'Self-Initiative',
-      'sk-lang':'Languages','sk-de':'German','sk-de-level':'Native',
-      'sk-tools':'Tools &amp; Technologies',
-      /* CONTACT */
-      'sec-contact':'Contact',
-      'contact-h2':'Let’s build<br>something.',
-      'contact-desc':'Looking for someone who doesn’t just think strategy but actually ships things? I’d love to hear from you — whether it’s a job offer, a project, or just a good conversation.',
-      'contact-li':'View LinkedIn profile →',
-      /* FOOTER */
-      'footer-sub':'Marketing &amp; Content Strategist · Vienna',
-      /* BARKINGHAM */
-      'bark-tag':'Branding · Print · Digital',
-      'bark-h1':'Made Royal.<br><em>From the Ground Up.</em>',
-      'bark-sub':'A look behind the scenes — the branding materials I developed for Barkingham Palace, Vienna’s first dog spa.',
-      'bark-sec1-label':'Print · Trifold',
-      'bark-sec1-h2':'The Opening Flyer.',
-      'bark-sec1-desc':'Trifold flyer for the October 2025 opening. Drag to rotate, click to open and close.',
-      'bark-btn-fold':'Fold','bark-btn-unfold':'Unfold',
-      'bark-drag':'Drag to rotate',
-      'bark-sec2-label':'Print · OOH',
-      'bark-sec2-h2':'The Opening Banner.',
-      'bark-sec2-desc':'Outdoor banner for the October 2025 opening.',
-      'bark-sec3-label':'Digital · Web',
-      'bark-sec3-h2':'The Website.',
-      'bark-sec3-desc':'Built with Jimdo — including an integrated booking tool. Structure, copy and visual concept all self-directed.',
-      'bark-visit':'Visit barkinghampalace.at →',
-    }
+  /* NAV */
+  'nav-story':'Story','nav-projects':'Projects','nav-skills':'Skills',
+  'nav-contact':'Contact','nav-cta':'Write me',
+  /* HERO */
+  'hero-eyebrow':'Marketing · Content Strategy · Vienna &amp; Graz',
+  'hero-h1':'Grit Meets<br><em>Strategy.</em>',
+  'hero-quote':'“I curate my life like a campaign: a bit of speed, great taste, good people, strong stories — and in the end, it just looks cool.”',
+  'hero-btn-work':'View projects','hero-btn-contact':'Get in touch',
+  /* HERO STATS */
+  'stat-loc':'Between Vienna &amp; Graz','stat-years':'Years in Marketing',
+  'stat-age':'Years old','stat-eng':'English',
+  /* ABOUT */
+  'sec-about':'About me',
+  'about-h2':'Viennese by birth. Styrian by choice.<br>Versatile by nature.',
+  'about-p1':'I was born in Vienna and moved to Styria at 14 — a “Styrian by choice”, as I like to say with a slight smile. After finishing commercial college and serving in the Austrian Army, which I remain proudly connected to as a <strong>reservist</strong> to this day, the lockdown hit. The plans I’d made up to that point got thoroughly shaken up. But I refused to let it get me down.',
+  'about-p2':'By chance, I ended up at Sappi in Gratkorn, just a few hundred metres from my barracks. Nearly four years. Early shift. Late shift. Night shift. Alongside my work in production, I learned one of the rarest trades there is — I can proudly call myself a <strong>qualified paper technologist</strong>. That time taught me a lot. It didn’t make me happy. So I took matters into my own hands — while working full-time on rotating shifts, I enrolled in a distance-learning degree. I saw it through — faster than I’d ever expected.',
+  'about-p3':'After that, things moved fast: HEINZ Liebenau, ROCKETS, CONDA Capital — always one step further. It quickly became clear: this is it. Marketing. In 2024, on top of a full-time job, I added a <strong>Master’s degree at FH Joanneum</strong>. Graduating: July 2026.',
+  'about-p4':'My personal life is just as layered. I ride motorcycles — for the speed &amp; the freedom. I love to cook and appreciate the finer things in life. I take photos and shoot short videos. And I have a miniature dachshund named <strong>Frida</strong> who’s there for all of it. Not least, I love striking up a good conversation with people — hopefully including you!',
+  /* TIMELINE */
+  'tl-current':'Current',
+  'tl-conda-role':'Marketing Manager','tl-conda-sub':'UX, campaigns, podcast, OOH, platform relaunch',
+  'tl-rockets-sub':'End-to-end campaigns, content, PR',
+  'tl-fhj-sub':'Ongoing · Graduating July 2026',
+  'tl-iu-sub':'Completed in half the standard time',
+  'tl-heinz-sub':'Marketing strategy &amp; content execution',
+  'tl-sappi-role':'Paper Technologist','tl-sappi-sub':'Shift operations · Coating Machine 9 · PL3',
+  /* PROJECTS */
+  'sec-projects':'Projects',
+  'cat-featured':'Featured · Case Study','cat-ooh':'OOH · Campaign',
+  'cat-podcast':'Podcast · Content','cat-branding-priv':'Branding · Personal',
+  'cat-branding-web':'Branding · Web','cat-perf':'Performance · Sparring',
+  'proj-conda-title':'CONDA Capital Market<br>Frontend Relaunch',
+  'proj-conda-desc':'Complete redesign of a crowdinvesting platform — from conversion analysis, card sorting and usability testing through to go-live. Delivered in-house rather than outsourced. Developed as an academic master’s thesis.',
+  'proj-rapid-title':'SK Rapid Wien<br>Perimeter Advertising',
+  'proj-rapid-desc':'Concept and execution of an out-of-home campaign for CONDA — visible at the Allianz Stadion. From the creative idea to coordination with the club.',
+  'proj-podcast-title':'CONDA Inside<br>Corporate Podcast',
+  'proj-podcast-desc':'Concept, recording, editing and distribution of a corporate podcast for CONDA — from format development through to ongoing production.',
+  'proj-bark-title':'Barkingham Palace<br>Branding &amp; Digital Presence',
+  'proj-bark-desc':'Building a complete brand identity and digital presence — from naming to visual execution. A personal project with full creative freedom.',
+  'proj-art-title':'Art Atelier Amberg<br>Brand &amp; Online Presence',
+  'proj-art-desc':'Developing the brand identity and digital presence for a creative art studio — conceived from scratch, both conceptually and visually.',
+  'proj-ad-title':'Ad.Boutique<br>Client-Side Sparring',
+  'proj-ad-desc':'Close collaboration with a performance marketing agency as their strategic counterpart — setting the direction, reading the data, making the calls.',
+  'cta-project':'View Project →',
+  'tag-masterarbeit':'Master\'s Thesis','tag-kampagne':'Campaign','tag-kreation':'Creative',
+  'tag-schnitt':'Editing','tag-eigenprojekt':'Personal Project','tag-kreativstudio':'Creative Studio',
+  'tag-datenmonitoring':'Data Monitoring',
+  /* SKILLS */
+  'sec-skills':'Skills &amp; Tools',
+  'sk-core':'Core Skills','sk-ia':'Information Architecture',
+  'sk-kampagne':'Campaign Management','sk-podcast':'Podcast Production',
+  'sk-soft':'Soft Skills','sk-strat':'Strategy + Execution',
+  'sk-learn':'Fast Learner','sk-stake':'Stakeholder Communication',
+  'sk-crea':'Creativity with Substance','sk-eigen':'Ownership',
+  'sk-lang':'Languages','sk-de':'German','sk-de-level':'Native','sk-en':'English',
+  'sk-tools':'Tools &amp; Technologies',
+  /* CONTACT */
+  'sec-contact':'Contact',
+  'contact-h2':'Let’s build<br>something.',
+  'contact-desc':'Looking for someone who doesn’t just think strategy but actually ships? I’d love to hear from you — whether it’s a job offer, a project, or just a good conversation.',
+  'contact-li':'View LinkedIn profile →',
+  /* FOOTER */
+  'footer-sub':'Marketing &amp; Content Strategist · Vienna',
+  /* BARKINGHAM */
+  'bark-tag':'Branding · Print · Digital',
+  'bark-h1':'Made Royal.<br><em>From the Ground Up.</em>',
+  'bark-sub':'A look behind the scenes — the branding materials I developed for Barkingham Palace, Vienna’s first dog spa.',
+  'bark-sec1-label':'Print · Trifold',
+  'bark-sec1-h2':'The Opening Flyer.',
+  'bark-sec1-desc':'Trifold flyer for the October 2025 opening. Drag to rotate, click to open and close.',
+  'bark-btn-fold':'Fold','bark-btn-unfold':'Unfold',
+  'bark-drag':'Drag to rotate',
+  'bark-sec2-label':'Print · OOH',
+  'bark-sec2-h2':'The Opening Banner.',
+  'bark-sec2-desc':'Outdoor banner for the October 2025 opening.',
+  'bark-sec3-label':'Digital · Web',
+  'bark-sec3-h2':'The Website.',
+  'bark-sec3-desc':'Built with Jimdo — including an integrated booking tool. Structure, copy and visual concept all done myself.',
+  'bark-visit':'Visit barkinghampalace.at →',
+}
   };
 
   function applyLang(l){
