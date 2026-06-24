@@ -248,8 +248,14 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
 .reveal:nth-child(3){transition-delay:.14s;}
 
 /* ── LANG TOGGLE ── */.lang-toggle{display:flex;align-items:center;gap:5px;background:transparent;  border:1px solid var(--border);border-radius:20px;padding:5px 13px;  cursor:pointer;font-family:inherit;font-size:11px;font-weight:700;  letter-spacing:.1em;color:var(--muted);transition:border-color .2s;margin-left:16px;}.lang-toggle:hover{border-color:var(--accent,#6b4226);}.lt-sep{opacity:.25;margin:0 1px;}.lt-active{color:var(--text,#1a120a);}@media(max-width:600px){
-  .panel{width:180px;height:254px;}
-  .section{padding:60px 24px;}
+  html, body { overflow-x:hidden; max-width:100%; }
+  .section{padding:56px 18px;}
+  .hero-sub,.section-desc{max-width:90vw;}
+  /* trifold flyer: scale the whole scene so the open flyer fits a phone screen */
+  .panel{width:172px;height:242px;}
+  .flyer-scene{padding:10px;transform:scale(.6);transform-origin:center top;}
+  /* keep the language toggle clear of the edge */
+  #hero > div[style*="top:20px"]{top:14px !important;right:14px !important;}
 }
 </style>
 </head>
