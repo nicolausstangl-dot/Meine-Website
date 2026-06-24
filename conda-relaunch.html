@@ -23,7 +23,7 @@
     .slide.active { opacity:1; pointer-events:all; transform:translateX(0) scale(1); }
     .slide-inner { width:100%; max-width:1200px; }
     #progress { position:fixed; bottom:0; left:0; height:2px; background:var(--accent); transition:width .48s cubic-bezier(.4,0,.2,1); z-index:101; }
-    #counter { position:fixed; top:36px; left:50%; transform:translateX(-50%); font-size:11px; letter-spacing:.14em; color:var(--w40); font-weight:600; text-transform:uppercase; z-index:100; }
+    #counter { position:fixed; top:30px; left:48px; font-size:11px; letter-spacing:.14em; color:var(--w40); font-weight:600; text-transform:uppercase; z-index:100; }
     #counter span { color:var(--white); }
     .arr { position:fixed; top:50%; transform:translateY(-50%); width:44px; height:44px; background:var(--w15); border:1px solid rgba(255,255,255,.08); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:none; transition:background .18s,border-color .18s,color .18s; z-index:100; color:var(--w40); font-size:15px; backdrop-filter:blur(8px); }
     .arr:hover { background:var(--accent-dim); border-color:var(--accent-border); color:var(--accent); }
@@ -121,7 +121,7 @@
 <body>
 <div id="cur"></div><div id="ring"></div><div id="noise"></div>
 <div id="amb"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
-<div id="logo"><div class="lm">C</div><span class="lt">CONDA Capital Market</span></div>
+
 <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language"><span id="lt-de" class="lt-active">DE</span><span class="lt-sep">|</span><span id="lt-en">EN</span></button>
   <div id="counter"><span id="curr">01</span> / <span id="tot">12</span></div>
 <div id="progress"></div>
