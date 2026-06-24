@@ -98,7 +98,7 @@
       /* prevent the page itself from scrolling sideways (decorative orbs etc.) */
       html, body { overflow-x:hidden; max-width:100%; }
       /* each slide becomes a top-aligned, vertically scrollable panel so tall content is reachable */
-      .slide { align-items:flex-start; justify-content:flex-start; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; padding:74px 16px 96px; }
+      .slide { align-items:flex-start; justify-content:flex-start; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; touch-action:pan-y; overscroll-behavior:contain; padding:74px 16px 96px; }
       .slide-inner { max-width:100% !important; width:100%; }
       /* neutralise inner full-height wrappers that vertically center and clip content */
       .slide > div[style*="height:100%"] { height:auto !important; min-height:0 !important; justify-content:flex-start !important; padding-left:0 !important; padding-right:0 !important; }
@@ -125524,9 +125524,9 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ')go(ci+1,1);
   if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(ci-1,-1);
 });
-let tx=null;
-document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;});
-document.addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>44)go(ci+(d<0?1:-1),d<0?1:-1);tx=null;});
+let tx=null,ty=null;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;});
+document.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5)go(ci+(dx<0?1:-1),dx<0?1:-1);tx=null;ty=null;});
 const hint=document.getElementById('hint');
 const hh=()=>hint.style.opacity='0';
 document.addEventListener('keydown',hh,{once:true});
