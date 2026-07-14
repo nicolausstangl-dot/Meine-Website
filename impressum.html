@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum — Nicolaus Stangl</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f1eb; --bg2:#ede6db; --surface:#faf7f3; --accent:#6b4226;
+      --accent-light:#e8d8c8; --text:#1a120a; --text2:#4a3728; --muted:#9c8878; --border:#d9cfc2; --r:14px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;background:rgba(246,241,235,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;color:var(--text);letter-spacing:-.01em;text-decoration:none;font-weight:600;}
+    .nav-right{display:flex;align-items:center;gap:16px;}
+    .nav-back{font-size:13px;font-weight:500;color:var(--text2);text-decoration:none;transition:color .2s;}
+    .nav-back:hover{color:var(--text);}
+    .lang-toggle{display:flex;align-items:center;gap:5px;background:transparent;border:1px solid var(--border);border-radius:20px;padding:5px 13px;cursor:pointer;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--muted);transition:border-color .2s;}
+    .lang-toggle .lt-active{color:var(--text);}
+    .lt-sep{color:var(--border);}
+    main{max-width:760px;margin:0 auto;padding:150px 56px 100px;}
+    .eyebrow{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+    h1{font-size:clamp(38px,5vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:14px;}
+    .disclosure{font-size:14px;color:var(--muted);margin-bottom:48px;}
+    .block{padding:22px 0;border-top:1px solid var(--border);}
+    .block:last-of-type{border-bottom:1px solid var(--border);}
+    .block h2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+    .block p{font-size:16px;color:var(--text2);}
+    .block a{color:var(--accent);text-decoration:none;}
+    .block a:hover{text-decoration:underline;}
+    .strong{font-weight:600;color:var(--text);}
+    footer{padding:28px 56px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--surface);flex-wrap:wrap;gap:10px;}
+    footer p,footer a{font-size:12px;color:var(--muted);text-decoration:none;}
+    footer a:hover{color:var(--text);}
+    @media(max-width:768px){
+      nav{padding:14px 24px;}
+      main{padding:120px 24px 72px;}
+      footer{padding:24px;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Nicolaus Stangl</a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-back" data-i18n="nav-back">← Zurück</a>
+      <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language"><span id="lt-de" class="lt-active">DE</span><span class="lt-sep">|</span><span id="lt-en">EN</span></button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="eyebrow" data-i18n="imp-eyebrow">Rechtliches</div>
+    <h1 data-i18n="imp-title">Impressum</h1>
+    <p class="disclosure" data-i18n="imp-disclosure">Offenlegung gemäß §5 E-Commerce-Gesetz (ECG) und §25 Mediengesetz (MedienG).</p>
+
+    <div class="block">
+      <h2 data-i18n="imp-owner-label">Medieninhaber &amp; für den Inhalt verantwortlich</h2>
+      <p class="strong">Nicolaus Stangl</p>
+    </div>
+
+    <div class="block">
+      <h2 data-i18n="imp-address-label">Anschrift</h2>
+      <p>Nagergasse 3/4<br>8073 Feldkirchen bei Graz<br><span data-i18n="imp-country">Österreich</span></p>
+    </div>
+
+    <div class="block">
+      <h2 data-i18n="imp-contact-label">Kontakt</h2>
+      <p><a href="mailto:stangl375@gmail.com">stangl375@gmail.com</a></p>
+    </div>
+
+    <div class="block">
+      <h2 data-i18n="imp-nature-label">Art der Website</h2>
+      <p data-i18n="imp-nature-text">Private, nicht-kommerzielle Website. Sie dient ausschließlich der Darstellung des persönlichen beruflichen Werdegangs sowie eigener Projekte. Es werden keine Waren oder entgeltlichen Dienstleistungen angeboten.</p>
+    </div>
+
+    <div class="block">
+      <h2 data-i18n="imp-liability-label">Haftung für Inhalte</h2>
+      <p data-i18n="imp-liability-text">Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.</p>
+    </div>
+
+    <div class="block">
+      <h2 data-i18n="imp-links-label">Haftung für Links</h2>
+      <p data-i18n="imp-links-text">Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte kein Einfluss besteht. Für diese fremden Inhalte wird keine Gewähr übernommen; verantwortlich ist stets der jeweilige Anbieter der verlinkten Seiten.</p>
+    </div>
+
+    <div class="block">
+      <h2 data-i18n="imp-copyright-label">Urheberrecht</h2>
+      <p data-i18n="imp-copyright-text">Die auf dieser Website erstellten Inhalte und Werke unterliegen dem Urheberrecht. Dargestellte Marken- und Projektarbeiten dienen ausschließlich der Präsentation im Rahmen des Portfolios.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Nicolaus Stangl</p>
+    <a href="index.html" data-i18n="imp-footer-back">Zurück zur Startseite →</a>
+  </footer>
+
+  <script>
+  (function(){
+    var KEY='nlang';
+    var lang=localStorage.getItem(KEY)||'de';
+    var T={
+      de:{
+        'nav-back':'← Zurück',
+        'imp-eyebrow':'Rechtliches',
+        'imp-title':'Impressum',
+        'imp-disclosure':'Offenlegung gemäß §5 E-Commerce-Gesetz (ECG) und §25 Mediengesetz (MedienG).',
+        'imp-owner-label':'Medieninhaber &amp; für den Inhalt verantwortlich',
+        'imp-address-label':'Anschrift',
+        'imp-country':'Österreich',
+        'imp-contact-label':'Kontakt',
+        'imp-nature-label':'Art der Website',
+        'imp-nature-text':'Private, nicht-kommerzielle Website. Sie dient ausschließlich der Darstellung des persönlichen beruflichen Werdegangs sowie eigener Projekte. Es werden keine Waren oder entgeltlichen Dienstleistungen angeboten.',
+        'imp-liability-label':'Haftung für Inhalte',
+        'imp-liability-text':'Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.',
+        'imp-links-label':'Haftung für Links',
+        'imp-links-text':'Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte kein Einfluss besteht. Für diese fremden Inhalte wird keine Gewähr übernommen; verantwortlich ist stets der jeweilige Anbieter der verlinkten Seiten.',
+        'imp-copyright-label':'Urheberrecht',
+        'imp-copyright-text':'Die auf dieser Website erstellten Inhalte und Werke unterliegen dem Urheberrecht. Dargestellte Marken- und Projektarbeiten dienen ausschließlich der Präsentation im Rahmen des Portfolios.',
+        'imp-footer-back':'Zurück zur Startseite →'
+      },
+      en:{
+        'nav-back':'← Back',
+        'imp-eyebrow':'Legal',
+        'imp-title':'Legal Notice',
+        'imp-disclosure':'Information pursuant to §5 of the Austrian E-Commerce Act (ECG) and §25 of the Austrian Media Act (MedienG).',
+        'imp-owner-label':'Media owner &amp; responsible for content',
+        'imp-address-label':'Address',
+        'imp-country':'Austria',
+        'imp-contact-label':'Contact',
+        'imp-nature-label':'Nature of the website',
+        'imp-nature-text':'A private, non-commercial website. It serves solely to present my personal professional background and my own projects. No goods or paid services are offered.',
+        'imp-liability-label':'Liability for content',
+        'imp-liability-text':'The content of this website was created with the greatest possible care. No guarantee can be given, however, for the accuracy, completeness or timeliness of the content.',
+        'imp-links-label':'Liability for links',
+        'imp-links-text':'This website contains links to external third-party websites over whose content I have no influence. No liability is accepted for such external content; responsibility lies solely with the respective provider of the linked pages.',
+        'imp-copyright-label':'Copyright',
+        'imp-copyright-text':'The content and works created on this website are protected by copyright. Any brand and project work shown is presented solely within the context of this portfolio.',
+        'imp-footer-back':'Back to home →'
+      }
+    };
+    function applyLang(l){
+      lang=l; localStorage.setItem(KEY,l);
+      document.documentElement.lang=l;
+      document.querySelectorAll('[data-i18n]').forEach(function(el){
+        var k=el.getAttribute('data-i18n');
+        if(T[l]&&T[l][k]!==undefined) el.innerHTML=T[l][k];
+      });
+      var de=document.getElementById('lt-de'), en=document.getElementById('lt-en');
+      if(de) de.className=l==='de'?'lt-active':'';
+      if(en) en.className=l==='en'?'lt-active':'';
+    }
+    window.setLang=function(l){ applyLang(l); };
+    window.toggleLang=function(){ applyLang(lang==='de'?'en':'de'); };
+    function run(){ applyLang(lang); }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run);
+    else run();
+  })();
+  </script>
+</body>
+</html>
