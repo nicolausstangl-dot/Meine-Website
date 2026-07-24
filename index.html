@@ -75,7 +75,7 @@ section{position:relative;}
 .tl-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border);}
 .tl-item:last-child{border-bottom:none;}
 .tl-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px;}
-.tl-year{font-size:11px;font-weight:700;color:var(--muted);width:60px;flex-shrink:0;padding-top:3px;letter-spacing:.04em;}
+.tl-year{font-size:11px;font-weight:700;color:var(--muted);width:92px;flex-shrink:0;padding-top:3px;letter-spacing:.03em;line-height:1.45;}
 .tl-role{font-size:14px;font-weight:700;color:var(--text);}
 .tl-org{font-size:12px;color:var(--accent);font-weight:600;}
 .tl-desc{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5;}
@@ -135,6 +135,13 @@ footer{padding:30px 56px 40px;border-top:1px solid var(--border);display:flex;ju
 footer p{font-size:15px;color:var(--text2);}
 
 /* DIVIDER */
+.priv-gallery{margin-top:44px;}
+.priv-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.priv-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:660px;}
+.priv-item{aspect-ratio:1;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 10px 26px rgba(26,18,10,.12);background:var(--bg2);}
+.priv-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+.priv-item:hover img{transform:scale(1.05);}
+@media(max-width:560px){ .priv-row{gap:9px;} }
 .rule{height:1px;background:var(--border);}
 
 @media(max-width:768px){
@@ -466,13 +473,13 @@ footer p{font-size:15px;color:var(--text2);}
         <h2 data-i18n="about-h2">Wiener. Wahlsteirer.<br>Wandlungsfähig.</h2>
         <p data-i18n="about-p1">Ich bin in Wien geboren und mit 14 Jahren in die Steiermark gezogen — Wahlsteirer, wie ich heute sage, mit einem kleinen Schmunzeln. Nach der Handelsakademie und dem Bundesheer, dem ich als <strong>stolzer Milizsoldat</strong> bis heute verbunden bin, kam der Lockdown. Meine Pläne, die ich bis dahin hatte, wurden einmal kräftig durchgeschüttelt. Aber davon habe ich mich nicht unterkriegen lassen.</p>
         <p data-i18n="about-p2">Durch Zufall landete ich einige hundert Meter von meiner Kaserne entfernt bei Sappi in Gratkorn. Fast vier Jahre. Frühschicht. Spätschicht. Nachtschicht. Neben meiner Tätigkeit in der Produktion habe ich eines der seltensten Handwerke überhaupt erlernt und darf mich <strong>gelernter Papiertechniker</strong> nennen. Diese Zeit hat mich viel gelehrt. Glücklich gemacht hat sie mich nicht. Also habe ich mein Glück selbst in die Hand genommen und neben Vollzeitarbeit im Schichtbetrieb in ein Fernstudium investiert. Ich habe es durchgezogen – schneller als ich selbst damit gerechnet hätte.</p>
-        <p data-i18n="about-p3">Danach ging es schnell: HEINZ Liebenau, ROCKETS, CONDA Capital — immer einen Schritt weiter. Schnell war klar: Das ist es. Marketing. 2024 habe ich neben dem Vollzeitjob noch ein <strong>Masterstudium an der FH Joanneum</strong> draufgelegt. Abschluss: Juli 2026.</p>
+        <p data-i18n="about-p3">Danach ging es schnell: HEINZ Liebenau, ROCKETS, CONDA Capital — immer einen Schritt weiter. Schnell war klar: Das ist es. Marketing. 2024 habe ich neben dem Vollzeitjob noch ein <strong>Masterstudium an der FH Joanneum</strong> draufgelegt — im Juli 2026 <strong>mit Auszeichnung</strong> abgeschlossen.</p>
         <p data-i18n="about-p4">Privat bin ich ebenso vielschichtig. Ich fahre Motorrad — wegen des Speeds & der Freiheit. Ich koche gerne und schätze das Feine im Leben. Ich fotografiere und drehe kleine Videos. Und ich habe eine Zwergdackeldame namens <strong>Frida</strong>, die das alles miterlebt. Nicht zuletzt liebe ich es, mit Menschen ins Gespräch zu kommen – so wie hoffentlich auch mit dir!</p>
       </div>
       <div class="story-timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-year">2025</div>
+          <div class="tl-year" data-i18n="tl-years-conda">04/2025<br>– heute</div>
           <div>
             <div class="tl-role">Marketing Manager <span style="background:var(--accent-light);color:var(--accent);font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;letter-spacing:.06em;text-transform:uppercase;margin-left:6px;vertical-align:middle;" data-i18n="tl-current">Aktuell</span></div>
             <div class="tl-org">CONDA Capital Group</div>
@@ -481,7 +488,7 @@ footer p{font-size:15px;color:var(--text2);}
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-year">2024</div>
+          <div class="tl-year">08/2024<br>– 03/2025</div>
           <div>
             <div class="tl-role">Campaign Manager</div>
             <div class="tl-org">ROCKETS Investments</div>
@@ -490,16 +497,16 @@ footer p{font-size:15px;color:var(--text2);}
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-year">2024</div>
+          <div class="tl-year">09/2024<br>– 07/2026</div>
           <div>
             <div class="tl-role">MA Content Strategy</div>
             <div class="tl-org">FH Joanneum</div>
-            <div class="tl-desc" data-i18n="tl-fhj-sub">Laufend · Abschluss Juli 2026</div>
+            <div class="tl-desc" data-i18n="tl-fhj-sub">Abgeschlossen Juli 2026 · mit Auszeichnung</div>
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-year">2023</div>
+          <div class="tl-year">01/2023<br>– 06/2024</div>
           <div>
             <div class="tl-role">BA in PR</div>
             <div class="tl-org">IU University of Applied Sciences</div>
@@ -508,22 +515,30 @@ footer p{font-size:15px;color:var(--text2);}
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-year">2022</div>
+          <div class="tl-year">11/2022<br>– 04/2024</div>
           <div>
-            <div class="tl-role">Campaign Manager</div>
+            <div class="tl-role" data-i18n="tl-heinz-role">Social Media Manager (geringfügig)</div>
             <div class="tl-org">HEINZ Liebenau</div>
             <div class="tl-desc" data-i18n="tl-heinz-sub">Marketingstrategie & Content-Umsetzung</div>
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-year">2020</div>
+          <div class="tl-year">03/2020<br>– 01/2024</div>
           <div>
             <div class="tl-role" data-i18n="tl-sappi-role">Papiertechniker</div>
             <div class="tl-org">Sappi Gratkorn</div>
             <div class="tl-desc" data-i18n="tl-sappi-sub">Schichtbetrieb · Streichmaschine 9 · PL3</div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="priv-gallery reveal">
+      <div class="priv-label" data-i18n="priv-tag">Ganz privat</div>
+      <div class="priv-row">
+        <div class="priv-item"><img src="priv-1.jpg" alt="Nicolaus mit Frida" loading="lazy" style="object-position:center 32%"></div>
+        <div class="priv-item"><img src="priv-2.jpg" alt="Nicolaus mit dem Motorrad" loading="lazy" style="object-position:center 12%"></div>
+        <div class="priv-item"><img src="priv-3.jpg" alt="Nicolaus beim Schwammerl suchen" loading="lazy" style="object-position:center 24%"></div>
       </div>
     </div>
   </div>
@@ -596,6 +611,18 @@ footer p{font-size:15px;color:var(--text2);}
           <span class="proj-tag" data-i18n="tag-eigenprojekt">Eigenprojekt</span>
         </div>
         <a href="https://nicolausstangl-dot.github.io/Murgrill/" target="_blank" rel="noopener" class="proj-link" data-i18n="cta-project">Zum Projekt →</a>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="proj-cat" data-i18n="cat-branding-web">Branding · Web</div>
+        <h3 data-i18n="proj-gc-title">Gesundheits Campus Fischamend<br>Marke & Website</h3>
+        <p data-i18n="proj-gc-desc">Kompletter Rebrand und neue Website für das Ärzte- und Therapiezentrum in Fischamend — von Logo, Farbwelt (ruhige Grüntöne mit warmem Akzent) und Typografie bis zur durchgängigen Umsetzung als Website. Ganzheitliche Betreuung, klar und einladend inszeniert.</p>
+        <div class="proj-meta">
+          <span class="proj-tag">Branding</span>
+          <span class="proj-tag">Corporate Design</span>
+          <span class="proj-tag">Web Design</span>
+        </div>
+        <a href="https://nicolausstangl-dot.github.io/Gesundheitscampus/" target="_blank" rel="noopener" class="proj-link" data-i18n="cta-project">Zum Projekt →</a>
       </div>
 
       <div class="project-card reveal">
@@ -744,15 +771,15 @@ footer p{font-size:15px;color:var(--text2);}
       'about-h2':'Wiener. Wahlsteirer.<br>Wandlungsfähig.',
       'about-p1':'Ich bin in Wien geboren und mit 14 Jahren in die Steiermark gezogen — Wahlsteirer, wie ich heute sage, mit einem kleinen Schmunzeln. Nach der Handelsakademie und dem Bundesheer, dem ich als <strong>stolzer Milizsoldat</strong> bis heute verbunden bin, kam der Lockdown. Meine Pläne, die ich bis dahin hatte, wurden einmal kräftig durchgeschüttelt. Aber davon habe ich mich nicht unterkriegen lassen.',
       'about-p2':'Durch Zufall landete ich einige hundert Meter von meiner Kaserne entfernt bei Sappi in Gratkorn. Fast vier Jahre. Frühschicht. Spätschicht. Nachtschicht. Neben meiner Tätigkeit in der Produktion habe ich eines der seltensten Handwerke überhaupt erlernt und darf mich <strong>gelernter Papiertechniker</strong> nennen. Diese Zeit hat mich viel gelehrt. Glücklich gemacht hat sie mich nicht. Also habe ich mein Glück selbst in die Hand genommen und neben Vollzeitarbeit im Schichtbetrieb in ein Fernstudium investiert. Ich habe es durchgezogen – schneller als ich selbst damit gerechnet hätte.',
-      'about-p3':'Danach ging es schnell: HEINZ Liebenau, ROCKETS, CONDA Capital — immer einen Schritt weiter. Schnell war klar: Das ist es. Marketing. 2024 habe ich neben dem Vollzeitjob noch ein <strong>Masterstudium an der FH Joanneum</strong> draufgelegt. Abschluss: Juli 2026.',
+      'about-p3':'Danach ging es schnell: HEINZ Liebenau, ROCKETS, CONDA Capital — immer einen Schritt weiter. Schnell war klar: Das ist es. Marketing. 2024 habe ich neben dem Vollzeitjob noch ein <strong>Masterstudium an der FH Joanneum</strong> draufgelegt — im Juli 2026 <strong>mit Auszeichnung</strong> abgeschlossen.',
       'about-p4':'Privat bin ich ebenso vielschichtig. Ich fahre Motorrad — wegen des Speeds &amp; der Freiheit. Ich koche gerne und schätze das Feine im Leben. Ich fotografiere und drehe kleine Videos. Und ich habe eine Zwergdackeldame namens <strong>Frida</strong>, die das alles miterlebt. Nicht zuletzt liebe ich es, mit Menschen ins Gespräch zu kommen – so wie hoffentlich auch mit dir!',
       /* TIMELINE */
-      'tl-current':'Aktuell',
+      'tl-current':'Aktuell','priv-tag':'Ganz privat','tl-years-conda':'04/2025<br>– heute',
       'tl-conda-role':'Marketing Manager','tl-conda-sub':'UX, Kampagnen, Podcast, OOH, Plattform-Relaunch',
       'tl-rockets-sub':'End-to-End Kampagnen, Content, PR',
-      'tl-fhj-sub':'Laufend · Abschluss Juli 2026',
+      'tl-fhj-sub':'Abgeschlossen Juli 2026 · mit Auszeichnung',
       'tl-iu-sub':'Regelstudienzeit auf die Hälfte verkürzt',
-      'tl-heinz-sub':'Marketingstrategie &amp; Content-Umsetzung',
+      'tl-heinz-role':'Social Media Manager (geringfügig)','tl-heinz-sub':'Marketingstrategie &amp; Content-Umsetzung',
       'tl-sappi-role':'Papiertechniker','tl-sappi-sub':'Schichtbetrieb · Streichmaschine 9 · PL3',
       /* PROJECTS */
       'sec-projects':'Projekte',
@@ -768,6 +795,7 @@ footer p{font-size:15px;color:var(--text2);}
       'proj-bark-title':'Barkingham Palace<br>Branding &amp; Digitalpräsenz',
       'proj-bark-desc':'Aufbau einer eigenen Brand-Identität und digitalen Präsenz — von der Namensgebung bis zur visuellen Umsetzung. Ein persönliches Projekt mit vollem kreativem Spielraum.',
       'proj-murgrill-title':'Murgrill<br>Marke & Website','proj-murgrill-desc':'Komplettes Markenkonzept für ein fiktives Grazer Burgerlokal — von Naming, Logo und Farbwelt über die Typografie bis zur fertigen Website inklusive Reservierungs-Flow und eigenem Brand Kit. Ein Eigenprojekt mit vollem kreativem Spielraum.',
+      'proj-gc-title':'Gesundheits Campus Fischamend<br>Marke & Website','proj-gc-desc':'Kompletter Rebrand und neue Website für das Ärzte- und Therapiezentrum in Fischamend — von Logo, Farbwelt (ruhige Grüntöne mit warmem Akzent) und Typografie bis zur durchgängigen Umsetzung als Website. Ganzheitliche Betreuung, klar und einladend inszeniert.',
       'proj-art-title':'Art Atelier Amberg<br>Marke &amp; Onlineauftritt',
       'proj-art-desc':'Entwicklung von Markenidentität und digitalem Auftritt für ein Kunstkreativstudio — konzeptuell und visuell von Grund auf gedacht.',
       'proj-ad-title':'Ad.Boutique<br>Kundenseitiges Sparring',
@@ -826,15 +854,15 @@ footer p{font-size:15px;color:var(--text2);}
   'about-h2':'Viennese by birth. Styrian by choice.<br>Versatile by nature.',
   'about-p1':'I was born in Vienna and moved to Styria at 14 — a “Styrian by choice”, as I like to say with a slight smile. After finishing commercial college and serving in the Austrian Army, which I remain proudly connected to as a <strong>reservist</strong> to this day, the lockdown hit. The plans I’d made up to that point got thoroughly shaken up. But I refused to let it get me down.',
   'about-p2':'By chance, I ended up at Sappi in Gratkorn, just a few hundred metres from my barracks. Nearly four years. Early shift. Late shift. Night shift. Alongside my work in production, I learned one of the rarest trades there is — I can proudly call myself a <strong>qualified paper technologist</strong>. That time taught me a lot. It didn’t make me happy. So I took matters into my own hands — while working full-time on rotating shifts, I enrolled in a distance-learning degree. I saw it through — faster than I’d ever expected.',
-  'about-p3':'After that, things moved fast: HEINZ Liebenau, ROCKETS, CONDA Capital — always one step further. It quickly became clear: this is it. Marketing. In 2024, on top of a full-time job, I added a <strong>Master’s degree at FH Joanneum</strong>. Graduating: July 2026.',
+  'about-p3':'After that, things moved fast: HEINZ Liebenau, ROCKETS, CONDA Capital — always one step further. It quickly became clear: this is it. Marketing. In 2024, on top of a full-time job, I added a <strong>Master’s degree at FH Joanneum</strong> — completed <strong>with distinction</strong> in July 2026.',
   'about-p4':'My personal life is just as layered. I ride motorcycles — for the speed &amp; the freedom. I love to cook and appreciate the finer things in life. I take photos and shoot short videos. And I have a miniature dachshund named <strong>Frida</strong> who’s there for all of it. Not least, I love striking up a good conversation with people — hopefully including you!',
   /* TIMELINE */
-  'tl-current':'Current',
+  'tl-current':'Current','priv-tag':'Off the clock','tl-years-conda':'04/2025<br>– present',
   'tl-conda-role':'Marketing Manager','tl-conda-sub':'UX, campaigns, podcast, OOH, platform relaunch',
   'tl-rockets-sub':'End-to-end campaigns, content, PR',
-  'tl-fhj-sub':'Ongoing · Graduating July 2026',
+  'tl-fhj-sub':'Completed July 2026 · with distinction',
   'tl-iu-sub':'Completed in half the standard time',
-  'tl-heinz-sub':'Marketing strategy &amp; content execution',
+  'tl-heinz-role':'Social Media Manager (part-time)','tl-heinz-sub':'Marketing strategy &amp; content execution',
   'tl-sappi-role':'Paper Technologist','tl-sappi-sub':'Shift operations · Coating Machine 9 · PL3',
   /* PROJECTS */
   'sec-projects':'Projects',
@@ -850,6 +878,7 @@ footer p{font-size:15px;color:var(--text2);}
   'proj-bark-title':'Barkingham Palace<br>Branding &amp; Digital Presence',
   'proj-bark-desc':'Building a complete brand identity and digital presence — from naming to visual execution. A personal project with full creative freedom.',
       'proj-murgrill-title':'Murgrill<br>Brand & Website','proj-murgrill-desc':'A complete brand concept for a fictional Graz burger spot — from naming, logo and colour world to typography and a finished website with a reservation flow and its own brand kit. A self-initiated project with full creative freedom.',
+      'proj-gc-title':'Gesundheits Campus Fischamend<br>Brand & Website','proj-gc-desc':'A complete rebrand and new website for the doctors\' and therapy centre in Fischamend — from logo, colour world (calm greens with a warm accent) and typography through to full implementation as a website. Holistic care, presented clearly and invitingly.',
   'proj-art-title':'Art Atelier Amberg<br>Brand &amp; Online Presence',
   'proj-art-desc':'Developing the brand identity and digital presence for a creative art studio — conceived from scratch, both conceptually and visually.',
   'proj-ad-title':'Ad.Boutique<br>Client-Side Sparring',
